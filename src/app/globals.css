@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  --pro100: #FFFFFF; /* Light Mode Primary Background */
+  --pro200: #F0F0F0; /* Dark Mode Primary Text */
+  --pro300: #CCCCCC; /* Light Mode Secondary Background */
+  --pro400: #B0B0B0; /* Dark Mode Secondary Text */
+  --pro500: #999999; /* Borders/Muted UI */
+  --pro600: #707070; /* Light Mode Secondary Text */
+  --pro700: #666666; /* Dark Mode Secondary Background */
+  --pro800: #333333; /* Light Mode Primary Text */
+  --pro900: #000000; /* Dark Mode Primary Background */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-mono: var(--font-geist-mono);
+
+  --color-light-pbg: var(--pro100);
+  --color-light-sbg: var(--pro300);
+  --color-light-ptxt: var(--pro800);
+  --color-light-stxt: var(--pro600);
+  --color-dark-pbg: var(--pro900);
+  --color-dark-sbg: var(--pro700);
+  --color-dark-ptxt: var(--pro200);
+  --color-dark-stxt: var(--pro400);
+  --color-border: var(--pro500);
+  --color-ui: var(--pro500);
+
+  --font-heading: var(--font-geist-bold);
+  --font-subheading: var(--font-geist-regular);
+  --font-text: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--pro100);
+  color: var(--pro800);
+  font-family: var(--font-text);
+}
