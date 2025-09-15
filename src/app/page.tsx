@@ -1,103 +1,107 @@
 import Image from "next/image";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { Github, Linkedin, Instagram } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="font-heading grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-heading list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-dark-pbg/[.05] dark:bg-light-pbg/[.06] font-text font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="flex flex-col min-h-screen">
+      {/* Navigation Bar */}
+      <Navbar />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid transition-colors flex items-center justify-center bg-light-pbg text-light-ptxt gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+      <main className="flex-1">
+        {/* Page Header */}
+        <section id="home" className="min-h-[calc(40vh)] flex items-center justify-center">
+          <h1 className="text-6xl font-heading font-bold text-center shadow-[inset_0_-0.4em_var(--color-light-sbg)] p-1">ROHAN MISTRY</h1>
+        </section>
+
+        {/* About Section */}
+        <section id="about" className="flex items-center justify-center bg-light-sbg px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-border outline-2">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            {/* Left Column */}
+            <div className="space-y-6">
+              <h2 className="text-4xl sm:text-5xl font-heading font-bold">
+                ABOUT ME
+              </h2>
+              <p className="text-light-stxt font-text text-xl">
+                A short tagline goes here - something about your role, specialties, or passions.
+              </p>
+              <p className="text-light-stxt font-text">
+                This is a placeholder for a professional introduction and background. You can describe your skills, experiences, or career focus here.
+              </p>
+
+              {/* Buttons */}
+              <div className="flex flex-wrap gap-4">
+                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-md bg-blue-600/60 text-dark-ptxt font-medium font-text hover:bg-blue-700/80 transition">
+                  Download Resume
+                </a>
+
+                {/* Quick Links */}
+                <div className="flex items-center space-x-4">
+                  <a
+                    href="https://github.com/rmluck" target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-light-stxt hover:text-light-ptxt transition-colors"
+                  >
+                    <Github className="h-5 w-5" />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/rohan-dilan-mistry/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-light-stxt hover:text-light-ptxt transition-colors"
+                  >
+                    <Linkedin className="h-5 w-5" />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/rohandm99/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-light-stxt hover:text-light-ptxt transition-colors"
+                  >
+                    <Instagram className="h-5 w-5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Profile Photo */}
+            <div className="flex justify-center md:justify-end">
+              <div className="w-48 h-48 sm:w-64 sm:h-64 relative rounded-full overflow-hidden shadow-lg">
+                <Image
+                  src="/profile_photo.jpg"
+                  alt="Profile photo"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" className="flex items-center justify-center bg-light-sbg">
+          <h2 className="text-4xl font-heading font-bold">PROJECTS</h2>
+        </section>
+
+        <section id="experience" className="flex items-center justify-center bg-light-sbg">
+          <h2 className="text-4xl font-heading font-bold">EXPERIENCE</h2>
+        </section>
+
+        <section id="education" className="flex items-center justify-center bg-light-sbg">
+          <h2 className="text-4xl font-heading font-bold">EDUCATION</h2>
+        </section>
+
+        <section id="skills" className="flex items-center justify-center bg-light-sbg">
+          <h2 className="text-4xl font-heading font-bold">SKILLS</h2>
+        </section>
+
+        <section id="contact" className="flex items-center justify-center bg-light-sbg">
+          <h2 className="text-4xl font-heading font-bold">CONTACT</h2>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

@@ -16,10 +16,6 @@
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-mono: var(--font-geist-mono);
-
   --color-light-pbg: var(--pro100);
   --color-light-sbg: var(--pro300);
   --color-light-ptxt: var(--pro800);
@@ -32,7 +28,7 @@
   --color-ui: var(--pro500);
 
   --font-heading: var(--font-geist-bold);
-  --font-subheading: var(--font-geist-regular);
+  --font-regular: var(--font-geist-regular);
   --font-text: var(--font-geist-mono);
 }
 
@@ -41,6 +37,10 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
