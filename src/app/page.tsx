@@ -1,7 +1,11 @@
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Github, Linkedin, Instagram } from "lucide-react";
+import ProjectCard from "@/components/ProjectCard";
+import ExperienceItem from "@/components/ExperienceItem";
+import EducationItem from "@/components/EducationItem";
+import SkillCategory from "@/components/SkillCategory";
+import { Github, Linkedin, Instagram, ExternalLink } from "lucide-react";
 
 export default function Home() {
   return (
@@ -16,7 +20,7 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="flex items-center justify-center bg-light-sbg px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-border outline-2">
+        <section id="about" className="flex items-center justify-center bg-light-sbg px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-border outline-2 shadow-lg">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             {/* Left Column */}
             <div className="space-y-6">
@@ -79,24 +83,199 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="projects" className="flex items-center justify-center bg-light-sbg">
-          <h2 className="text-4xl font-heading font-bold">PROJECTS</h2>
+        {/* Projects Section */}
+        <section id="projects" className="bg-light-sbg px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-border outline-2 shadow-lg">
+          <h2 className="text-4xl font-heading font-bold text-center mb-8">PROJECTS</h2>
+
+          {/* Projects Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <ProjectCard
+              title="Portfolio Website"
+              description="A personal portfolio built with Next.js, Tailwind, and TypeScript."
+              image="/next.svg"
+              tags={["Next.js", "Tailwind", "TypeScript"]}
+              links={[
+                { label: "GitHub", url: "https://github.com", icon: <Github size={16} /> },
+                { label: "Live Demo", url: "https://vercel.com", icon: <ExternalLink size={16} /> },
+              ]}
+            />
+
+            <ProjectCard
+              title="Yelp Review Analyzer"
+              description="A tool for analyzing Yelp reviews using sentiment analysis."
+              image="/next.svg"
+              tags={["Python", "Natural Language Processing", "Sentiment Analysis"]}
+              links={[
+                { label: "Report", url: "#", icon: <ExternalLink size={16} /> },
+              ]}
+            />
+
+            {/* Add more ProjectCard components as needed */}
+          </div>
+
+          {/* View All Projects Button */}
+          <div className="flex justify-center mt-10">
+            <a href="/projects" className="px-6 py-3 bg-blue-600/60 text-light-pbg rounded-xl shadow-md hover:bg-blue-700/80">View All Projects</a>
+          </div>
         </section>
 
-        <section id="experience" className="flex items-center justify-center bg-light-sbg">
-          <h2 className="text-4xl font-heading font-bold">EXPERIENCE</h2>
+        {/* Experience Section */}
+        <section id="experience" className="bg-light-sbg px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-border outline-2 shadow-lg">
+          <h2 className="text-4xl font-heading font-bold text-center mb-8">EXPERIENCE</h2>
+
+          <div className="relative pl-14">
+            <ExperienceItem
+              company="Tech Corp"
+              role="Software Engineer"
+              dates="Jan 2022 - Present"
+              description="Developed and maintained web applications using React and Node.js. Collaborated with cross-functional teams to deliver high-quality software solutions."
+              logo="/next.svg"
+            />
+            <ExperienceItem
+              company="Tech Corp"
+              role="Software Engineer"
+              dates="Jan 2022 - Present"
+              description="Developed and maintained web applications using React and Node.js. Collaborated with cross-functional teams to deliver high-quality software solutions."
+              logo="/next.svg"
+            />
+          </div>
         </section>
 
-        <section id="education" className="flex items-center justify-center bg-light-sbg">
-          <h2 className="text-4xl font-heading font-bold">EDUCATION</h2>
+        {/* Education Section */}
+        <section id="education" className="bg-light-sbg px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-border outline-2 shadow-lg">
+          <h2 className="text-4xl font-heading font-bold text-center mb-8">EDUCATION</h2>
+
+          <div className="space-y-8 max-w-3xl mx-auto">
+            <EducationItem 
+              school="State University"
+              degree="Bachelor of Science in Computer Science"
+              dates="2018 - 2022"
+              coursework={[
+                "Data Structures and Algorithms",
+                "Operating Systems",
+                "Database Management Systems",
+                "Web Development",
+              ]}
+              extras={[
+                "Graduated with Honors",
+                "Dean's List for 6 semesters",
+              ]}
+              logo="/next.svg"
+            />
+
+            <EducationItem 
+              school="Online Learning"
+              degree="Additional Certifications"
+              dates="Ongoing"
+              coursework={[
+                "FreeCodeCamp: Full Stack Development",
+                "Coursera: Machine Learning",
+              ]}
+              extras={[
+                "Graduated with Honors",
+                "Dean's List for 6 semesters",
+              ]}
+              logo="/next.svg"
+            />
+          </div>
         </section>
 
-        <section id="skills" className="flex items-center justify-center bg-light-sbg">
-          <h2 className="text-4xl font-heading font-bold">SKILLS</h2>
+        {/* Skills Section */}
+        <section id="skills" className="bg-light-sbg px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-border outline-2 shadow-lg">
+          <h2 className="text-4xl font-heading font-bold text-center mb-8">SKILLS</h2>
+
+          <SkillCategory 
+            title="Languages"
+            color="text-yellow-500"
+            skills={[
+              {
+                name: "TypeScript",
+                logo: "/next.svg",
+                projects: [
+                  { name: "Portfolio Website", link: "/projects/portfolio" },
+                  { name: "E-commerce Platform", link: "/projects/ecommerce" },
+                ],
+              },
+              {
+                name: "Python",
+                logo: "/next.svg",
+                projects: [
+                  { name: "Data Analysis Tool", link: "/projects/data-analysis" },
+                  { name: "Machine Learning Model", link: "/projects/ml-model" },
+                ],
+              },
+            ]}
+          />
+
+          <SkillCategory 
+            title="Softwares"
+            color="text-blue-500"
+            skills={[
+              {
+                name: "GitHub",
+                logo: "/next.svg",
+                projects: [
+                  { name: "Portfolio Website", link: "/projects/portfolio" },
+                ],
+              },
+            ]}
+          />
+
+          <SkillCategory 
+            title="Packages & Libraries"
+            color="text-green-500"
+            skills={[
+              {
+                name: "React",
+                logo: "/next.svg",
+                projects: [
+                  { name: "Portfolio Website", link: "/projects/portfolio" },
+                  { name: "Social Media App", link: "/projects/social-media" },
+                ],
+              },
+            ]}
+          />
         </section>
 
-        <section id="contact" className="flex items-center justify-center bg-light-sbg">
-          <h2 className="text-4xl font-heading font-bold">CONTACT</h2>
+        {/* Contact Section */}
+        <section id="contact" className="bg-light-sbg px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-border outline-2 shadow-lg">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-4xl font-heading font-bold text-center mb-8">CONTACT</h2>
+            <p className="text-light-stxt font-text">
+              Have a question or want to work together? Fill out the form below and I'll get back to you!
+            </p>
+          </div>
+          
+          <div className="max-w-2xl mx-auto bg-white border border-border rounded-2xl shadow-lg p-8">
+            <form
+              action="https://formspree.io/f/xzzaqalq"
+              method="POST"
+              className="space-y-6"
+            >
+              {/* Name */}
+              <div>
+                <label htmlFor="name" className="block text-left text-sm font-regular text-light-stxt mb-1">Name</label>
+                <input type="text" name="name" id="name" required className="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500" />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label htmlFor="email" className="block text-left text-sm font-regular text-light-stxt mb-1">Email</label>
+                <input type="email" name="_replyto" id="email" required className="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500" />
+              </div>
+              
+              {/* Message */}
+              <div>
+                <label htmlFor="message" className="block text-left text-sm font-regular text-border mb-1">Message</label>
+                <textarea name="message" id="message" rows={5} required className="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500" />
+              </div>
+
+              {/* Submit Button */}
+              <div className="text-right">
+                <button type="submit" className="px-6 py-2 bg-blue-600/60 text-light-pbg font-semibold font-regular rounded-xl shadow-md hover:bg-blue-700/80 transition-colors">Submit</button>
+              </div>
+            </form>
+          </div>
         </section>
       </main>
 
