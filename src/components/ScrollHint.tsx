@@ -1,0 +1,31 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+export default function ScrollHint() {
+  const [showScrollHint, setShowScrollHint] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+        if (window.scrollY > 10) {
+            setIsVisible(false);
+            setTimeout(() => setShowScrollHint(false), 500);
+        }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  if (!showScrollHint) return null;
+
+  return (
+    <div className={`fixed bottom-6 left-1/2 -translate-x-1/2 text-pro600 text-center z-50 transition-opacity ${isVisible ? "opacity-100" : "opacity-0"} hover:text-accent 
+    transform hover:-translate-y-1 transition-transform duration-200 ease-out
+    cursor-pointer`}>
+        <p className="text-xm tracking-widest uppercase">Scroll</p>
+        <p className="text-xl">↓</p>
+    </div>
+  );
+}

@@ -49,8 +49,6 @@ html {
 }
 
 body {
-  background: var(--pro100);
-  color: var(--pro800);
   font-family: var(--font-text);
 }
 

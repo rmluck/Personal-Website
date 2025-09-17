@@ -2,16 +2,18 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import SocialSidebar from "@/components/SocialSidebar";
 import EmailSidebar from "@/components/EmailSidebar";
+import ScrollHint from "@/components/ScrollHint";
 import Footer from "@/components/Footer";
 import ProjectCard from "@/components/ProjectCard";
 import ExperienceItem from "@/components/ExperienceItem";
 import EducationItem from "@/components/EducationItem";
 import SkillCategory from "@/components/SkillCategory";
 import { Github, Linkedin, Instagram, ExternalLink } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-pro200">
+    <div className="flex flex-col min-h-screen ">
       {/* Navigation Bar */}
       <Navbar />
 
@@ -28,8 +30,9 @@ export default function Home() {
             <h1 className="p-1 text-6xl text-pro900 font-heading font-bold shadow-[inset_0_-0.4em_var(--color-pro500)]">ROHAN MISTRY<span className="blink">_</span></h1>
             <h2 className="p-1 pt-5 text-4xl text-pro800 font-regular font-bold">Aspiring Software Engineer</h2>
           </div>
-          
         </section>
+
+        <ScrollHint />
 
         {/* About Section */}
         <section id="about" className="flex items-center justify-center px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-border outline-2 shadow-lg">
