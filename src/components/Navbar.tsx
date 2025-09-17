@@ -14,6 +14,7 @@ const navItems = [
 
 export default function Navbar() {
     const [activeSection, setActiveSection] = useState<string>("home");
+    const [navMenuOpen, setNavMenuOpen] = useState<boolean>(false);
 
     useEffect(() => {
         const sections = navItems.map((item) => document.querySelector(item.href));
@@ -41,32 +42,66 @@ export default function Navbar() {
     }, []);
 
     return (
-        <nav className="fixed top-0 left-0 z-50 w-full bg-gradient-to-br from-[var(--color-pro200)]/70 to-[var(--color-pro300)]/70 backdrop-blur-md shadow-md font-regular">
-            <div className="flex items-center justify-between px-6 py-3">
-                {/* Logo Placeholder */}
-                <div className="font-bold text-xl">LOGO</div>
+        <>
+            <nav className="fixed top-0 left-0 z-50 w-full bg-gradient-to-br from-[var(--color-pro200)]/70 to-[var(--color-pro300)]/70 backdrop-blur-md shadow-md font-regular">
+                <div className="flex items-center justify-between px-6 py-3">
+                    {/* Logo Placeholder */}
+                    <div className="font-bold text-xl">LOGO</div>
 
-                {/* Navigation Links */}
-                <ul className="flex space-x-6 text-sm">
+                    {/* Navigation Links */}
+                    <ul className="hidden md:flex space-x-6 text-sm">
+                        {navItems.map((item) => (
+                            <li key={item.href}>
+                                <Link
+                                    href={item.href}
+                                    scroll={true}
+                                    className={`relative transition-colors
+                                    after:absolute
+                                    after:left-0 after:-bottom-0.5
+                                    after:h-[2px] after:w-0
+                                    after:bg-accent after:transition-all
+                                    hover:text-accent
+                                    hover:after:w-full
+                                    ${activeSection === item.href.slice(1) ? "text-accent" : "text-pro900"}`}
+                                >
+                                    {item.label}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+
+                    {/* Navigation Menu Button */}
+                    <button onClick={() => setNavMenuOpen(true)} className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1 cursor-pointer group" aria-label="Open menu">
+                        <span className="block w-6 h-[2px] bg-pro900 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1"></span>
+                        <span className="block w-6 h-[2px] bg-pro900 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1"></span>
+                        <span className="block w-6 h-[2px] bg-pro900 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1"></span>
+                    </button>
+                </div>
+            </nav>
+
+            {/* Navigation Panel */}
+            <div className={`fixed top-0 right-0 h-full w-64 bg-pro200/95 backdrop-blur-md shadow-lg transform transition-transform duration-300 z-50 ${navMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
+                <div className="flex justify-end p-6">
+                    <button onClick={() => setNavMenuOpen(false)} className="text-pro900 hover:text-accent font-bold text-2xl cursor-pointer transform hover:-translate-y-1 transition-transform duration-200">✕</button>
+                </div>
+                <ul className="flex flex-col mt-8 ml-6 space-y-6 text-lg font-medium font-text">
                     {navItems.map((item) => (
                         <li key={item.href}>
-                            <Link
-                                href={item.href}
-                                scroll={true}
-                                className={`relative transition-colors
-                                after:absolute
-                                after:left-0 after:-bottom-0.5
-                                after:h-[2px] after:w-0
-                                after:bg-accent after:transition-all
-                                hover:after:w-full
-                                ${activeSection === item.href.slice(1) ? "text-accent" : "text-pro900"}`}
-                            >
+                            <Link href={item.href} scroll onClick={() => setNavMenuOpen(false)} className=
+                            {`relative transition-colors
+                                    after:absolute
+                                    after:left-0 after:-bottom-0.5
+                                    after:h-[2px] after:w-0
+                                    after:bg-accent after:transition-all
+                                    hover:text-accent
+                                    hover:after:w-full
+                                    ${activeSection === item.href.slice(1) ? "text-accent" : "text-pro900"}`}>
                                 {item.label}
                             </Link>
                         </li>
                     ))}
                 </ul>
-            </div>
-        </nav>
+            </div>            
+        </>
     );
 }

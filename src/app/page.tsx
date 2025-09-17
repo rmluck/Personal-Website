@@ -27,7 +27,7 @@ export default function Home() {
         <section id="home" className="flex items-center justify-center min-h-[calc(90vh)] px-6 sm:px-12 py-16 m-24 mt-0">
           <div className="max-w-6xl">
             <p className="p-1 pb-2 text-md text-accent font-text">Hi, my name is</p>
-            <h1 className="p-1 text-6xl text-pro900 font-heading font-bold shadow-[inset_0_-0.4em_var(--color-pro500)]">ROHAN MISTRY<span className="blink">_</span></h1>
+            <h1 className="p-1 text-7xl text-pro900 font-heading font-bold shadow-[inset_0_-0.4em_var(--color-pro500)]">ROHAN MISTRY<span className="blink">_</span></h1>
             <h2 className="p-1 pt-5 text-4xl text-pro800 font-regular font-bold">Aspiring Software Engineer</h2>
           </div>
         </section>
