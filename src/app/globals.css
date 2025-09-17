@@ -1,35 +1,40 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-
-  --pro100: #FFFFFF; /* Light Mode Primary Background */
-  --pro200: #F0F0F0; /* Dark Mode Primary Text */
-  --pro300: #CCCCCC; /* Light Mode Secondary Background */
-  --pro400: #B0B0B0; /* Dark Mode Secondary Text */
-  --pro500: #999999; /* Borders/Muted UI */
-  --pro600: #707070; /* Light Mode Secondary Text */
-  --pro700: #666666; /* Dark Mode Secondary Background */
-  --pro800: #333333; /* Light Mode Primary Text */
-  --pro900: #000000; /* Dark Mode Primary Background */
+  --pro100: #FFFFFF;
+  --pro200: #F0F0F0;
+  --pro300: #CCCCCC;
+  --pro400: #B0B0B0;
+  --pro500: #999999;
+  --pro600: #707070;
+  --pro700: #666666;
+  --pro800: #333333;
+  --pro900: #000000;
+  /* --accent: #3B82F6; */
+  --accent: #10B981;
+  /* --accent: #F59E0B; */
+  /* --accent: #8B5CF6; */
+  /* --accent: #EC4899; */
 }
 
 @theme inline {
-  --color-light-pbg: var(--pro100);
-  --color-light-sbg: var(--pro300);
-  --color-light-ptxt: var(--pro800);
-  --color-light-stxt: var(--pro600);
-  --color-dark-pbg: var(--pro900);
-  --color-dark-sbg: var(--pro700);
-  --color-dark-ptxt: var(--pro200);
-  --color-dark-stxt: var(--pro400);
-  --color-border: var(--pro500);
-  --color-ui: var(--pro500);
+  --color-pro100: var(--pro100);
+  --color-pro200: var(--pro200);
+  --color-pro300: var(--pro300);
+  --color-pro400: var(--pro400);
+  --color-pro500: var(--pro500);
+  --color-pro600: var(--pro600);
+  --color-pro700: var(--pro700);
+  --color-pro800: var(--pro800);
+  --color-pro900: var(--pro900);
+  --color-accent: var(--accent);
 
-  --font-heading: var(--font-geist-bold);
-  --font-regular: var(--font-geist-regular);
-  --font-text: var(--font-geist-mono);
+  /* --font-heading: var(--font-geist-bold); */
+  --font-heading: var(--font-inter-bold);
+  /* --font-regular: var(--font-geist-regular); */
+  --font-regular: var(--font-inter-regular);
+  /* --font-text: var(--font-geist-mono); */
+  --font-text: ui-monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -47,4 +52,20 @@ body {
   background: var(--pro100);
   color: var(--pro800);
   font-family: var(--font-text);
+}
+
+.blink {
+  animation: blink-animation 1s infinite;
+}
+
+@keyframes blink-animation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

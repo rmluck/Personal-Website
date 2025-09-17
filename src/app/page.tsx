@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import SocialSidebar from "@/components/SocialSidebar";
+import EmailSidebar from "@/components/EmailSidebar";
 import Footer from "@/components/Footer";
 import ProjectCard from "@/components/ProjectCard";
 import ExperienceItem from "@/components/ExperienceItem";
@@ -9,34 +11,44 @@ import { Github, Linkedin, Instagram, ExternalLink } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-pro200">
       {/* Navigation Bar */}
       <Navbar />
 
+      {/* Sidebars */}
+      <SocialSidebar />
+      <EmailSidebar />
+
+      {/* Main Content */}
       <main className="flex-1">
         {/* Page Header */}
-        <section id="home" className="min-h-[calc(40vh)] flex items-center justify-center">
-          <h1 className="text-6xl font-heading font-bold text-center shadow-[inset_0_-0.4em_var(--color-light-sbg)] p-1">ROHAN MISTRY</h1>
+        <section id="home" className="flex items-center justify-center min-h-[calc(90vh)] px-6 sm:px-12 py-16 m-24 mt-0">
+          <div className="max-w-6xl">
+            <p className="p-1 pb-2 text-md text-accent font-text">Hi, my name is</p>
+            <h1 className="p-1 text-6xl text-pro900 font-heading font-bold shadow-[inset_0_-0.4em_var(--color-pro500)]">ROHAN MISTRY<span className="blink">_</span></h1>
+            <h2 className="p-1 pt-5 text-4xl text-pro800 font-regular font-bold">Aspiring Software Engineer</h2>
+          </div>
+          
         </section>
 
         {/* About Section */}
-        <section id="about" className="flex items-center justify-center bg-light-sbg px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-border outline-2 shadow-lg">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <section id="about" className="flex items-center justify-center px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-border outline-2 shadow-lg">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
             {/* Left Column */}
             <div className="space-y-6">
-              <h2 className="text-4xl sm:text-5xl font-heading font-bold">
+              <h2 className="text-4xl sm:text-5xl text-pro900 font-heading font-bold">
                 ABOUT ME
               </h2>
-              <p className="text-light-stxt font-text text-xl">
+              <p className="text-xl text-pro800 font-text">
                 A short tagline goes here - something about your role, specialties, or passions.
               </p>
-              <p className="text-light-stxt font-text">
+              <p className="text-pro700 font-text">
                 This is a placeholder for a professional introduction and background. You can describe your skills, experiences, or career focus here.
               </p>
 
               {/* Buttons */}
               <div className="flex flex-wrap gap-4">
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-md bg-blue-600/60 text-dark-ptxt font-medium font-text hover:bg-blue-700/80 transition">
+                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-md shadow-md border border-accent font-medium font-text text-accent transition">
                   Download Resume
                 </a>
 
@@ -45,7 +57,7 @@ export default function Home() {
                   <a
                     href="https://github.com/rmluck" target="_blank"
                     rel="noopener noreferrer"
-                    className="text-light-stxt hover:text-light-ptxt transition-colors"
+                    className="text-pro700 hover:text-pro800 transition-colors"
                   >
                     <Github className="h-5 w-5" />
                   </a>
@@ -53,7 +65,7 @@ export default function Home() {
                     href="https://www.linkedin.com/in/rohan-dilan-mistry/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-light-stxt hover:text-light-ptxt transition-colors"
+                    className="text-pro700 hover:text-pro800 transition-colors"
                   >
                     <Linkedin className="h-5 w-5" />
                   </a>
@@ -61,7 +73,7 @@ export default function Home() {
                     href="https://www.instagram.com/rohandm99/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-light-stxt hover:text-light-ptxt transition-colors"
+                    className="text-pro700 hover:text-pro800 transition-colors"
                   >
                     <Instagram className="h-5 w-5" />
                   </a>
@@ -84,8 +96,8 @@ export default function Home() {
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="bg-light-sbg px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-border outline-2 shadow-lg">
-          <h2 className="text-4xl font-heading font-bold text-center mb-8">PROJECTS</h2>
+        <section id="projects" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-2 outline-pro900 shadow-lg">
+          <h2 className="text-4xl text-center font-heading font-bold text-pro900 mb-8">PROJECTS</h2>
 
           {/* Projects Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -115,13 +127,13 @@ export default function Home() {
 
           {/* View All Projects Button */}
           <div className="flex justify-center mt-10">
-            <a href="/projects" className="px-6 py-3 bg-blue-600/60 text-light-pbg rounded-xl shadow-md hover:bg-blue-700/80">View All Projects</a>
+            <a href="/projects" className="px-6 py-3 rounded-xl shadow-md border border-accent font-medium font-text text-accent transition">View All Projects</a>
           </div>
         </section>
 
         {/* Experience Section */}
-        <section id="experience" className="bg-light-sbg px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-border outline-2 shadow-lg">
-          <h2 className="text-4xl font-heading font-bold text-center mb-8">EXPERIENCE</h2>
+        <section id="experience" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-pro900 outline-2 shadow-lg">
+          <h2 className="text-4xl text-center font-heading font-bold text-pro900 mb-8">EXPERIENCE</h2>
 
           <div className="relative pl-14">
             <ExperienceItem
@@ -142,8 +154,8 @@ export default function Home() {
         </section>
 
         {/* Education Section */}
-        <section id="education" className="bg-light-sbg px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-border outline-2 shadow-lg">
-          <h2 className="text-4xl font-heading font-bold text-center mb-8">EDUCATION</h2>
+        <section id="education" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-2 outline-pro900 shadow-lg">
+          <h2 className="text-4xl text-center font-heading font-bold text-pro900 mb-8">EDUCATION</h2>
 
           <div className="space-y-8 max-w-3xl mx-auto">
             <EducationItem 
@@ -181,8 +193,8 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="bg-light-sbg px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-border outline-2 shadow-lg">
-          <h2 className="text-4xl font-heading font-bold text-center mb-8">SKILLS</h2>
+        <section id="skills" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-pro900 outline-2 shadow-lg">
+          <h2 className="text-4xl text-center font-heading font-bold text-pro900 mb-8">SKILLS</h2>
 
           <SkillCategory 
             title="Languages"
@@ -238,15 +250,15 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="bg-light-sbg px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-border outline-2 shadow-lg">
+        <section id="contact" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-pro900 outline-2 shadow-lg">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-4xl font-heading font-bold text-center mb-8">CONTACT</h2>
-            <p className="text-light-stxt font-text">
+            <h2 className="text-4xl font-heading font-bold text-center text-pro900 mb-8">CONTACT</h2>
+            <p className="text-pro800 font-text">
               Have a question or want to work together? Fill out the form below and I'll get back to you!
             </p>
           </div>
           
-          <div className="max-w-2xl mx-auto bg-white border border-border rounded-2xl shadow-lg p-8">
+          <div className="max-w-2xl mx-auto bg-pro100 border border-pro500 rounded-2xl shadow-lg p-8">
             <form
               action="https://formspree.io/f/xzzaqalq"
               method="POST"
@@ -254,25 +266,25 @@ export default function Home() {
             >
               {/* Name */}
               <div>
-                <label htmlFor="name" className="block text-left text-sm font-regular text-light-stxt mb-1">Name</label>
-                <input type="text" name="name" id="name" required className="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500" />
+                <label htmlFor="name" className="block text-left text-sm font-regular text-pro900 mb-1">Name</label>
+                <input type="text" name="name" id="name" required className="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-accent" />
               </div>
 
               {/* Email */}
               <div>
-                <label htmlFor="email" className="block text-left text-sm font-regular text-light-stxt mb-1">Email</label>
-                <input type="email" name="_replyto" id="email" required className="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500" />
+                <label htmlFor="email" className="block text-left text-sm font-regular text-pro900 mb-1">Email</label>
+                <input type="email" name="_replyto" id="email" required className="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-accent" />
               </div>
               
               {/* Message */}
               <div>
-                <label htmlFor="message" className="block text-left text-sm font-regular text-border mb-1">Message</label>
-                <textarea name="message" id="message" rows={5} required className="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500" />
+                <label htmlFor="message" className="block text-left text-sm font-regular text-pro900 mb-1">Message</label>
+                <textarea name="message" id="message" rows={5} required className="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-accent" />
               </div>
 
               {/* Submit Button */}
               <div className="text-right">
-                <button type="submit" className="px-6 py-2 bg-blue-600/60 text-light-pbg font-semibold font-regular rounded-xl shadow-md hover:bg-blue-700/80 transition-colors">Submit</button>
+                <button type="submit" className="px-6 py-2 text-accent font-text rounded-xl shadow-md border border-accent transition-colors">Submit</button>
               </div>
             </form>
           </div>
