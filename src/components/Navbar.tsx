@@ -71,15 +71,18 @@ export default function Navbar() {
                     </ul>
 
                     {/* Navigation Menu Button */}
-                    <button onClick={() => setNavMenuOpen(true)} className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1 cursor-pointer group" aria-label="Open menu">
-                        <span className="block w-6 h-[2px] bg-pro900 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1"></span>
-                        <span className="block w-6 h-[2px] bg-pro900 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1"></span>
-                        <span className="block w-6 h-[2px] bg-pro900 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1"></span>
+                    <button onClick={() => setNavMenuOpen(true)} className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1 cursor-pointer group relative z-50" aria-label="Open menu">
+                        <span className={`block w-6 h-[2px] bg-pro900 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "rotate-45 translate-y-2 bg-accent" : ""}`}></span>
+                        <span className={`block w-6 h-[2px] bg-pro900 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "opacity-0" : ""}`}></span>
+                        <span className={`block w-6 h-[2px] bg-pro900 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "-rotate-45 -translate-y-2 bg-accent" : ""}`}></span>
                     </button>
                 </div>
             </nav>
 
             {/* Navigation Panel */}
+            {navMenuOpen && (
+                <div onClick={() => setNavMenuOpen(false)} className={`fixed inset-0 z-50 bg-pro900/20 backdrop-blur-sm transition-opacity duration-500 ${navMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}></div>
+            )}
             <div className={`fixed top-0 right-0 h-full w-64 bg-pro200/95 backdrop-blur-md shadow-lg transform transition-transform duration-300 z-50 ${navMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
                 <div className="flex justify-end p-6">
                     <button onClick={() => setNavMenuOpen(false)} className="text-pro900 hover:text-accent font-bold text-2xl cursor-pointer transform hover:-translate-y-1 transition-transform duration-200">✕</button>

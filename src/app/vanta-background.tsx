@@ -8,8 +8,8 @@ export default function VantaBackground() {
         if (typeof window !== "undefined" && (window as any).VANTA) {
             (window as any).VANTA.FOG({
                 el: "#background",
-                mouseControls: true,
-                touchControls: true,
+                mouseControls: false,
+                touchControls: false,
                 gyroControls: false,
                 minHeight: 200.00,
                 minWidth: 200.00,
@@ -17,11 +17,25 @@ export default function VantaBackground() {
                 midtoneColor: "#CCCCCC",
                 lowlightColor: "#999999",
                 baseColor: "#F0F0F0",
-                blurFactor: 0.4,
+                blurFactor: 0.3,
                 speed: 1.0,
                 zoom: 1.5,
             });
         }
+    }, []);
+
+    useEffect(() => {
+        const handleVisibilityChange = () => {
+            const vantaEffect = (window as any).vantaEffect;
+            if (!vantaEffect) return;
+            if (document.hidden) vantaEffect.pause();
+            else vantaEffect.resume();
+        };
+
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+        return () => {
+            document.removeEventListener("visibilitychange", handleVisibilityChange);
+        };
     }, []);
 
     return (

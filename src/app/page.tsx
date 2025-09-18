@@ -36,63 +36,41 @@ export default function Home() {
 
         {/* About Section */}
         <section id="about" className="flex items-center justify-center px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-border outline-2 shadow-lg">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 min-[950px]:grid-cols-[2fr_1fr] gap-6 items-center max-w-6xl mx-auto">
             {/* Left Column */}
             <div className="space-y-6">
-              <h2 className="text-4xl sm:text-5xl text-pro900 font-heading font-bold">
-                ABOUT ME
-              </h2>
-              <p className="text-xl text-pro800 font-text">
-                A short tagline goes here - something about your role, specialties, or passions.
-              </p>
-              <p className="text-pro700 font-text">
-                This is a placeholder for a professional introduction and background. You can describe your skills, experiences, or career focus here.
+              <div className="flex items-center space-x-4">
+                <h2 className="text-5xl text-pro900 font-heading font-bold whitespace-nowrap">
+                  ABOUT ME
+                </h2>
+                <div className="flex-1 h-px bg-pro600"></div>
+              </div>
+              <p className="text-sm text-pro800 font-text">
+                Graduated from University of California, Irvine with a B.S. in Computer Science and specialization in Intelligent Systems. I am passionate about leveraging software development, data analysis, and intelligent systems to solve complex problems.<br /><br />Experienced in full-stack development, artificial intelligence, machine learning, information retrieval, data visualization, and backend data integration through internships, research projects, and academic coursework, with success in creating web applications, data analysis tools, and high-performance search engines.<br /><br />Strong analytical, programming, communication, and leadership skills with a collaborative mindset and proactive learning approach. Eager to tackle new challenges and collaborate in professional settings.
               </p>
 
               {/* Buttons */}
               <div className="flex flex-wrap gap-4">
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-md shadow-md border border-accent font-medium font-text text-accent transition">
+                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-md shadow-md border border-accent font-medium font-regular text-accent transition-all transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[4px_4px_0px_0px_var(--color-accent)] duration-300">
                   Download Resume
                 </a>
-
-                {/* Quick Links */}
-                <div className="flex items-center space-x-4">
-                  <a
-                    href="https://github.com/rmluck" target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-pro700 hover:text-pro800 transition-colors"
-                  >
-                    <Github className="h-5 w-5" />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/rohan-dilan-mistry/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-pro700 hover:text-pro800 transition-colors"
-                  >
-                    <Linkedin className="h-5 w-5" />
-                  </a>
-                  <a
-                    href="https://www.instagram.com/rohandm99/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-pro700 hover:text-pro800 transition-colors"
-                  >
-                    <Instagram className="h-5 w-5" />
-                  </a>
-                </div>
               </div>
             </div>
 
             {/* Right Column - Profile Photo */}
-            <div className="flex justify-center md:justify-end">
-              <div className="w-48 h-48 sm:w-64 sm:h-64 relative rounded-full overflow-hidden shadow-lg">
+            <div className="flex justify-center lg:justify-end">
+              <div className="w-48 h-48 lg:w-64 lg:h-64 sm:w-72 sm:h-72 relative mx-auto group">
+                {/* Removed Border */}
+                <div className="absolute -right-3 -bottom-3 inset-3 rounded-lg border-3 border-accent pointer-events-none transition-transform duration-300 ease-out group-hover:translate-y-1 group-hover:translate-x-1"></div>
+                {/* Profile Photo */}
                 <Image
                   src="/profile_photo.jpg"
                   alt="Profile photo"
                   fill
-                  className="object-cover"
+                  className="object-cover relative w-full h-full rounded-lg  shadow-lg transition-transform duration-300 ease-out group-hover:-translate-y-1 group-hover:-translate-x-1"
                 />
+                {/* Profile Photo Filter */}
+                <div className="absolute inset-0 rounded-lg bg-accent opacity-60 mix-blend-color transition-opacity duration-500 ease-out group-hover:opacity-0"></div>
               </div>
             </div>
           </div>
