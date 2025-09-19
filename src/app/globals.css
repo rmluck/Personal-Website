@@ -67,3 +67,18 @@ body {
     opacity: 1;
   }
 }
+
+.img-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  background: linear-gradient(45deg, var(--color-accent), transparent, var(--color-accent));
+  border-radius: 50%;
+  z-index: -1;
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

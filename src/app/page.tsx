@@ -54,23 +54,22 @@ export default function Home() {
                 <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-md shadow-md border border-accent font-medium font-regular text-accent transition-all transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[4px_4px_0px_0px_var(--color-accent)] duration-300">
                   Download Resume
                 </a>
+                <a href="/" target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-md shadow-md border border-accent font-medium font-regular text-accent transition-all transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[4px_4px_0px_0px_var(--color-accent)] duration-300">
+                  Learn More
+                </a>
               </div>
             </div>
 
             {/* Right Column - Profile Photo */}
             <div className="flex justify-center lg:justify-end">
-              <div className="w-48 h-48 lg:w-64 lg:h-64 sm:w-72 sm:h-72 relative mx-auto group">
-                {/* Removed Border */}
-                <div className="absolute -right-3 -bottom-3 inset-3 rounded-lg border-3 border-accent pointer-events-none transition-transform duration-300 ease-out group-hover:translate-y-1 group-hover:translate-x-1"></div>
+              <div className="img-wrapper inline-block shrink-0 w-48 h-48 lg:w-64 lg:h-64 sm:w-72 sm:h-72 relative hover:scale-105 transition-transform duration-300 ease-out">
                 {/* Profile Photo */}
                 <Image
                   src="/profile_photo.jpg"
                   alt="Profile photo"
                   fill
-                  className="object-cover relative w-full h-full rounded-lg  shadow-lg transition-transform duration-300 ease-out group-hover:-translate-y-1 group-hover:-translate-x-1"
+                  className="object-cover relative w-full h-full rounded-full shadow-lg transition-all duration-300 ease-out"
                 />
-                {/* Profile Photo Filter */}
-                <div className="absolute inset-0 rounded-lg bg-accent opacity-60 mix-blend-color transition-opacity duration-500 ease-out group-hover:opacity-0"></div>
               </div>
             </div>
           </div>
@@ -78,7 +77,12 @@ export default function Home() {
 
         {/* Projects Section */}
         <section id="projects" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-2 outline-pro900 shadow-lg">
-          <h2 className="text-4xl text-center font-heading font-bold text-pro900 mb-8">PROJECTS</h2>
+          <div className="flex items-center space-x-4 mb-8">
+            <h2 className="text-4xl text-center text-pro900 font-heading font-bold whitespace-nowrap">
+              PROJECTS
+            </h2>
+            <div className="flex-1 h-px bg-pro600"></div>
+          </div>
 
           {/* Projects Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
