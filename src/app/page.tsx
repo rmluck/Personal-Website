@@ -85,9 +85,10 @@ export default function Home() {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ul className="space-y-24">
             <ProjectCard
               title="Portfolio Website"
+              type="Web Development"
               description="A personal portfolio built with Next.js, Tailwind, and TypeScript."
               image="/next.svg"
               tags={["Next.js", "Tailwind", "TypeScript"]}
@@ -95,24 +96,29 @@ export default function Home() {
                 { label: "GitHub", url: "https://github.com", icon: <Github size={16} /> },
                 { label: "Live Demo", url: "https://vercel.com", icon: <ExternalLink size={16} /> },
               ]}
+              side="right"
             />
 
             <ProjectCard
               title="Yelp Review Analyzer"
+              type="Data Science"
               description="A tool for analyzing Yelp reviews using sentiment analysis."
               image="/next.svg"
               tags={["Python", "Natural Language Processing", "Sentiment Analysis"]}
               links={[
                 { label: "Report", url: "#", icon: <ExternalLink size={16} /> },
               ]}
+              side="left"
             />
 
             {/* Add more ProjectCard components as needed */}
-          </div>
+          </ul>
 
           {/* View All Projects Button */}
           <div className="flex justify-center mt-10">
-            <a href="/projects" className="px-6 py-3 rounded-xl shadow-md border border-accent font-medium font-text text-accent transition">View All Projects</a>
+            <a href="/projects" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-xl shadow-md border border-accent font-medium font-regular text-accent transition-all transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[4px_4px_0px_0px_var(--color-accent)] duration-300">
+                  View All Projects
+              </a>
           </div>
         </section>
 

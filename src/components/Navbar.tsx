@@ -43,7 +43,7 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="fixed top-0 left-0 z-50 w-full bg-gradient-to-br from-[var(--color-pro200)]/70 to-[var(--color-pro300)]/70 backdrop-blur-md shadow-md font-regular">
+            <nav className="fixed top-0 left-0 z-50 w-full bg-gradient-to-br from-[var(--color-pro200)]/80 to-[var(--color-pro300)]/70 backdrop-blur-md shadow-md font-regular">
                 <div className="flex items-center justify-between px-6 py-3">
                     {/* Logo Placeholder */}
                     <div className="font-bold text-xl">LOGO</div>
@@ -62,7 +62,7 @@ export default function Navbar() {
                                     after:bg-accent after:transition-all
                                     hover:text-accent
                                     hover:after:w-full
-                                    ${activeSection === item.href.slice(1) ? "text-accent" : "text-pro900"}`}
+                                    ${activeSection === item.href.slice(1) ? "text-accent font-bold" : "text-pro900"}`}
                                 >
                                     {item.label}
                                 </Link>
