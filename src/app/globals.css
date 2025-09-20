@@ -82,3 +82,10 @@ body {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.bullet-list-item::before {
+  content: "▌";
+  position: relative;
+  margin-right: 8px;
+  color: var(--color-accent);
+}

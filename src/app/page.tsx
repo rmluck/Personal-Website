@@ -124,9 +124,15 @@ export default function Home() {
 
         {/* Experience Section */}
         <section id="experience" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-pro900 outline-2 shadow-lg">
-          <h2 className="text-4xl text-center font-heading font-bold text-pro900 mb-8">EXPERIENCE</h2>
+          <div className="flex items-center space-x-4 mb-8">
+            <div className="flex-1 h-px bg-pro600"></div>
+            <h2 className="text-4xl text-center text-pro900 font-heading font-bold whitespace-nowrap">
+              EXPERIENCE
+            </h2>
+          </div>
 
-          <div className="relative pl-14">
+          <div className="relative space-y-6">
+            <div className="absolute left-5 top-0 bottom-15 w-px bg-pro600"></div>
             <ExperienceItem
               company="Tech Corp"
               role="Software Engineer"
@@ -146,9 +152,14 @@ export default function Home() {
 
         {/* Education Section */}
         <section id="education" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-2 outline-pro900 shadow-lg">
-          <h2 className="text-4xl text-center font-heading font-bold text-pro900 mb-8">EDUCATION</h2>
+          <div className="flex items-center space-x-4 mb-8">
+            <h2 className="text-4xl text-center text-pro900 font-heading font-bold whitespace-nowrap">
+              EDUCATION
+            </h2>
+            <div className="flex-1 h-px bg-pro600"></div>
+          </div>
 
-          <div className="space-y-8 max-w-3xl mx-auto">
+          <div className="space-y-8 relative">
             <EducationItem 
               school="State University"
               degree="Bachelor of Science in Computer Science"

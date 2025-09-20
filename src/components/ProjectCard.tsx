@@ -65,7 +65,7 @@ export default function ProjectCard({
             </div>
 
             {/* Project Image */}
-            <div className="lg:w-1/2 relative order-1 lg:order-2 group">
+            <div className="w-full lg:w-1/2 relative order-1 lg:order-2 group">
                 <a
                     href={links[0]?.url || "#"}
                     target="_blank"
@@ -76,11 +76,11 @@ export default function ProjectCard({
                             src={image}
                             alt={title}
                             fill
-                            className="object-cover group-hover:scale-105 transition duration-500"
+                            className="object-cover group-hover:scale-105 transition duration-500 opacity-50 group-hover:opacity-100"
                         />
                     </div>
                 </a>
-                <div className="absolute inset-0 rounded-lg bg-accent opacity-60 mix-blend-color transition-opacity duration-500 ease-out group-hover:opacity-0"></div>
+                <div className="absolute inset-0 rounded-lg bg-accent opacity-70 mix-blend-color transition-opacity duration-500 ease-out group-hover:opacity-0"></div>
             </div>
         </li>
         // <div className="bg-light-pbg rounded-2xl shadow-md overflow-hidden flex flex-col hover:shadow-lg transition">
