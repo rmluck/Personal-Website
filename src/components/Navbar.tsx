@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const navItems = [
     { label: "Home", href: "#home" },
@@ -15,31 +15,126 @@ const navItems = [
 export default function Navbar() {
     const [activeSection, setActiveSection] = useState<string>("home");
     const [navMenuOpen, setNavMenuOpen] = useState<boolean>(false);
+    const ticking = useRef(false);
 
     useEffect(() => {
-        const sections = navItems.map((item) => document.querySelector(item.href));
+        const sectionIds = navItems.map((item) => item.href.slice(1));
+
+        const getSections = () => sectionIds.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+        
+        const navEl = document.querySelector("nav");
+        const getNavHeight = () => navEl?.getBoundingClientRect().height ?? 0;
+
+        const applyScrollMargin = () => {
+            const navHeight = getNavHeight();
+            getSections().forEach((section) => {
+                section.style.scrollMarginTop = `${navHeight + 12}px`;
+            });
+        };
+
+        const determineActiveByPosition = () => {
+            const sections = getSections();
+            if (!sections.length) return;
+
+            const vh = window.innerHeight;
+            const viewportCenter = vh / 2;
+            const navHeight = getNavHeight();
+
+            let best: HTMLElement | null = null;
+            let bestDist = Infinity;
+
+            for (const sec of sections) {
+                const rect = sec.getBoundingClientRect();
+                if (rect.top <= navHeight + 8 && rect.bottom > navHeight + 8) {
+                    setActiveSection(sec.id);
+                    return;
+                }
+
+                const secCenter = (rect.top + rect.bottom) / 2;
+                const dist = Math.abs(secCenter - viewportCenter);
+                if (dist < bestDist) {
+                    bestDist = dist;
+                    best = sec;
+                }
+            }
+
+            if (best && best.id !== activeSection) {
+                setActiveSection(best.id);
+            }
+        };
+
+        const onScroll = () => {
+            if (!ticking.current) {
+                ticking.current = true;
+                requestAnimationFrame(() => {
+                    determineActiveByPosition();
+                    ticking.current = false;
+                });
+            }
+        };
 
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    setActiveSection(entry.target.id);
-                }
+                    if (entry.isIntersecting) {
+                        const id = (entry.target as HTMLElement).id;
+                        setActiveSection(id);
+                    }
                 });
             },
-            { threshold: 0.6 } // 60% of section visible triggers highlight
+             {
+                root: null,
+                rootMargin: `-10% 0px -40% 0px`,
+                threshold: [0.15, 0.4, 0.6],
+             }
         );
 
-        sections.forEach((section) => {
-            if (section) observer.observe(section);
-        });
+        getSections().forEach((section) => observer.observe(section));
+
+        applyScrollMargin();
+        determineActiveByPosition();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll);
+        window.addEventListener("load", onScroll);
+
+        const imgs = Array.from(document.querySelectorAll("img"));
+        imgs.forEach((img) => img.addEventListener("load", onScroll));
 
         return () => {
-            sections.forEach((section) => {
-                if (section) observer.unobserve(section);
-            });
+            window.removeEventListener("scroll", onScroll);
+            window.removeEventListener("resize", onScroll);
+            window.removeEventListener("load", onScroll);
+            imgs.forEach((img) => img.removeEventListener("load", onScroll));
+            observer.disconnect();
         };
     }, []);
+
+    // useEffect(() => {
+    //     const sections = navItems.map((item) => document.querySelector(item.href));
+
+    //     const observer = new IntersectionObserver(
+    //         (entries) => {
+    //             entries.forEach((entry) => {
+    //             if (entry.isIntersecting) {
+    //                 setActiveSection(entry.target.id);
+    //             }
+    //             });
+    //         },
+    //         {
+    //             threshold: 0.5, // 50% of section visible triggers highlight
+    //          } 
+    //     );
+
+    //     sections.forEach((section) => {
+    //         if (section) observer.observe(section);
+    //     });
+
+    //     return () => {
+    //         sections.forEach((section) => {
+    //             if (section) observer.unobserve(section);
+    //         });
+    //     };
+    // }, []);
 
     return (
         <>

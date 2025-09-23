@@ -1,25 +1,52 @@
 import Image from "next/image";
-import { ExternalLink } from "lucide-react";
+import { Github, ExternalLink, Notebook, Presentation, Video } from "lucide-react";
 
 type ProjectCardProps = {
-    title: string;
+    name: string;
     type: string;
+    brief: string;
     description: string;
+    start_date: string;
+    end_date: string;
     image: string;
-    tags: string[];
-    links: { label: string; url: string; icon?: React.ReactNode }[];
+    skills: {
+        languages: string[];
+        frameworks: string[];
+        tools: string[];
+        domains: string[];
+        soft_skills: string[];
+    }
+    links: { label: string; url: string; }[];
     side: "left" | "right";
 };
 
 export default function ProjectCard({
-    title,
+    name,
     type,
+    brief,
     description,
+    start_date,
+    end_date,
     image,
-    tags,
+    skills,
     links,
     side,
 } : ProjectCardProps) {
+    function getIcon(label: string) {
+        switch (label) {
+            case "GitHub":
+                return <Github className="h-5 w-5" />;
+            case "Report":
+                return <Notebook className="h-5 w-5" />;
+            case "Presentation":
+                return <Presentation className="h-5 w-5" />;
+            case "Demo Videos":
+                return <Video className="h-5 w-5" />;
+            default:
+                return <ExternalLink className="h-5 w-5" />;
+        }
+    }
+
     return (
         <li className={`relative flex flex-col lg:flex-row items-center lg:items-stretch gap-8 ${side === "left" ? "lg:flex-row-reverse" : ""}`}>
             {/* Project Content */}
@@ -27,26 +54,39 @@ export default function ProjectCard({
                 <p className="text-sm text-accent font-text tracking-wider mb-2">
                     {type}
                 </p>
-                <h3 className="text-2xl font-heading font-bold text-pro900 mb-4">
+                <h3 className="text-2xl font-heading font-bold text-pro900 mb-1">
                     <a
                         href={links[0]?.url || "#"}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-accent transition-colors relative after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full"
                     >
-                        {title}
+                        {name}
                     </a>
                 </h3>
+                {(start_date || end_date) && (start_date != end_date && (
+                    <span className="text-sm font-regular text-pro800 mb-3">
+                        {start_date} - {end_date}
+                    </span>
+                )) || (start_date == end_date && (
+                    <span className="text-sm font-regular text-pro800 mb-3">
+                        {start_date}
+                    </span>
+                ))}
 
                 <div className={`relative z-10 bg-pro200/80 rounded-sm p-4 shadow-sm mb-4 ${side === "left" ? "lg:-ml-20" : "lg:-mr-20"} backdrop-blur-md`}>
-                    <p className="text-pro800 font-text text-sm">{description}</p>
+                    <p className="text-pro800 font-text text-sm">{brief}</p>
                 </div>
 
-                <ul className={`flex flex-wrap gap-4 text-xs text-pro700 font-text mb-4 ${side === "left" ? "justify-end" : "justify-start"}`}>
-                    {tags.map((tag) => (
-                        <li key={tag}>{tag}</li>
-                    ))}
-                </ul>
+                <div className={`flex flex-wrap gap-2 mb-5 ${side === "left" ? "justify-end" : "justify-start"}`}>
+                    {Object.values(skills).flat().map((skill) => {
+                        return (
+                            <div key={skill} className="flex flex-wrap gap-2 items-center">
+                                <span key={skill} className="text-pro800 border border-pro300 text-[10px] px-2 py-1 rounded-md cursor-pointer hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-200 transition">{skill}</span>
+                            </div>
+                        );
+                    })}
+                </div>
 
                 <div className={`flex items-center gap-4 ${side === "left" ? "justify-end" : "justify-start"}`}>
                     {links.map((link) => (
@@ -58,7 +98,7 @@ export default function ProjectCard({
                             aria-label={link.label}
                             className="inline-block text-pro600 hover:text-accent transform hover:-translate-y-1 transition-all duration-200"
                         >
-                        {link.icon ? link.icon : <ExternalLink className="h-5 w-5" />}
+                            {getIcon(link.label)}
                         </a>
                     ))}
                 </div>
@@ -66,21 +106,15 @@ export default function ProjectCard({
 
             {/* Project Image */}
             <div className="w-full lg:w-1/2 relative order-1 lg:order-2 group">
-                <a
-                    href={links[0]?.url || "#"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <div className="relative w-full h-64 lg:h-80 rounded-lg overflow-hidden shadow-md">
-                        <Image 
-                            src={image}
-                            alt={title}
-                            fill
-                            className="object-cover group-hover:scale-105 transition duration-500 opacity-50 group-hover:opacity-100"
-                        />
-                    </div>
-                </a>
-                <div className="absolute inset-0 rounded-lg bg-accent opacity-70 mix-blend-color transition-opacity duration-500 ease-out group-hover:opacity-0"></div>
+                <div className="relative w-full h-64 lg:h-80 rounded-lg overflow-hidden shadow-md">
+                    <Image 
+                        src={image}
+                        alt={name}
+                        fill
+                        className="object-cover group-hover:scale-105 transition duration-500 opacity-50 group-hover:opacity-100"
+                    />
+                </div>
+                <div className="absolute w-full h-64 lg:h-80 inset-0 rounded-lg shadow-md bg-accent opacity-70 mix-blend-color transition-opacity duration-500 ease-out group-hover:opacity-0"></div>
             </div>
         </li>
         // <div className="bg-light-pbg rounded-2xl shadow-md overflow-hidden flex flex-col hover:shadow-lg transition">

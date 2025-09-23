@@ -8,8 +8,11 @@ import ProjectCard from "@/components/ProjectCard";
 import ExperienceItem from "@/components/ExperienceItem";
 import EducationItem from "@/components/EducationItem";
 import SkillCategory from "@/components/SkillCategory";
+import { projects } from "@/data/projects";
+import { experience } from "@/data/experience";
+import { education } from "@/data/education";
+import { skills } from "@/data/skills";
 import { Github, Linkedin, Instagram, ExternalLink } from "lucide-react";
-import { useEffect, useState } from "react";
 
 export default function Home() {
   return (
@@ -46,7 +49,7 @@ export default function Home() {
                 <div className="flex-1 h-px bg-pro600"></div>
               </div>
               <p className="text-sm text-pro800 font-text">
-                Graduated from University of California, Irvine with a B.S. in Computer Science and specialization in Intelligent Systems. I am passionate about leveraging software development, data analysis, and intelligent systems to solve complex problems.<br /><br />Experienced in full-stack development, artificial intelligence, machine learning, information retrieval, data visualization, and backend data integration through internships, research projects, and academic coursework, with success in creating web applications, data analysis tools, and high-performance search engines.<br /><br />Strong analytical, programming, communication, and leadership skills with a collaborative mindset and proactive learning approach. Eager to tackle new challenges and collaborate in professional settings.
+                Graduated from the <a href="https://www.ics.uci.edu/" target="_blank" rel="noopener noreferrer" className="text-accent relative after:absolute after:left-0 after:-bottom-0.25 after:h-[1px] after:w-0 after:bg-accent after:transition-all hover:after:w-full">Donald Bren School of Information and Computer Sciences</a> at <a href="https://www.uci.edu/" target="_blank" rel="noopener noreferrer" className="text-accent relative after:absolute after:left-0 after:-bottom-0.25 after:h-[1px] after:w-0 after:bg-accent after:transition-all hover:after:w-full">University of California, Irvine</a> with a B.S. in Computer Science and specialization in Intelligent Systems. I am passionate about leveraging software development, data analysis, and intelligent systems to solve complex problems.<br /><br />Experienced in full-stack development, artificial intelligence, machine learning, information retrieval, data visualization, and backend data integration through internships, research projects, and academic coursework, with success in creating web applications, data analysis tools, and high-performance search engines.<br /><br />Strong analytical, programming, communication, and leadership skills with a collaborative mindset and proactive learning approach. Eager to tackle new challenges and collaborate in professional settings.
               </p>
 
               {/* Buttons */}
@@ -86,32 +89,11 @@ export default function Home() {
 
           {/* Projects Grid */}
           <ul className="space-y-24">
-            <ProjectCard
-              title="Portfolio Website"
-              type="Web Development"
-              description="A personal portfolio built with Next.js, Tailwind, and TypeScript."
-              image="/next.svg"
-              tags={["Next.js", "Tailwind", "TypeScript"]}
-              links={[
-                { label: "GitHub", url: "https://github.com", icon: <Github size={16} /> },
-                { label: "Live Demo", url: "https://vercel.com", icon: <ExternalLink size={16} /> },
-              ]}
-              side="right"
-            />
-
-            <ProjectCard
-              title="Yelp Review Analyzer"
-              type="Data Science"
-              description="A tool for analyzing Yelp reviews using sentiment analysis."
-              image="/next.svg"
-              tags={["Python", "Natural Language Processing", "Sentiment Analysis"]}
-              links={[
-                { label: "Report", url: "#", icon: <ExternalLink size={16} /> },
-              ]}
-              side="left"
-            />
-
-            {/* Add more ProjectCard components as needed */}
+            {projects
+              .filter((p) => p.featured)
+              .map((project, i) => (
+                <ProjectCard key={i} side={i % 2 === 0 ? "right" : "left"} {...project} />
+              ))}
           </ul>
 
           {/* View All Projects Button */}
@@ -131,22 +113,11 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="relative space-y-6">
-            <div className="absolute left-5 top-0 bottom-15 w-px bg-pro600"></div>
-            <ExperienceItem
-              company="Tech Corp"
-              role="Software Engineer"
-              dates="Jan 2022 - Present"
-              description="Developed and maintained web applications using React and Node.js. Collaborated with cross-functional teams to deliver high-quality software solutions."
-              logo="/next.svg"
-            />
-            <ExperienceItem
-              company="Tech Corp"
-              role="Software Engineer"
-              dates="Jan 2022 - Present"
-              description="Developed and maintained web applications using React and Node.js. Collaborated with cross-functional teams to deliver high-quality software solutions."
-              logo="/next.svg"
-            />
+          <div className="relative space-y-12">
+            <div className="absolute left-10 top-0 bottom-0 w-px bg-pro600"></div>
+            {experience.map((exp, index) => (
+              <ExperienceItem key={index} {...exp} />
+            ))}
           </div>
         </section>
 
@@ -160,107 +131,41 @@ export default function Home() {
           </div>
 
           <div className="space-y-8 relative">
-            <EducationItem 
-              school="State University"
-              degree="Bachelor of Science in Computer Science"
-              dates="2018 - 2022"
-              coursework={[
-                "Data Structures and Algorithms",
-                "Operating Systems",
-                "Database Management Systems",
-                "Web Development",
-              ]}
-              extras={[
-                "Graduated with Honors",
-                "Dean's List for 6 semesters",
-              ]}
-              logo="/next.svg"
-            />
-
-            <EducationItem 
-              school="Online Learning"
-              degree="Additional Certifications"
-              dates="Ongoing"
-              coursework={[
-                "FreeCodeCamp: Full Stack Development",
-                "Coursera: Machine Learning",
-              ]}
-              extras={[
-                "Graduated with Honors",
-                "Dean's List for 6 semesters",
-              ]}
-              logo="/next.svg"
-            />
+            {education.map((edu, index) => (
+              <EducationItem key={index} {...edu} />
+            ))}
           </div>
         </section>
 
         {/* Skills Section */}
         <section id="skills" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-pro900 outline-2 shadow-lg">
-          <h2 className="text-4xl text-center font-heading font-bold text-pro900 mb-8">SKILLS</h2>
+          <div className="flex items-center space-x-4 mb-8">
+            <div className="flex-1 h-px bg-pro600"></div>
+            <h2 className="text-4xl text-center text-pro900 font-heading font-bold whitespace-nowrap">
+              SKILLS
+            </h2>
+          </div>
 
-          <SkillCategory 
-            title="Languages"
-            color="text-yellow-500"
-            skills={[
-              {
-                name: "TypeScript",
-                logo: "/next.svg",
-                projects: [
-                  { name: "Portfolio Website", link: "/projects/portfolio" },
-                  { name: "E-commerce Platform", link: "/projects/ecommerce" },
-                ],
-              },
-              {
-                name: "Python",
-                logo: "/next.svg",
-                projects: [
-                  { name: "Data Analysis Tool", link: "/projects/data-analysis" },
-                  { name: "Machine Learning Model", link: "/projects/ml-model" },
-                ],
-              },
-            ]}
-          />
-
-          <SkillCategory 
-            title="Softwares"
-            color="text-blue-500"
-            skills={[
-              {
-                name: "GitHub",
-                logo: "/next.svg",
-                projects: [
-                  { name: "Portfolio Website", link: "/projects/portfolio" },
-                ],
-              },
-            ]}
-          />
-
-          <SkillCategory 
-            title="Packages & Libraries"
-            color="text-green-500"
-            skills={[
-              {
-                name: "React",
-                logo: "/next.svg",
-                projects: [
-                  { name: "Portfolio Website", link: "/projects/portfolio" },
-                  { name: "Social Media App", link: "/projects/social-media" },
-                ],
-              },
-            ]}
-          />
+          {/* Skills Grid */}
+          <div className="flex flex-col gap-8">
+            {skills.slice(0, 3).map((category) => (
+              <SkillCategory key={category.category} {...category} />
+            ))}
+          </div>
         </section>
 
         {/* Contact Section */}
         <section id="contact" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-pro900 outline-2 shadow-lg">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-4xl font-heading font-bold text-center text-pro900 mb-8">CONTACT</h2>
-            <p className="text-pro800 font-text">
+          <div className="max-w-2xl mx-auto bg-pro100 border border-pro800 rounded-lg shadow-lg p-8">
+            <div className="flex items-center space-x-4 mb-8">
+              <h2 className="text-4xl text-center text-pro900 font-heading font-bold whitespace-nowrap">
+                CONTACT
+              </h2>
+              <div className="flex-1 h-px bg-pro600"></div>
+            </div>
+            <p className="text-center mb-6 text-pro800 font-text text-sm">
               Have a question or want to work together? Fill out the form below and I'll get back to you!
             </p>
-          </div>
-          
-          <div className="max-w-2xl mx-auto bg-pro100 border border-pro500 rounded-2xl shadow-lg p-8">
             <form
               action="https://formspree.io/f/xzzaqalq"
               method="POST"
@@ -269,24 +174,24 @@ export default function Home() {
               {/* Name */}
               <div>
                 <label htmlFor="name" className="block text-left text-sm font-regular text-pro900 mb-1">Name</label>
-                <input type="text" name="name" id="name" required className="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-accent" />
+                <input type="text" name="name" id="name" required className="w-full px-4 py-2 border border-pro700 rounded-md shadow-sm text-sm font-text text-pro800 focus:outline-none focus:ring-2 focus:ring-accent transition" />
               </div>
 
               {/* Email */}
               <div>
                 <label htmlFor="email" className="block text-left text-sm font-regular text-pro900 mb-1">Email</label>
-                <input type="email" name="_replyto" id="email" required className="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-accent" />
+                <input type="email" name="_replyto" id="email" required className="w-full px-4 py-2 border border-pro700 rounded-md shadow-sm text-sm font-text text-pro800 focus:outline-none focus:ring-2 focus:ring-accent transition" />
               </div>
               
               {/* Message */}
               <div>
                 <label htmlFor="message" className="block text-left text-sm font-regular text-pro900 mb-1">Message</label>
-                <textarea name="message" id="message" rows={5} required className="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-accent" />
+                <textarea name="message" id="message" rows={5} required className="w-full px-4 py-2 border border-pro700 rounded-md shadow-sm text-sm font-text text-pro800 focus:outline-none focus:ring-2 focus:ring-accent transition" />
               </div>
 
               {/* Submit Button */}
               <div className="text-right">
-                <button type="submit" className="px-6 py-2 text-accent font-text rounded-xl shadow-md border border-accent transition-colors">Submit</button>
+                <button type="submit" className="px-6 py-3 rounded-xl shadow-md  border border-accent font-medium font-regular text-accent transition-all transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[4px_4px_0px_0px_var(--color-accent)] duration-300">Submit</button>
               </div>
             </form>
           </div>
