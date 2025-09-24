@@ -94,7 +94,7 @@ export default function ProjectCard({
                     {Object.values(skills).flat().map((skill) => {
                         return (
                             <div key={skill} className="flex flex-wrap gap-2 items-center">
-                                <span key={skill} className="text-pro800 border border-pro300 text-[10px] px-2 py-1 rounded-md hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-200 transition cursor-hover cursor-none">{skill}</span>
+                                <span key={skill} className="text-pro800 border border-pro300 text-[10px] px-2 py-1 rounded-md hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-200 transition cursor-hover cursor-none clickable">{skill}</span>
                             </div>
                         );
                     })}
@@ -117,13 +117,13 @@ export default function ProjectCard({
             </div>
 
             {/* Project Image */}
-            <div className="w-full lg:w-1/2 relative order-1 lg:order-2 group cursor-hover cursor-none">
+            <div className="w-full lg:w-1/2 relative order-1 lg:order-2 group cursor-hover cursor-none clickable">
                 <div className="relative w-full h-64 lg:h-80 rounded-lg overflow-hidden shadow-md">
                     <Image 
                         src={image}
                         alt={name}
                         fill
-                        className="object-cover group-hover:scale-105 transition duration-500 opacity-50 group-hover:opacity-100"
+                        className="object-cover group-hover:scale-105 transition duration-500 opacity-50 group-hover:opacity-100 saturate-0 group-hover:saturate-100"
                     />
                 </div>
                 <div className="absolute w-full h-64 lg:h-80 inset-0 rounded-lg shadow-md bg-accent opacity-70 mix-blend-color transition-opacity duration-500 ease-out group-hover:opacity-0"></div>

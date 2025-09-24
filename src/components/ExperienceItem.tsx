@@ -23,13 +23,13 @@ export default function ExperienceItem({
         <div className="relative flex items-start group/job">
             {/* Company Logo */}
             <div className="group/logo">
-                <div className="relative flex-shrink-0 w-20 h-20 border-3 border-pro700 rounded-full flex items-center justify-center group-hover:bg-pro100 transition-colors duration-500 overflow-hidden shadow-md bg-pro200 cursor-hover cursor-none">
+                <div className="relative flex-shrink-0 w-20 h-20 border-3 border-accent rounded-full flex items-center justify-center group-hover:bg-pro100 transition-colors duration-500 overflow-hidden shadow-md bg-pro200 cursor-hover cursor-none">
                     <Image
                         src={logo}
                         alt={company}
                         width={125}
                         height={125}
-                        className="object-cover scale-105 group-hover/logo:scale-110 transition duration-500 opacity-50 group-hover/logo:opacity-100"
+                        className="object-cover scale-105 group-hover/logo:scale-110 transition duration-500 opacity-50 group-hover/logo:opacity-100 saturate-0 group-hover/job:saturate-100"
                     />
                     <div className="absolute inset-0 rounded-lg bg-accent opacity-70 mix-blend-color transition-opacity duration-500 ease-out group-hover/job:opacity-0"></div>
                 </div>

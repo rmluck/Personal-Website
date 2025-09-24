@@ -56,13 +56,13 @@ export default function EducationItem({
             <div className="flex items-center gap-6">
                 {logo && (
                     <div className="group/logo">
-                        <div className="relative flex-shrink-0 w-30 h-30 border-3 border-pro700 rounded-full flex items-center justify-center transition-colors duration-500 overflow-hidden shadow-md cursor-hover cursor-none">
+                        <div className="relative flex-shrink-0 w-30 h-30 border-3 border-accent rounded-full flex items-center justify-center transition-colors duration-500 overflow-hidden shadow-md cursor-hover cursor-none clickable">
                             <Image 
                                 src={logo}
                                 alt={`${school} logo`}
                                 width={120}
                                 height={120}
-                                className="object-cover group-hover/logo:scale-105 transition duration-500 opacity-50 group-hover/logo:opacity-100"
+                                className="object-cover group-hover/logo:scale-105 transition duration-500 opacity-50 group-hover/logo:opacity-100 saturate-0 group-hover/school:saturate-100"
                             />
                             <div className="absolute inset-0 rounded-lg bg-accent opacity-70 mix-blend-color transition-opacity duration-500 ease-out group-hover/school:opacity-0"></div>
                         </div>

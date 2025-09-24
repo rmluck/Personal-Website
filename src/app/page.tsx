@@ -18,6 +18,34 @@ import { skills } from "@/data/skills";
 import { motion } from "framer-motion";
 
 export default function Home() {
+  const container = {
+    hidden: {
+      opacity: 0
+    },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.5,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const item = {
+    hidden: {
+      opacity: 0,
+      x: -30
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 60,
+      },
+    },
+  };
+
   return (
     <div className="flex flex-col min-h-screen ">
       {/* Navigation Bar */}
@@ -59,12 +87,12 @@ export default function Home() {
                 {/* Buttons */}
                 <div className="flex flex-wrap gap-4 mt-8">
                   <motion.div whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.95 }}>
-                    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-md shadow-md border border-accent font-medium font-regular text-accent transition-all  hover:shadow-[4px_4px_0px_0px_var(--color-accent)] duration-300 cursor-hover cursor-none">
+                    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-md shadow-md border border-accent font-medium font-regular text-accent transition-all  hover:shadow-[4px_4px_0px_0px_var(--color-accent)] duration-300 cursor-hover cursor-none clickable">
                       Download Resume
                     </a>
                   </motion.div>
                   <motion.div whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.95 }}>
-                    <a href="/" target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-md shadow-md border border-accent font-medium font-regular text-accent transition-all hover:shadow-[4px_4px_0px_0px_var(--color-accent)] duration-300 cursor-hover cursor-none">
+                    <a href="/" target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-md shadow-md border border-accent font-medium font-regular text-accent transition-all hover:shadow-[4px_4px_0px_0px_var(--color-accent)] duration-300 cursor-hover cursor-none clickable">
                       Learn More
                     </a>
                   </motion.div>
@@ -73,7 +101,7 @@ export default function Home() {
 
               {/* Right Column - Profile Photo */}
               <div className="flex justify-center lg:justify-end">
-                <div className="img-wrapper inline-block shrink-0 w-48 h-48 lg:w-64 lg:h-64 sm:w-72 sm:h-72 relative hover:scale-105 transition-transform duration-300 ease-out cursor-hover cursor-none">
+                <div className="img-wrapper inline-block shrink-0 w-48 h-48 lg:w-64 lg:h-64 sm:w-72 sm:h-72 relative hover:scale-105 transition-transform duration-300 ease-out cursor-hover cursor-none clickable">
                   {/* Profile Photo */}
                   <Image
                     src="/profile_photo.jpg"
@@ -109,7 +137,7 @@ export default function Home() {
             {/* View All Projects Button */}
             <div className="flex justify-center mt-16">
               <motion.div whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.95 }}>
-                  <a href="/projects" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-xl shadow-md border border-accent font-medium font-regular text-accent transition-all transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[4px_4px_0px_0px_var(--color-accent)] duration-300 cursor-hover cursor-none">
+                  <a href="/projects" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-xl shadow-md border border-accent font-medium font-regular text-accent transition-all transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[4px_4px_0px_0px_var(--color-accent)] duration-300 cursor-hover cursor-none clickable">
                     View All Projects
                   </a>
                 </motion.div>
@@ -127,12 +155,20 @@ export default function Home() {
               </h2>
             </div>
 
-            <div className="relative space-y-12">
+            <motion.div 
+              className="relative space-y-12"
+              variants={container}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <div className="absolute left-10 top-0 bottom-0 w-px bg-pro600"></div>
               {experience.map((exp, index) => (
-                <ExperienceItem key={index} {...exp} />
+                <motion.div key={index} variants={item}>
+                  <ExperienceItem {...exp} />
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </section>
         </Section>
 
@@ -145,12 +181,20 @@ export default function Home() {
               </h2>
               <div className="flex-1 h-px bg-pro600"></div>
             </div>
-
-            <div className="space-y-8 relative">
+            
+            <motion.div
+              className="space-y-8 relative"
+              variants={container}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               {education.map((edu, index) => (
-                <EducationItem key={index} {...edu} />
+                <motion.div key={index} variants={item}>
+                  <EducationItem {...edu} />
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </section>
         </Section>
 
@@ -211,7 +255,7 @@ export default function Home() {
 
                 {/* Submit Button */}
                 <div className="text-right">
-                  <button type="submit" className="px-6 py-3 rounded-xl shadow-md  border border-accent font-medium font-regular text-accent transition-all transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[4px_4px_0px_0px_var(--color-accent)] duration-300 cursor-hover cursor-none">Submit</button>
+                  <button type="submit" className="px-6 py-3 rounded-xl shadow-md  border border-accent font-medium font-regular text-accent transition-all transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[4px_4px_0px_0px_var(--color-accent)] duration-300 cursor-hover cursor-none clickable">Submit</button>
                 </div>
               </form>
             </div>

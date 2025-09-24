@@ -59,6 +59,14 @@ body {
   scroll-snap-align: start;
 } */
 
+/* .clickable {
+  transition: transform 0.1s ease;
+} */
+
+.clickable:active {
+  transform: scale(0.96) translateY(2px);
+}
+
 .blink {
   animation: blink-animation 1s infinite;
 }
