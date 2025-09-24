@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ReactMarkdown from "react-markdown";
 import { Github, ExternalLink, Notebook, Presentation, Video } from "lucide-react";
 
 type ProjectCardProps = {
@@ -59,7 +60,7 @@ export default function ProjectCard({
                         href={links[0]?.url || "#"}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-accent transition-colors relative after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full"
+                        className="hover:text-accent transition-colors relative after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full cursor-hover cursor-none"
                     >
                         {name}
                     </a>
@@ -74,15 +75,26 @@ export default function ProjectCard({
                     </span>
                 ))}
 
-                <div className={`relative z-10 bg-pro200/80 rounded-sm p-4 shadow-sm mb-4 ${side === "left" ? "lg:-ml-20" : "lg:-mr-20"} backdrop-blur-md`}>
-                    <p className="text-pro800 font-text text-sm">{brief}</p>
+                <div className={`relative z-10 bg-pro200/80 rounded-sm p-4 shadow-sm mb-4 text-pro800 font-text text-sm ${side === "left" ? "lg:-ml-20" : "lg:-mr-20"} backdrop-blur-md`}>
+                    <ReactMarkdown
+                        components={{
+                            a: ({ node, ...props }) => (
+                                <a 
+                                    {...props}
+                                    className="text-pro900 font-semibold relative transition-all hover:text-accent after:absolute after:left-0 after:-bottom-0.25 after:h-[1px] after:w-0 after:bg-accent after:transition-all hover:after:w-full cursor-hover cursor-none"
+                                />
+                            )
+                        }}
+                    >
+                        {brief}
+                    </ReactMarkdown>
                 </div>
 
                 <div className={`flex flex-wrap gap-2 mb-5 ${side === "left" ? "justify-end" : "justify-start"}`}>
                     {Object.values(skills).flat().map((skill) => {
                         return (
                             <div key={skill} className="flex flex-wrap gap-2 items-center">
-                                <span key={skill} className="text-pro800 border border-pro300 text-[10px] px-2 py-1 rounded-md cursor-pointer hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-200 transition">{skill}</span>
+                                <span key={skill} className="text-pro800 border border-pro300 text-[10px] px-2 py-1 rounded-md hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-200 transition cursor-hover cursor-none">{skill}</span>
                             </div>
                         );
                     })}
@@ -96,7 +108,7 @@ export default function ProjectCard({
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={link.label}
-                            className="inline-block text-pro600 hover:text-accent transform hover:-translate-y-1 transition-all duration-200"
+                            className="inline-block text-pro600 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
                         >
                             {getIcon(link.label)}
                         </a>
@@ -105,7 +117,7 @@ export default function ProjectCard({
             </div>
 
             {/* Project Image */}
-            <div className="w-full lg:w-1/2 relative order-1 lg:order-2 group">
+            <div className="w-full lg:w-1/2 relative order-1 lg:order-2 group cursor-hover cursor-none">
                 <div className="relative w-full h-64 lg:h-80 rounded-lg overflow-hidden shadow-md">
                     <Image 
                         src={image}

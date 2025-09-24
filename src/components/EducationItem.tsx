@@ -56,7 +56,7 @@ export default function EducationItem({
             <div className="flex items-center gap-6">
                 {logo && (
                     <div className="group/logo">
-                        <div className="relative flex-shrink-0 w-30 h-30 border-3 border-pro700 rounded-full flex items-center justify-center transition-colors duration-500 overflow-hidden shadow-md">
+                        <div className="relative flex-shrink-0 w-30 h-30 border-3 border-pro700 rounded-full flex items-center justify-center transition-colors duration-500 overflow-hidden shadow-md cursor-hover cursor-none">
                             <Image 
                                 src={logo}
                                 alt={`${school} logo`}
@@ -75,7 +75,7 @@ export default function EducationItem({
                             href={link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hover:text-accent transition-colors relative after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full"
+                            className="hover:text-accent transition-colors relative after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full cursor-hover cursor-none"
                         >
                             {school}
                         </a>
@@ -107,7 +107,7 @@ export default function EducationItem({
                                 <button
                                     key={key}
                                     onClick={() => setActiveTab(key)}
-                                    className={`px-4 py-2 text-sm text-left border-l-3 border-pro300 transition-colors duration-200 ${activeTab === key ? "text-accent bg-pro200" : "text-pro800 hover:bg-pro200 hover:text-accent"}`}
+                                    className={`px-4 py-2 text-sm text-left border-l-3 border-pro300 transition-colors duration-200 cursor-none ${activeTab === key ? "text-accent bg-pro200" : "text-pro800 hover:bg-pro200 hover:text-accent cursor-hover"}`}
                                 >
                                     {key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
                                 </button>

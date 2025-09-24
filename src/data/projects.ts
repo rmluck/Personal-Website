@@ -25,7 +25,7 @@ export const projects = [
     {
         name: "NASA Media Explorer",
         type: "Web Application",
-        brief: "Search engine application that allows users to explore NASA's public image and video library. Built with Python.",
+        brief: "Search engine application that allows users to explore [NASA's public image and video library](https://images.nasa.gov). Built with Python.",
         description: "Search engine application that allows users to explore NASA's public image and video library. Data crawling and indexing implemented with Python. Natural language search functionality enables users to find media by entering descriptive queries. Dynamic interface offers interactive grid layout, infinite scrolling, and advanced filtering options to refine search results for seamless media discovery.",
         start_date: "August 2025",
         end_date: "August 2025",
@@ -71,7 +71,7 @@ export const projects = [
     {
         name: "NFL Mock Draft Simulator",
         type: "Web Application",
-        brief: "Full-stack web application for simulating NFL draft scenarios. Users can control specific teams, make real-time draft selections, and view draft results dynamically. Built with React (Vite) frontend and FastAPI backend, using PostgreSQL for database management. Deployed with Netlify, Render, and Supabase.",
+        brief: "Full-stack web application for simulating [NFL draft](https://www.nfl.com/draft) scenarios. Users can control specific teams, make real-time draft selections, and view draft results dynamically. Built with React (Vite) frontend and FastAPI backend, using PostgreSQL for database management. Deployed with Netlify, Render, and Supabase.",
         description: "Full-stack web application designed and developed to simulate NFL draft scenarios, allowing users to control specific teams, make real-time draft selections, and view draft results dynamically. Built with a React (Vite) frontend with JavaScript and a FastAPI backend with tools like SQLAlchemy and Pydantic, using PostgreSQL for database management. Deployed with Netlify, Render, and Supabase. Users can simulate NFL draft round-by-round, view and track draft picks live, select specific teams to control, and undo or trade picks. For non-user-controlled picks, the CPU auto-selects from the big board according to a positional weight-based algorithm. Export options via PNG, CSV, and JSON. Responsive frontend web design using HTML and CSS optimized for desktop. CORS-configured secure API access.",
         start_date: "April 2025",
         end_date: "July 2025",
@@ -98,7 +98,7 @@ export const projects = [
     {
         name: "Yelp Review Sentiment Predictor",
         type: "Machine Learning Model",
-        brief: "Bayesian regression model for predicting Yelp restaurant star ratings.",
+        brief: "Bayesian regression model for predicting [Yelp](https://www.yelp.com/) restaurant star ratings.",
         description: "Bayesian regression model developed to predict Yelp restaurant star ratings based on review sentiment and restaurant popularity. Used natural language processing techniques, text sentiment analysis, and business popularity metrics to analyze how customer perceptions and business characteristics influence star ratings.",
         start_date: "May 2025",
         end_date: "June 2025",
@@ -125,7 +125,7 @@ export const projects = [
     {
         name: "Fabflix",
         type: "Web Application",
-        brief: "Full-stack web application for film browsing, searching, and purchasing. Database of 15,000+ films and 60,000+ actors. Hosted on AWS with robust features including full-text search, session-based cart checkout, secure login, and performance optimizations. Deployed with AWS and Kubernetes.",
+        brief: "Full-stack web application for film browsing, searching, and purchasing. Database of 15,000+ films and 60,000+ actors. Hosted on AWS with robust features including full-text search, session-based cart checkout, secure login, and performance optimizations. Deployed with Docker and Kubernetes.",
         description: "Dynamic full-stack architecture built from scratch, including web application allowing customers to browse, search, and purchase films from large database consisting of over 15,000 films and 60,000 actors. Hosted application on AWS EC2 instance for scalable resources. Integrated Tomcat, Maven, HTTPS, and MySQL. Developed ETL pipeline to parse film metadata to augment database. Constructed robust frontend interface using HTML, CSS, JavaScript, jQuery, and AJAX. Implemented over 20 features within fully-functional application including importing catalogue of thousands of films, full-text search with autocomplete suggestions and sorting backed by cache and JDBC, session-based cart checkout, secure login using SHA256 password encryption hashing, bot detection using reCAPTCHA, and protection against SQL injection attacks via PreparedStatements. Improved website performance 30% by implementing optimization techinques such as MySQL connection pooling, MySQL replication, and Apache load balancing. Deployed Docker-containerized version of project on Kubernetes cluster spanning multiple AWS instances. Leveraged JMeter to analyze application performance and identify bottlenecks.",
         start_date: "September 2024",
         end_date: "December 2024",
@@ -152,7 +152,7 @@ export const projects = [
     {
         name: "Traffic Signal Control Using Reinforcement Learning",
         type: "Machine Learning Model",
-        brief: "Reinforcement learning framework for optimizing traffic signal control in urban environments. Utilizes multi-agent proximal policy optimization (MAPPO) to dynamically adjust signal timings based on real-time traffic data, reducing congestion and improving traffic flow.",
+        brief: "Reinforcement learning framework for optimizing traffic signal control in urban environments. Utilizes multi-agent proximal policy optimization (MAPPO) to dynamically adjust signal timings based on real-time traffic data from [CityFlow](https://cityflow.readthedocs.io/en/latest/#) simulations, reducing congestion and improving traffic flow.",
         description: "Multi-agent reinforcement learning (MARL) framework designed and implemented to optimize traffic signal control in urban road networks. Focused on leveraging advanced algorithms like multi-agent proximal policy optimization (MAPPO) to dynamically adjust signal timings based on real-time traffic data, reducing congestion, minimizing vehicle delays, and increasing overall traffic throughput. System treats each intersection as independent agent capable of coordinating actions with neighboring agents while utilizing centralized training and decentralized execution. Implemented dynamic reward functions to encourage smooth traffic flow, integrated CityFlow simulation environments for large-scale testing, and used real-world datasets such as UC Irvine Traffic Flow Forecasting dataset for model evaluation. Implemented features such as detailed state representations and action spaces to manage signal phase configurations. Leveraged Ray's RLLib library to traing and tune model on training simulations and improve model. Model achieved significant improvements in metrics such as mean velocity, halting duration, and lane occupancy, demonstrating scalability and adaptability in complex traffic environments.",
         start_date: "September 2024",
         end_date: "December 2024",
@@ -183,7 +183,7 @@ export const projects = [
     {
         name: "Atlantis Datathon StrataScratch Exploratory Data Analysis",
         type: "Data Analysis",
-        brief: "Exploratory data analysis project focused on the Airbnb market in Dublin. Awarded 'Best Analysis of Airbnb Market in Dublin' at UC Irvine Datathon 2024.",
+        brief: "Exploratory data analysis project focused on the Airbnb market in Dublin. Awarded 'Best Analysis of Airbnb Market in Dublin' at [UC Irvine Datathon 2024](https://atlantis-datathon-2024.devpost.com/project-gallery).",
         description: "Awarded \" Best Analysis of Airbnb Market in Dublin [Sponsored by StrataScratch] \" Award at UC Irvine Datathon 2024. Conducted in-depth exploratory data analysis using StrataScratch datasets. Collaborated with team to visualize insights on market supply and demand, focusing on elevating Airbnb user experience for guests and hosts. Leveraged tools such as DeepNote, Alteryx Designer, and Python libraries including Pandas, NumPy, Matplotlib, Seaborn, and Scikit-learn to clean, analyze, and visualize data. Developed and tested decision tree classifier machine learning model that achieved 89.35% accuracy.",
         start_date: "April 2024",
         end_date: "April 2024",
@@ -210,7 +210,7 @@ export const projects = [
     {
         name: "Fashion-MNIST Machine Learning Classifier",
         type: "Machine Learning Model",
-        brief: "Web application for classifying Fashion-MNIST images using various machine learning models including Logistic Regression, K-Nearest Neighbors, Feedforward Neural Network, and Convolutional Neural Network. Built with Python and Streamlit.",
+        brief: "Web application for classifying [Fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist) images using various machine learning models including Logistic Regression, K-Nearest Neighbors, Feedforward Neural Network, and Convolutional Neural Network. Built with Python and Streamlit.",
         description: "Web application developed using Python and TensorFlow/Keras that classifies images from the Fashion-MNIST dataset into one of ten categories (e.g., T-shirt, Trouser, Pullover, Dress, Coat, Sandal, Shirt, Sneaker, Bag, Ankle Boot). The model is trained on a dataset of 70,000 images of various items of clothing. Users can upload grayscale 28x28 images to receive predictions from several employed Scikit-learn machine learning models including Logistic Regression, K-Nearest Neighbors, Feedforward Neural Network, and Convolutional Neural Network. The application also supports evaluation on the test set with detailed visualizations.",
         start_date: "February 2024",
         end_date: "March 2024",
@@ -257,7 +257,7 @@ export const projects = [
     {
         name: "Netflix Viewing Activity Analysis",
         type: "Data Analysis",
-        brief: "Web application for analyzing and visualizing Netflix viewing history. Provides insights into user viewing patterns based on frequency, duration, and location. Built with Python and Streamlit.",
+        brief: "Web application for analyzing and visualizing [Netflix](https://www.netflix.com/) viewing history. Provides insights into user viewing patterns based on frequency, duration, and location. Built with Python and Streamlit.",
         description: "Web application designed and developed using Python libraries to process and analyze Netflix viewing history, deployed with Streamlit. Generates visualizations and insights regarding user viewing patterns based on frequency, duration, and location, providing a comprehensive overview of user behavior. Features include data cleaning, transformation, and interactive visualizations such as bar charts, pie charts, and line graphs to illustrate trends. Users can upload their own viewing history data to explore personalized insights.",
         start_date: "March 2023",
         end_date: "February 2024",

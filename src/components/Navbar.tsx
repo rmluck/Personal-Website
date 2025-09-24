@@ -151,6 +151,7 @@ export default function Navbar() {
                                     href={item.href}
                                     scroll={true}
                                     className={`relative transition-colors
+                                    cursor-hover cursor-none
                                     after:absolute
                                     after:left-0 after:-bottom-0.5
                                     after:h-[2px] after:w-0
@@ -166,7 +167,7 @@ export default function Navbar() {
                     </ul>
 
                     {/* Navigation Menu Button */}
-                    <button onClick={() => setNavMenuOpen(true)} className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1 cursor-pointer group relative z-50" aria-label="Open menu">
+                    <button onClick={() => setNavMenuOpen(true)} className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1 group relative z-50 cursor-hover cursor-none" aria-label="Open menu">
                         <span className={`block w-6 h-[2px] bg-pro900 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "rotate-45 translate-y-2 bg-accent" : ""}`}></span>
                         <span className={`block w-6 h-[2px] bg-pro900 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "opacity-0" : ""}`}></span>
                         <span className={`block w-6 h-[2px] bg-pro900 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "-rotate-45 -translate-y-2 bg-accent" : ""}`}></span>
@@ -182,7 +183,7 @@ export default function Navbar() {
                 <div className="flex justify-end p-6">
                     <button onClick={() => setNavMenuOpen(false)} className="text-pro900 hover:text-accent font-bold text-2xl cursor-pointer transform hover:-translate-y-1 transition-transform duration-200">✕</button>
                 </div>
-                <ul className="flex flex-col mt-8 ml-6 space-y-6 text-lg font-medium font-text">
+                <ul className="flex flex-col mt-8 ml-6 space-y-6 text-lg font-medium font-regular">
                     {navItems.map((item) => (
                         <li key={item.href}>
                             <Link href={item.href} scroll onClick={() => setNavMenuOpen(false)} className=
@@ -193,13 +194,14 @@ export default function Navbar() {
                                     after:bg-accent after:transition-all
                                     hover:text-accent
                                     hover:after:w-full
-                                    ${activeSection === item.href.slice(1) ? "text-accent" : "text-pro900"}`}>
+                                    cursor-hover cursor-none
+                                    ${activeSection === item.href.slice(1) ? "text-accent font-bold" : "text-pro900"}`}>
                                 {item.label}
                             </Link>
                         </li>
                     ))}
                 </ul>
-            </div>            
+            </div>
         </>
     );
 }

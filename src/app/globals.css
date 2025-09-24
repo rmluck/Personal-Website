@@ -46,11 +46,18 @@
 
 html {
   scroll-behavior: smooth;
+  cursor: none;
+  /* scroll-snap-type: y mandatory; */
 }
 
 body {
   font-family: var(--font-text);
+  /* scroll-snap-type: y mandatory; */
 }
+
+/* section {
+  scroll-snap-align: start;
+} */
 
 .blink {
   animation: blink-animation 1s infinite;

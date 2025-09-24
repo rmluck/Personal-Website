@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
+import Cursor from "@/components/Cursor";
 import "./globals.css";
 // import VantaBackground from "./vanta-background";
 
@@ -49,6 +50,7 @@ export default function RootLayout({
         id="background"
       >
         {/* <VantaBackground /> */}
+        <Cursor />
         {children}
       </body>
     </html>
