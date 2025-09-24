@@ -8,7 +8,7 @@ export default function EmailSidebar() {
             >
                 <span className="inline-block transform rotate-90 font-text text-xs">rohandm99@yahoo.com</span>
             </a>
-            <div className="w-px h-40 bg-pro600 mt-20"></div>
+            <div className="w-px h-40 bg-pro600 mt-15"></div>
         </div>
     );
 }

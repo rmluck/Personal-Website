@@ -47,13 +47,8 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen ">
-      {/* Navigation Bar */}
-      <Navbar />
+    <div className="flex flex-col min-h-screen">
 
-      {/* Sidebars */}
-      <SocialSidebar />
-      <EmailSidebar />
 
       {/* Main Content */}
       <main className="flex-1">

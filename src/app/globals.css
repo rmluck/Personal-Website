@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --pro100: #FFFFFF;
   --pro200: #F0F0F0;

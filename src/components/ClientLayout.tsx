@@ -2,6 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Cursor from "@/components/Cursor";
+import ThemeToggle from "@/components/ThemeToggle";
+import Navbar from "@/components/Navbar";
+import SocialSidebar from "@/components/SocialSidebar";
+import EmailSidebar from "@/components/EmailSidebar";
 import Loading from "@/components/Loading";
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
@@ -15,6 +19,10 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   return (
     <>
       <Cursor />
+      <ThemeToggle />
+      <Navbar />
+      <SocialSidebar />
+      <EmailSidebar />
       {loading ? <Loading /> : children}
     </>
   )
