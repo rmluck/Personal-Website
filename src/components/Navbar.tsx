@@ -138,10 +138,10 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="fixed top-0 left-0 z-50 w-full bg-gradient-to-br from-[var(--color-pro200)]/80 to-[var(--color-pro300)]/70 backdrop-blur-md shadow-md font-regular">
+            <nav className="fixed top-0 left-0 z-50 w-full bg-pro200 dark:bg-pro850  dark:border-pro100 backdrop-blur-md shadow-2xl font-regular">
                 <div className="flex items-center justify-between px-6 py-3">
                     {/* Logo Placeholder */}
-                    <div className="font-bold text-xl">LOGO</div>
+                    <div className="font-bold text-xl text-pro900 dark:text-pro100">LOGO</div>
 
                     {/* Navigation Links */}
                     <ul className="hidden md:flex space-x-6 text-sm">
@@ -158,7 +158,7 @@ export default function Navbar() {
                                     after:bg-accent after:transition-all
                                     hover:text-accent
                                     hover:after:w-full
-                                    ${activeSection === item.href.slice(1) ? "text-accent font-bold" : "text-pro900"}`}
+                                    ${activeSection === item.href.slice(1) ? "text-accent font-bold" : "text-pro900 dark:text-pro100"}`}
                                 >
                                     {item.label}
                                 </Link>
@@ -168,20 +168,20 @@ export default function Navbar() {
 
                     {/* Navigation Menu Button */}
                     <button onClick={() => setNavMenuOpen(true)} className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1 group relative z-50 cursor-hover cursor-none" aria-label="Open menu">
-                        <span className={`block w-6 h-[2px] bg-pro900 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "rotate-45 translate-y-2 bg-accent" : ""}`}></span>
-                        <span className={`block w-6 h-[2px] bg-pro900 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "opacity-0" : ""}`}></span>
-                        <span className={`block w-6 h-[2px] bg-pro900 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "-rotate-45 -translate-y-2 bg-accent" : ""}`}></span>
+                        <span className={`block w-6 h-[2px] bg-pro900 dark:bg-pro100 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "rotate-45 translate-y-2 bg-accent" : ""}`}></span>
+                        <span className={`block w-6 h-[2px] bg-pro900 dark:bg-pro100 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "opacity-0" : ""}`}></span>
+                        <span className={`block w-6 h-[2px] bg-pro900 dark:bg-pro100 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "-rotate-45 -translate-y-2 bg-accent" : ""}`}></span>
                     </button>
                 </div>
             </nav>
 
             {/* Navigation Panel */}
             {navMenuOpen && (
-                <div onClick={() => setNavMenuOpen(false)} className={`fixed inset-0 z-50 bg-pro900/20 backdrop-blur-sm transition-opacity duration-500 ${navMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}></div>
+                <div onClick={() => setNavMenuOpen(false)} className={`fixed inset-0 z-50 bg-pro900/20 dark:bg-pro100/20 backdrop-blur-sm transition-opacity duration-500 ${navMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}></div>
             )}
-            <div className={`fixed top-0 right-0 h-full w-64 bg-pro200/95 backdrop-blur-md shadow-lg transform transition-transform duration-300 z-50 ${navMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
+            <div className={`fixed top-0 right-0 h-full w-64 bg-pro200/95 dark:bg-pro850/95 backdrop-blur-md shadow-lg transform transition-transform duration-300 z-50 ${navMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
                 <div className="flex justify-end p-6">
-                    <button onClick={() => setNavMenuOpen(false)} className="text-pro900 hover:text-accent font-bold text-2xl cursor-pointer transform hover:-translate-y-1 transition-transform duration-200">✕</button>
+                    <button onClick={() => setNavMenuOpen(false)} className="text-pro900 dark:text-pro100 hover:text-accent font-bold text-2xl cursor-pointer transform hover:-translate-y-1 transition-transform duration-200">✕</button>
                 </div>
                 <ul className="flex flex-col mt-8 ml-6 space-y-6 text-lg font-medium font-regular">
                     {navItems.map((item) => (
@@ -195,7 +195,7 @@ export default function Navbar() {
                                     hover:text-accent
                                     hover:after:w-full
                                     cursor-hover cursor-none
-                                    ${activeSection === item.href.slice(1) ? "text-accent font-bold" : "text-pro900"}`}>
+                                    ${activeSection === item.href.slice(1) ? "text-accent font-bold" : "text-pro900 dark:text-pro100"}`}>
                                 {item.label}
                             </Link>
                         </li>

@@ -34,13 +34,13 @@ export default function ThemeToggle() {
     return (
         <button
             onClick={toggleTheme}
-            className="fixed bottom-5 right-5 w-12 h-12 rounded-full bg-pro200 dark:bg-pro800 flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-hover cursor-none clickable z-40"
+            className="fixed bottom-5 right-5 w-12 h-12 rounded-full bg-pro800 dark:bg-pro200 flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-hover cursor-none clickable z-40 group"
         >
             <AnimatePresence mode="wait">
                 {theme === "light" ? (
                     <motion.svg
                         key="moon"
-                        className="w-6 h-6 text-accent"
+                        className="w-6 h-6 text-pro200 group-hover:text-accent"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -57,7 +57,7 @@ export default function ThemeToggle() {
                 ) : (
                     <motion.svg
                         key="sun"
-                        className="w-6 h-6 text-accent"
+                        className="w-6 h-6 text-pro800 group-hover:text-accent"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"

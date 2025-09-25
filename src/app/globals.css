@@ -11,6 +11,7 @@
   --pro600: #707070;
   --pro700: #666666;
   --pro800: #333333;
+  --pro850: #1A1A1A;
   --pro900: #000000;
   /* --accent: #3B82F6; */
   --accent: #10B981;
@@ -28,6 +29,7 @@
   --color-pro600: var(--pro600);
   --color-pro700: var(--pro700);
   --color-pro800: var(--pro800);
+  --color-pro850: var(--pro850);
   --color-pro900: var(--pro900);
   --color-accent: var(--accent);
 
@@ -47,13 +49,11 @@
 }
 
 html {
-  scroll-behavior: smooth;
-  cursor: none;
   /* scroll-snap-type: y mandatory; */
 }
 
 body {
-  font-family: var(--font-text);
+  /* font-family: var(--font-text); */
   /* scroll-snap-type: y mandatory; */
 }
 
@@ -119,11 +119,20 @@ body {
   color: var(--color-pro100);
 }
 
-.filter-bw-black {
+.filter-bw {
   filter: grayscale(100%) contrast(1000%) brightness(0%);
   transition: filter 0.3s ease;
 }
 
-.filter-bw-black:hover {
+.filter-bw:hover {
   filter: grayscale(0%) contrast(100%) brightness(100%);
+}
+
+.dark .filter-bw {
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+.dark .filter-bw:hover {
+  filter: brightness(100%) invert(0);
 }

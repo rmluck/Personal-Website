@@ -23,7 +23,7 @@ export default function ExperienceItem({
         <div className="relative flex items-start group/job">
             {/* Company Logo */}
             <div className="group/logo">
-                <div className="relative flex-shrink-0 w-20 h-20 border-3 border-accent rounded-full flex items-center justify-center group-hover:bg-pro100 transition-colors duration-500 overflow-hidden shadow-md bg-pro200 cursor-hover cursor-none">
+                <div className="relative flex-shrink-0 w-20 h-20 border-3 border-accent rounded-full flex items-center justify-center group-hover:bg-pro100 dark:group-hover:bg-pro900 transition-colors duration-500 overflow-hidden shadow-md bg-pro200 cursor-hover cursor-none">
                     <Image
                         src={logo}
                         alt={company}
@@ -36,10 +36,10 @@ export default function ExperienceItem({
             </div>
 
             {/* Content */}
-            <div className="ml-8 flex flex-col border border-pro800 rounded-md shadow-md p-4 w-full transition-all duration-500">
-                <h3 className="text-lg font-semibold font-regular text-pro900">
+            <div className="ml-8 flex flex-col border border-pro800 dark:border-pro300 rounded-md shadow-md p-4 w-full transition-all duration-500">
+                <h3 className="text-lg font-semibold font-regular text-pro900 dark:text-pro200">
                     <span>{role}</span>
-                    <span className="text-pro800">
+                    <span className="text-pro800 dark:text-pro300">
                         &nbsp;@&nbsp;
                         <a
                             href={link}
@@ -51,11 +51,11 @@ export default function ExperienceItem({
                         </a>
                     </span>
                 </h3>
-                <span className="text-sm font-normal font-regular text-pro800">
+                <span className="text-sm font-normal font-regular text-pro800 dark:text-pro300">
                     {start_date} - {end_date}
                 </span>
 
-                <ul className="text-xs group-hover/job:mt-2 font-text text-pro700 opacity-0 max-h-0 overflow-hidden transition-all duration-500 group-hover/job:opacity-100 group-hover/job:max-h-96 space-y-1 leading-relaxed">
+                <ul className="text-xs group-hover/job:mt-2 font-text text-pro700 dark:text-pro400 opacity-0 max-h-0 overflow-hidden transition-all duration-500 group-hover/job:opacity-100 group-hover/job:max-h-96 space-y-1 leading-relaxed">
                     {description.map((item, i) => (
                         <li key={i} className="notes-item relative pl-4">{item}</li>
                     ))}

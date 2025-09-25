@@ -25,7 +25,7 @@ export const projects = [
     {
         name: "NASA Media Explorer",
         type: "Web Application",
-        brief: "Search engine application that allows users to explore [NASA's public image and video library](https://images.nasa.gov). Built with Python.",
+        brief: "Search engine application with interactive features that allows users to explore [NASA's image and video library](https://images.nasa.gov). Built with Python.",
         description: "Search engine application that allows users to explore NASA's public image and video library. Data crawling and indexing implemented with Python. Natural language search functionality enables users to find media by entering descriptive queries. Dynamic interface offers interactive grid layout, infinite scrolling, and advanced filtering options to refine search results for seamless media discovery.",
         start_date: "August 2025",
         end_date: "August 2025",

@@ -21,7 +21,7 @@ export default function ScrollHint() {
   if (!showScrollHint) return null;
 
   return (
-    <div className={`fixed bottom-6 left-1/2 -translate-x-1/2 text-pro600 text-center z-50 transition-opacity ${isVisible ? "opacity-100" : "opacity-0"} hover:text-accent 
+    <div className={`fixed bottom-6 left-1/2 -translate-x-1/2 text-pro600 dark:text-pro400 text-center z-50 transition-opacity ${isVisible ? "opacity-100" : "opacity-0"} hover:text-accent 
     transform hover:-translate-y-1 transition-transform duration-200 ease-out
     cursor-hover cursor-none`}>
         <p className="text-xm tracking-widest uppercase">Scroll</p>

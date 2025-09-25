@@ -1,9 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Navbar from "@/components/Navbar";
-import SocialSidebar from "@/components/SocialSidebar";
-import EmailSidebar from "@/components/EmailSidebar";
 import Section from "@/components/Section";
 import ScrollHint from "@/components/ScrollHint";
 import Footer from "@/components/Footer";
@@ -48,16 +45,14 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-
-
       {/* Main Content */}
       <main className="flex-1">
         {/* Page Header */}
         <section id="home" className="flex items-center justify-center min-h-[calc(90vh)] px-6 sm:px-12 py-16 m-24 mt-0">
           <div className="max-w-6xl">
             <p className="p-1 pb-2 text-md text-accent font-text">Hi, my name is</p>
-            <h1 className="p-1 text-7xl text-pro900 font-heading font-bold shadow-[inset_0_-0.4em_var(--color-pro500)]">ROHAN MISTRY<span className="blink">_</span></h1>
-            <h2 className="p-1 pt-5 text-4xl text-pro800 font-regular font-bold">Aspiring Software Engineer</h2>
+            <h1 className="p-1 text-7xl text-pro900 dark:text-pro200 font-heading font-bold shadow-[inset_0_-0.4em_var(--color-pro500)]">ROHAN MISTRY<span className="blink">_</span></h1>
+            <h2 className="p-1 pt-5 text-4xl text-pro800 dark:text-pro300 font-regular font-bold">Aspiring Software Engineer</h2>
           </div>
         </section>
 
@@ -65,18 +60,18 @@ export default function Home() {
 
         {/* About Section */}
         <Section>
-          <section id="about" className="flex items-center justify-center px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-border outline-2 shadow-lg">
+          <section id="about" className="flex items-center justify-center px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg border-2 border-pro900 dark:border-pro200 shadow-lg">
             <div className="grid grid-cols-1 min-[950px]:grid-cols-[2fr_1fr] gap-6 items-center max-w-6xl mx-auto">
               {/* Left Column */}
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
-                  <h2 className="text-5xl text-pro900 font-heading font-bold whitespace-nowrap">
+                  <h2 className="text-5xl text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap">
                     ABOUT ME
                   </h2>
-                  <div className="flex-1 h-px bg-pro600"></div>
+                  <div className="flex-1 h-px bg-pro600 dark:bg-pro400"></div>
                 </div>
-                <p className="text-sm text-pro800 font-text">
-                  Graduated from the <a href="https://www.ics.uci.edu/" target="_blank" rel="noopener noreferrer" className="text-pro900 font-semibold relative transition-all hover:text-accent after:absolute after:left-0 after:-bottom-0.25 after:h-[1px] after:w-0 after:bg-accent after:transition-all hover:after:w-full cursor-hover cursor-none">Donald Bren School of Information and Computer Sciences</a> at <a href="https://www.uci.edu/" target="_blank" rel="noopener noreferrer" className="text-pro900 font-semibold relative transition-all hover:text-accent after:absolute after:left-0 after:-bottom-0.25 after:h-[1px] after:w-0 after:bg-accent after:transition-all hover:after:w-full cursor-hover cursor-none">University of California, Irvine</a> with a B.S. in Computer Science and specialization in Intelligent Systems. I am passionate about leveraging software development, data analysis, and intelligent systems to solve complex problems.<br /><br />Experienced in full-stack development, artificial intelligence, machine learning, information retrieval, data visualization, and backend data integration through internships, research projects, and academic coursework, with success in creating web applications, data analysis tools, and high-performance search engines.<br /><br />Strong analytical, programming, communication, and leadership skills with a collaborative mindset and proactive learning approach. Eager to tackle new challenges and collaborate in professional settings.
+                <p className="text-sm text-pro800 dark:text-pro300 font-text">
+                  Graduated from the <a href="https://www.ics.uci.edu/" target="_blank" rel="noopener noreferrer" className="text-pro900 dark:text-pro200 font-semibold relative transition-all hover:text-accent after:absolute after:left-0 after:-bottom-0.25 after:h-[1px] after:w-0 after:bg-accent after:transition-all hover:after:w-full cursor-hover cursor-none">Donald Bren School of Information and Computer Sciences</a> at <a href="https://www.uci.edu/" target="_blank" rel="noopener noreferrer" className="text-pro900 dark:text-pro200 font-semibold relative transition-all hover:text-accent after:absolute after:left-0 after:-bottom-0.25 after:h-[1px] after:w-0 after:bg-accent after:transition-all hover:after:w-full cursor-hover cursor-none">University of California, Irvine</a> with a B.S. in Computer Science and specialization in Intelligent Systems. I am passionate about leveraging software development, data analysis, and intelligent systems to solve complex problems.<br /><br />Experienced in full-stack development, artificial intelligence, machine learning, information retrieval, data visualization, and backend data integration through internships, research projects, and academic coursework, with success in creating web applications, data analysis tools, and high-performance search engines.<br /><br />Strong analytical, programming, communication, and leadership skills with a collaborative mindset and proactive learning approach. Eager to tackle new challenges and collaborate in professional settings.
                 </p>
 
                 {/* Buttons */}
@@ -112,12 +107,12 @@ export default function Home() {
 
         {/* Projects Section */}
         <Section>
-          <section id="projects" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-2 outline-pro900 shadow-lg">
+          <section id="projects" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg border-2 border-pro900 dark:border-pro200 shadow-lg">
             <div className="flex items-center space-x-4 mb-8">
-              <h2 className="text-4xl text-center text-pro900 font-heading font-bold whitespace-nowrap">
+              <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap">
                 PROJECTS
               </h2>
-              <div className="flex-1 h-px bg-pro600"></div>
+              <div className="flex-1 h-px bg-pro600 dark:bg-pro400"></div>
             </div>
 
             {/* Projects Grid */}
@@ -142,10 +137,10 @@ export default function Home() {
 
         {/* Experience Section */}
         <Section>
-          <section id="experience" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-pro900 outline-2 shadow-lg">
+          <section id="experience" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg border-2 border-pro900 dark:border-pro200 shadow-lg">
             <div className="flex items-center space-x-4 mb-8">
-              <div className="flex-1 h-px bg-pro600"></div>
-              <h2 className="text-4xl text-center text-pro900 font-heading font-bold whitespace-nowrap">
+              <div className="flex-1 h-px bg-pro600 dark:bg-pro400"></div>
+              <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap">
                 EXPERIENCE
               </h2>
             </div>
@@ -157,7 +152,7 @@ export default function Home() {
               whileInView="show"
               viewport={{ once: true, amount: 0.2 }}
             >
-              <div className="absolute left-10 top-0 bottom-0 w-px bg-pro600"></div>
+              <div className="absolute left-10 top-0 bottom-0 w-px bg-pro600 dark:bg-pro400"></div>
               {experience.map((exp, index) => (
                 <motion.div key={index} variants={item}>
                   <ExperienceItem {...exp} />
@@ -169,12 +164,12 @@ export default function Home() {
 
         {/* Education Section */}
         <Section>
-          <section id="education" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-2 outline-pro900 shadow-lg">
+          <section id="education" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg border-2 border-pro900 dark:border-pro200 shadow-lg">
             <div className="flex items-center space-x-4 mb-8">
-              <h2 className="text-4xl text-center text-pro900 font-heading font-bold whitespace-nowrap">
+              <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap">
                 EDUCATION
               </h2>
-              <div className="flex-1 h-px bg-pro600"></div>
+              <div className="flex-1 h-px bg-pro600 dark:bg-pro400"></div>
             </div>
             
             <motion.div
@@ -195,10 +190,10 @@ export default function Home() {
 
         {/* Skills Section */}
         <Section>
-          <section id="skills" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-pro900 outline-2 shadow-lg">
+          <section id="skills" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg border border-pro900 dark:border-pro200 shadow-lg">
             <div className="flex items-center space-x-4 mb-8">
-              <div className="flex-1 h-px bg-pro600"></div>
-              <h2 className="text-4xl text-center text-pro900 font-heading font-bold whitespace-nowrap">
+              <div className="flex-1 h-px bg-pro600 dark:bg-pro400"></div>
+              <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap">
                 SKILLS
               </h2>
             </div>
@@ -214,15 +209,15 @@ export default function Home() {
 
         {/* Contact Section */}
         <Section>
-          <section id="contact" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg outline-pro900 outline-2 shadow-lg">
-            <div className="max-w-2xl mx-auto bg-pro100 border border-pro800 rounded-lg shadow-lg p-8">
+          <section id="contact" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg border-2 border-pro900 dark:border-pro200 shadow-lg">
+            <div className="max-w-2xl mx-auto bg-pro100 dark:bg-pro850 border border-pro800 dark:border-pro300 rounded-lg shadow-lg p-8">
               <div className="flex items-center space-x-4 mb-8">
-                <h2 className="text-4xl text-center text-pro900 font-heading font-bold whitespace-nowrap">
+                <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap">
                   CONTACT
                 </h2>
-                <div className="flex-1 h-px bg-pro600"></div>
+                <div className="flex-1 h-px bg-pro600 dark:bg-pro400"></div>
               </div>
-              <p className="text-center mb-6 text-pro800 font-text text-sm">
+              <p className="text-center mb-6 text-pro800 dark:text-pro300 font-text text-sm">
                 Have a question or want to work together? Fill out the form below and I'll get back to you!
               </p>
               <form
@@ -232,25 +227,25 @@ export default function Home() {
               >
                 {/* Name */}
                 <div>
-                  <label htmlFor="name" className="block text-left text-sm font-regular text-pro900 mb-1">Name</label>
-                  <input type="text" name="name" id="name" required className="w-full px-4 py-2 border border-pro700 rounded-md shadow-sm text-sm font-text text-pro800 focus:outline-none focus:ring-2 focus:ring-accent transition cursor-hover cursor-none" />
+                  <label htmlFor="name" className="block text-left text-sm font-regular text-pro900 dark:text-pro200 mb-1">Name</label>
+                  <input type="text" name="name" id="name" required className="w-full px-4 py-2 border border-pro700 dark:border-pro400 rounded-md shadow-sm text-sm font-text text-pro800 dark:text-pro300 focus:outline-none focus:ring-2 focus:ring-accent transition cursor-hover cursor-none" />
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label htmlFor="email" className="block text-left text-sm font-regular text-pro900 mb-1">Email</label>
-                  <input type="email" name="_replyto" id="email" required className="w-full px-4 py-2 border border-pro700 rounded-md shadow-sm text-sm font-text text-pro800 focus:outline-none focus:ring-2 focus:ring-accent transition cursor-hover cursor-none" />
+                  <label htmlFor="email" className="block text-left text-sm font-regular text-pro900 dark:text-pro200 mb-1">Email</label>
+                  <input type="email" name="_replyto" id="email" required className="w-full px-4 py-2 border border-pro700 dark:border-pro400 rounded-md shadow-sm text-sm font-text text-pro800 dark:text-pro300 focus:outline-none focus:ring-2 focus:ring-accent transition cursor-hover cursor-none" />
                 </div>
                 
                 {/* Message */}
                 <div>
-                  <label htmlFor="message" className="block text-left text-sm font-regular text-pro900 mb-1">Message</label>
-                  <textarea name="message" id="message" rows={5} required className="w-full px-4 py-2 border border-pro700 rounded-md shadow-sm text-sm font-text text-pro800 focus:outline-none focus:ring-2 focus:ring-accent transition cursor-hover cursor-none" />
+                  <label htmlFor="message" className="block text-left text-sm font-regular text-pro900 dark:text-pro200 mb-1">Message</label>
+                  <textarea name="message" id="message" rows={5} required className="w-full px-4 py-2 border border-pro700 dark:border-pro400 rounded-md shadow-sm text-sm font-text text-pro800 dark:text-pro300 focus:outline-none focus:ring-2 focus:ring-accent transition cursor-hover cursor-none" />
                 </div>
 
                 {/* Submit Button */}
                 <div className="text-right">
-                  <button type="submit" className="px-6 py-3 rounded-xl shadow-md  border border-accent font-medium font-regular text-accent transition-all transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[4px_4px_0px_0px_var(--color-accent)] duration-300 cursor-hover cursor-none clickable">Submit</button>
+                  <button type="submit" className="px-6 py-3 rounded-xl shadow-md border border-accent font-medium font-regular text-accent transition-all transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[4px_4px_0px_0px_var(--color-accent)] duration-300 cursor-hover cursor-none clickable">Submit</button>
                 </div>
               </form>
             </div>

@@ -10,7 +10,7 @@ export default function SocialSidebar() {
                         aria-label="GitHub"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block text-pro600 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                        className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
                     >
                         <Github className="h-5 w-5" />
                     </a>
@@ -21,7 +21,7 @@ export default function SocialSidebar() {
                         aria-label="LinkedIn"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block text-pro600 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                        className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
                     >
                         <Linkedin className="h-5 w-5" />
                     </a>
@@ -32,13 +32,13 @@ export default function SocialSidebar() {
                         aria-label="Instagram"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block text-pro600 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                        className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
                     >
                         <Instagram className="h-5 w-5" />
                     </a>
                 </li>
             </ul>
-            <div className="w-px h-40 bg-pro600"></div>
+            <div className="w-px h-40 bg-pro600 dark:bg-pro400"></div>
         </div>
     );
 }

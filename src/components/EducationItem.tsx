@@ -34,7 +34,7 @@ export default function EducationItem({
     function renderDetails(content: NestedDetails) {
         if (Array.isArray(content)) {
             return (
-                <ul className="text-pro700 font-text text-xs space-y-1">
+                <ul className="text-pro700 dark:text-pro400 font-text text-xs space-y-1">
                     {content.map((item, i) => (
                         <li key={i} className="bullet-list-item">{item}</li>
                     ))}
@@ -44,14 +44,14 @@ export default function EducationItem({
 
         return Object.entries(content).map(([subheading, items], i) => (
             <div key={i} className="mb-4">
-                <h4 className="text-pro900 font-semibold text-sm mb-1">{subheading}</h4>
+                <h4 className="text-pro900 dark:text-pro200 font-semibold text-sm mb-1">{subheading}</h4>
                 {renderDetails(items)}
             </div>
         ));
     }
 
     return (
-        <div className="border border-pro800 rounded-md shadow-md p-6 w-full group/school transition-all duration-500">
+        <div className="border border-pro800 dark:border-pro300 rounded-md shadow-md p-6 w-full group/school transition-all duration-500">
             {/* School Information */}
             <div className="flex items-center gap-6">
                 {logo && (
@@ -70,7 +70,7 @@ export default function EducationItem({
                     </div>
                 )}
                 <div>
-                    <h3 className="text-2xl font-bold font-regular text-pro900">
+                    <h3 className="text-2xl font-bold font-regular text-pro900 dark:text-pro200">
                         <a
                             href={link}
                             target="_blank"
@@ -80,13 +80,13 @@ export default function EducationItem({
                             {school}
                         </a>
                     </h3>
-                    {degree && <p className="text-lg font-bold font-regular text-pro800">{degree} {specialization && ` - ${specialization}`}</p>}
+                    {degree && <p className="text-lg font-bold font-regular text-pro800 dark:text-pro300">{degree} {specialization && ` - ${specialization}`}</p>}
                     {(start_date || end_date) && (
-                        <span className="text-sm font-regular text-pro800">
+                        <span className="text-sm font-regular text-pro800 dark:text-pro300">
                             {start_date} - {end_date}
                         </span>
                     )}
-                    {gpa && <p className="text-sm font-regular text-pro700">GPA: {gpa}</p>}
+                    {gpa && <p className="text-sm font-regular text-pro700 dark:text-pro400">GPA: {gpa}</p>}
                 </div>
             </div>
 
@@ -107,7 +107,7 @@ export default function EducationItem({
                                 <button
                                     key={key}
                                     onClick={() => setActiveTab(key)}
-                                    className={`px-4 py-2 text-sm text-left border-l-3 border-pro300 transition-colors duration-200 cursor-none ${activeTab === key ? "text-accent bg-pro200" : "text-pro800 hover:bg-pro200 hover:text-accent cursor-hover"}`}
+                                    className={`px-4 py-2 text-sm text-left font-text border-l-3 border-pro300 dark:border-pro800 transition-colors duration-200 cursor-none ${activeTab === key ? "text-accent bg-pro200 dark:bg-pro800" : "text-pro800 dark:text-pro300 hover:bg-pro200 dark:hover:bg-pro800 hover:text-accent cursor-hover"}`}
                                 >
                                     {key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
                                 </button>

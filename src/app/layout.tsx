@@ -34,7 +34,7 @@ const interRegular = Inter({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth cursor-none bg-pro100 dark:bg-pro850">
       <head>
         <title>Rohan Mistry</title>
       </head>

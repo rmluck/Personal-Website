@@ -55,7 +55,7 @@ export default function ProjectCard({
                 <p className="text-sm text-accent font-text tracking-wider mb-2">
                     {type}
                 </p>
-                <h3 className="text-2xl font-heading font-bold text-pro900 mb-1">
+                <h3 className="text-2xl font-heading font-bold text-pro900 dark:text-pro200 mb-1">
                     <a
                         href={links[0]?.url || "#"}
                         target="_blank"
@@ -66,22 +66,22 @@ export default function ProjectCard({
                     </a>
                 </h3>
                 {(start_date || end_date) && (start_date != end_date && (
-                    <span className="text-sm font-regular text-pro800 mb-3">
+                    <span className="text-sm font-regular text-pro800 dark:text-pro300 mb-3">
                         {start_date} - {end_date}
                     </span>
                 )) || (start_date == end_date && (
-                    <span className="text-sm font-regular text-pro800 mb-3">
+                    <span className="text-sm font-regular text-pro800 dark:text-pro300 mb-3">
                         {start_date}
                     </span>
                 ))}
 
-                <div className={`relative z-10 bg-pro200/80 rounded-sm p-4 shadow-sm mb-4 text-pro800 font-text text-sm ${side === "left" ? "lg:-ml-20" : "lg:-mr-20"} backdrop-blur-md`}>
+                <div className={`relative z-10 bg-pro200/80 dark:bg-pro800/50 rounded-sm p-4 shadow-sm mb-4 text-pro800 dark:text-pro300 font-text text-sm ${side === "left" ? "lg:-ml-20" : "lg:-mr-20"} backdrop-blur-md`}>
                     <ReactMarkdown
                         components={{
                             a: ({ node, ...props }) => (
                                 <a 
                                     {...props}
-                                    className="text-pro900 font-semibold relative transition-all hover:text-accent after:absolute after:left-0 after:-bottom-0.25 after:h-[1px] after:w-0 after:bg-accent after:transition-all hover:after:w-full cursor-hover cursor-none"
+                                    className="text-pro900 dark:text-pro200 font-semibold relative transition-all hover:text-accent after:absolute after:left-0 after:-bottom-0.25 after:h-[1px] after:w-0 after:bg-accent after:transition-all hover:after:w-full cursor-hover cursor-none"
                                 />
                             )
                         }}
@@ -94,7 +94,7 @@ export default function ProjectCard({
                     {Object.values(skills).flat().map((skill) => {
                         return (
                             <div key={skill} className="flex flex-wrap gap-2 items-center">
-                                <span key={skill} className="text-pro800 border border-pro300 text-[10px] px-2 py-1 rounded-md hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-200 transition cursor-hover cursor-none clickable">{skill}</span>
+                                <span key={skill} className="text-pro800 dark:text-pro300 font-text border border-pro300 dark:border-pro800 text-[10px] px-2 py-1 rounded-md hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-200 transition cursor-hover cursor-none clickable">{skill}</span>
                             </div>
                         );
                     })}
@@ -108,7 +108,7 @@ export default function ProjectCard({
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={link.label}
-                            className="inline-block text-pro600 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                            className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
                         >
                             {getIcon(link.label)}
                         </a>
@@ -123,10 +123,10 @@ export default function ProjectCard({
                         src={image}
                         alt={name}
                         fill
-                        className="object-cover group-hover:scale-105 transition duration-500 opacity-50 group-hover:opacity-100 saturate-0 group-hover:saturate-100"
+                        className="object-cover group-hover:scale-105 transition duration-500 ease-out opacity-50 group-hover:opacity-100 saturate-0 group-hover:saturate-100"
                     />
                 </div>
-                <div className="absolute w-full h-64 lg:h-80 inset-0 rounded-lg shadow-md bg-accent opacity-70 mix-blend-color transition-opacity duration-500 ease-out group-hover:opacity-0"></div>
+                <div className="absolute w-full h-64 lg:h-80 inset-0 rounded-lg shadow-md bg-accent opacity-50 mix-blend-color transition duration-500 ease-out group-hover:opacity-0"></div>
             </div>
         </li>
         // <div className="bg-light-pbg rounded-2xl shadow-md overflow-hidden flex flex-col hover:shadow-lg transition">
