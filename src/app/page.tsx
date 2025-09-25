@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Section from "@/components/Section";
 import ScrollHint from "@/components/ScrollHint";
-import Footer from "@/components/Footer";
 import ProjectCard from "@/components/ProjectCard";
 import ExperienceItem from "@/components/ExperienceItem";
 import EducationItem from "@/components/EducationItem";
@@ -51,7 +50,7 @@ export default function Home() {
         <section id="home" className="flex items-center justify-center min-h-[calc(90vh)] px-6 sm:px-12 py-16 m-24 mt-0">
           <div className="max-w-6xl">
             <p className="p-1 pb-2 text-md text-accent font-text">Hi, my name is</p>
-            <h1 className="p-1 text-7xl text-pro900 dark:text-pro200 font-heading font-bold shadow-[inset_0_-0.4em_var(--color-pro500)]">ROHAN MISTRY<span className="blink">_</span></h1>
+            <h1 className="p-1 text-7xl text-pro900 dark:text-pro200 font-heading font-bold shadow-[inset_0_-0.4em_var(--color-accent)]">ROHAN MISTRY<span className="blink">_</span></h1>
             <h2 className="p-1 pt-5 text-4xl text-pro800 dark:text-pro300 font-regular font-bold">Aspiring Software Engineer</h2>
           </div>
         </section>
@@ -77,12 +76,12 @@ export default function Home() {
                 {/* Buttons */}
                 <div className="flex flex-wrap gap-4 mt-8">
                   <motion.div whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.95 }}>
-                    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-md shadow-md border border-accent font-medium font-regular text-accent transition-all  hover:shadow-[4px_4px_0px_0px_var(--color-accent)] duration-300 cursor-hover cursor-none clickable">
+                    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-md shadow-md border border-accent font-medium text-accent transition-all  hover:shadow-[4px_4px_0px_0px_var(--color-accent)] hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-300 cursor-hover cursor-none clickable">
                       Download Resume
                     </a>
                   </motion.div>
                   <motion.div whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.95 }}>
-                    <a href="/" target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-md shadow-md border border-accent font-medium font-regular text-accent transition-all hover:shadow-[4px_4px_0px_0px_var(--color-accent)] duration-300 cursor-hover cursor-none clickable">
+                    <a href="/" target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-md shadow-md border border-accent font-medium text-accent transition-all hover:shadow-[4px_4px_0px_0px_var(--color-accent)] hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-300 cursor-hover cursor-none clickable">
                       Learn More
                     </a>
                   </motion.div>
@@ -120,14 +119,14 @@ export default function Home() {
               {projects
                 .filter((p) => p.featured)
                 .map((project, i) => (
-                  <ProjectCard key={i} side={i % 2 === 0 ? "right" : "left"} {...project} />
+                  <ProjectCard key={project.name} side={i % 2 === 0 ? "right" : "left"} {...project} />
                 ))}
             </ul>
 
             {/* View All Projects Button */}
             <div className="flex justify-center mt-16">
               <motion.div whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.95 }}>
-                  <a href="/projects" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-xl shadow-md border border-accent font-medium font-regular text-accent transition-all transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[4px_4px_0px_0px_var(--color-accent)] duration-300 cursor-hover cursor-none clickable">
+                  <a href="/projects" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-xl shadow-md border border-accent font-medium text-accent transition-all transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[4px_4px_0px_0px_var(--color-accent)] hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-300 cursor-hover cursor-none clickable">
                     View All Projects
                   </a>
                 </motion.div>
@@ -245,16 +244,13 @@ export default function Home() {
 
                 {/* Submit Button */}
                 <div className="text-right">
-                  <button type="submit" className="px-6 py-3 rounded-xl shadow-md border border-accent font-medium font-regular text-accent transition-all transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[4px_4px_0px_0px_var(--color-accent)] duration-300 cursor-hover cursor-none clickable">Submit</button>
+                  <button type="submit" className="px-6 py-3 rounded-xl shadow-md border border-accent font-medium text-accent transition-all transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[4px_4px_0px_0px_var(--color-accent)] hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-300 cursor-hover cursor-none clickable">Submit</button>
                 </div>
               </form>
             </div>
           </section>
         </Section>
       </main>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 }

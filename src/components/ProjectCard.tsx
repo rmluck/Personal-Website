@@ -49,7 +49,7 @@ export default function ProjectCard({
     }
 
     return (
-        <li className={`relative flex flex-col lg:flex-row items-center lg:items-stretch gap-8 ${side === "left" ? "lg:flex-row-reverse" : ""}`}>
+        <li className={`relative flex flex-col items-center lg:items-stretch gap-8 ${side === "left" ? "lg:flex-row-reverse" : "lg:flex-row"}`}>
             {/* Project Content */}
             <div className={`lg:w-1/2 flex flex-col justify-center order-2 lg:order-1 ${side === "left" ? "text-right" : "text-left"}`}>
                 <p className="text-sm text-accent font-text tracking-wider mb-2">
@@ -60,7 +60,8 @@ export default function ProjectCard({
                         href={links[0]?.url || "#"}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-accent transition-colors relative after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full cursor-hover cursor-none"
+                        // className="hover:text-accent transition-colors relative after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full cursor-hover cursor-none"
+                        className="relative bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-300 hover:text-accent cursor-hover cursor-none"
                     >
                         {name}
                     </a>
@@ -81,8 +82,11 @@ export default function ProjectCard({
                             a: ({ node, ...props }) => (
                                 <a 
                                     {...props}
-                                    className="text-pro900 dark:text-pro200 font-semibold relative transition-all hover:text-accent after:absolute after:left-0 after:-bottom-0.25 after:h-[1px] after:w-0 after:bg-accent after:transition-all hover:after:w-full cursor-hover cursor-none"
-                                />
+                                    // className="inline-flex text-pro900 dark:text-pro200 font-semibold relative transition-all hover:text-accent after:absolute after:left-0 after:-bottom-0.25 after:h-[1px] after:w-0 after:bg-accent after:transition-all hover:after:w-full cursor-hover cursor-none"
+                                    className="text-pro900 dark:text-pro200 font-semibold relative bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-300 hover:text-accent cursor-hover cursor-none"
+                                >
+                                    {props.children}
+                                </a>
                             )
                         }}
                     >
@@ -91,19 +95,19 @@ export default function ProjectCard({
                 </div>
 
                 <div className={`flex flex-wrap gap-2 mb-5 ${side === "left" ? "justify-end" : "justify-start"}`}>
-                    {Object.values(skills).flat().map((skill) => {
+                    {Object.values(skills).flat().map((skill, i) => {
                         return (
-                            <div key={skill} className="flex flex-wrap gap-2 items-center">
-                                <span key={skill} className="text-pro800 dark:text-pro300 font-text border border-pro300 dark:border-pro800 text-[10px] px-2 py-1 rounded-md hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-200 transition cursor-hover cursor-none clickable">{skill}</span>
+                            <div key={`skill-${i}`} className="flex flex-wrap gap-2 items-center">
+                                <span className="text-pro800 dark:text-pro300 font-text border border-pro300 dark:border-pro800 text-[10px] px-2 py-1 rounded-md hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-200 transition cursor-hover cursor-none clickable">{skill}</span>
                             </div>
                         );
                     })}
                 </div>
 
                 <div className={`flex items-center gap-4 ${side === "left" ? "justify-end" : "justify-start"}`}>
-                    {links.map((link) => (
+                    {links.map((link, i) => (
                         <a
-                            key={link.url}
+                            key={`link-${i}`}
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
