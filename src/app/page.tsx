@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import GithubStats from "@/components/GithubStats";
 import Section from "@/components/Section";
 import ScrollHint from "@/components/ScrollHint";
 import ProjectCard from "@/components/ProjectCard";
@@ -100,7 +101,13 @@ export default function Home() {
                   />
                 </div>
               </div>
+              <div className="flex justify-center border-pro600 dark:border-pro400 border-2 rounded-md pt-6 mt-6 col-span-full gap-6 lg:gap-12">
+                <img src="https://github-readme-stats.vercel.app/api?username=rmluck&show_icons=true&hide=stars,prs,issues,contribs&commits_year=2025&theme=transparent&title_color=10B981&text_color=10B981&hide_border=true&icon_color=10B981&custom_title=Github%20Stats" />
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rmluck&langs_count=10&size_weight=0.5&count_weight=0.5&hide=jupyter%20notebook,mako,dockerfile&exclude_repo=Nano-GPT-Development,Microsoft_Intro-Machine-Learning-Course&theme=transparent&title_color=10B981&text_color=10B981&hide_border=true&icon_color=10B981&custom_title=Top%20Languages" />
+                <GithubStats />
+              </div>
             </div>
+            
           </section>
         </Section>
 

@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import ClientLayout from "@/components/ClientLayout";
 import "./globals.css";
+import { useEffect } from "react";
 // import VantaBackground from "./vanta-background";
 
 const geistBold = Geist({
