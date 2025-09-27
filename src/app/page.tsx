@@ -104,6 +104,7 @@ export default function Home() {
               <div className="p-6 mt-6 col-span-full overflow-x-auto w-full">
                 {/* <img src="https://github-readme-stats.vercel.app/api?username=rmluck&show_icons=true&hide=stars,prs,issues,contribs&commits_year=2025&theme=transparent&title_color=10B981&text_color=10B981&hide_border=true&icon_color=10B981&custom_title=Github%20Stats" /> */}
                 {/* <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rmluck&langs_count=10&size_weight=0.5&count_weight=0.5&hide=jupyter%20notebook,mako,dockerfile&exclude_repo=Nano-GPT-Development,Microsoft_Intro-Machine-Learning-Course&theme=transparent&title_color=10B981&text_color=10B981&hide_border=true&icon_color=10B981&custom_title=Top%20Languages" /> */}
+                <p className="text-center text-xl text-pro900 dark:text-pro100 font-semibold font-regular mb-5">Github Activity</p>
                 <GithubStats />
                 {/* <img src="https://leetcard.jacoblin.cool/rmluck?theme=light&font=Inter" /> */}
                 {/* <img src="https://leetgraph.vercel.app/?user=rmluck&theme=light" /> */}

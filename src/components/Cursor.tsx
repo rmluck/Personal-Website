@@ -63,7 +63,7 @@ export default function Cursor() {
                 translateY: "-25%",
             }}
             animate={{ scale: isClicking ? 0.6 : 1 }}
-            transition={{ type: "spring", stiffness: 500, damping: 30 }}
+            transition={{ type: "spring", stiffness: 500, damping: 10 }}
         />
     );
 }
