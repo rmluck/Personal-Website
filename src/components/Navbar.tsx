@@ -138,7 +138,7 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="fixed top-0 left-0 z-50 w-full bg-pro200 dark:bg-pro850  dark:border-pro100 backdrop-blur-md shadow-2xl font-regular">
+            <nav className="fixed top-0 left-0 z-50 w-full bg-pro300 dark:bg-pro850  dark:border-pro100 backdrop-blur-md shadow-2xl font-regular">
                 <div className="flex items-center justify-between px-6 py-3">
                     {/* Logo Placeholder */}
                     <div className="font-bold text-xl text-pro900 dark:text-pro100">LOGO</div>

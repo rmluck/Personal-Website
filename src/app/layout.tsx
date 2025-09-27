@@ -2,7 +2,7 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import ClientLayout from "@/components/ClientLayout";
 import "./globals.css";
 import { useEffect } from "react";
-// import VantaBackground from "./vanta-background";
+import VantaBackground from "./vanta-background";
 
 const geistBold = Geist({
   variable: "--font-geist-bold",
@@ -42,7 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={`${geistBold.variable} ${geistRegular.variable} ${geistMono.variable} ${interBold.variable} ${interRegular.variable} antialiased`}
       >
-        {/* <VantaBackground /> */}
+        <VantaBackground />
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

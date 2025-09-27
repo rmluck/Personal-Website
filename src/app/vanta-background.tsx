@@ -1,40 +1,46 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Script from "next/script";
 
 export default function VantaBackground() {
+    const vantaRef = useRef<any>(null);
+
+    const getColors = (isDark: boolean) => ({
+        highlightColor: isDark ? "#000000" : "#FFFFFF",
+        midtoneColor: isDark ? "#333333" : "#CCCCCC",
+        lowlightColor: isDark ? "#666666" : "#999999",
+        baseColor: isDark ? "#1A1A1A" : "#F0F0F0",
+    });
+
     useEffect(() => {
-        if (typeof window !== "undefined" && (window as any).VANTA) {
-            (window as any).VANTA.FOG({
+        const initVanta = () => {
+            const isDark = document.documentElement.classList.contains("dark");
+
+            if (vantaRef.current) vantaRef.current.destroy();
+
+            vantaRef.current = (window as any).VANTA.FOG({
                 el: "#background",
                 mouseControls: false,
                 touchControls: false,
                 gyroControls: false,
-                minHeight: 200.00,
-                minWidth: 200.00,
-                highlightColor: "#FFFFFF",
-                midtoneColor: "#CCCCCC",
-                lowlightColor: "#999999",
-                baseColor: "#F0F0F0",
+                minHeight: 200,
+                minWidth: 200,
                 blurFactor: 0.3,
                 speed: 1.0,
-                zoom: 1.5,
+                zoom: 1.0,
+                ...getColors(isDark),
             });
-        }
-    }, []);
-
-    useEffect(() => {
-        const handleVisibilityChange = () => {
-            const vantaEffect = (window as any).vantaEffect;
-            if (!vantaEffect) return;
-            if (document.hidden) vantaEffect.pause();
-            else vantaEffect.resume();
         };
 
-        document.addEventListener("visibilitychange", handleVisibilityChange);
+        initVanta();
+
+        const observer = new MutationObserver(() => initVanta());
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+
         return () => {
-            document.removeEventListener("visibilitychange", handleVisibilityChange);
+            observer.disconnect();
+            if (vantaRef.current) vantaRef.current.destroy();
         };
     }, []);
 
