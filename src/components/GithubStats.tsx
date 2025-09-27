@@ -1,13 +1,53 @@
-"use client";
+import { useEffect, useState } from "react";
+import { Tooltip } from "react-tooltip";
+import GitHubCalendar from "react-github-calendar";
+import React from "react";
+import "react-tooltip/dist/react-tooltip.css";
 
-import { useEffect } from "react";
-import GitHubCalendar from "github-calendar";
-import "github-calendar/dist/github-calendar-responsive.css";
+export default function GithubStats() {
+    const [isDark, setIsDark] = useState(false);
 
-export default function GithubCalendarWidget() {
-  useEffect(() => {
-    GitHubCalendar(".calendar", "rmluck", { responsive: true });
-  }, []);
+    useEffect(() => {
+        const observer = new MutationObserver(() => {
+            setIsDark(document.documentElement.classList.contains('dark'));
+        });
 
-  return <div className="calendar">Loading your GitHub data…</div>;
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["class"],
+        });
+
+        setIsDark(document.documentElement.classList.contains('dark'));
+
+        return () => observer.disconnect();
+    }, []);
+
+    return (
+        <div className="text-pro900 dark:text-pro100 min-w-full flex justify-center">
+            <GitHubCalendar
+                username="rmluck"
+                theme={{
+                    light: ["#CCCCCC", "#10B981"],
+                    dark: ["#333333", "#10B981"],
+                }}
+                colorScheme={isDark ? "dark" : "light"}
+                weekStart={1}
+                renderBlock={(block, activity) => 
+                    React.cloneElement(block, {
+                        "data-tooltip-id": "react-tooltip",
+                        "data-tooltip-html": `${activity.count} activities on ${activity.date}`,
+                    })
+                }
+            />
+            <Tooltip id="react-tooltip" style={{
+                backgroundColor: "#B2EAE2",
+                color: "#10B981",
+                border: "1px solid #10B981",
+                borderRadius: "6px",
+                padding: "6px 10px",
+                fontSize: "0.8rem",
+                fontWeight: "700",
+            }} />
+        </div>
+    );
 }

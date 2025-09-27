@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import GithubStats from "@/components/GithubStats";
 import Section from "@/components/Section";
 import ScrollHint from "@/components/ScrollHint";
+import GithubStats from "@/components/GithubStats";
 import ProjectCard from "@/components/ProjectCard";
 import ExperienceItem from "@/components/ExperienceItem";
 import EducationItem from "@/components/EducationItem";
@@ -91,7 +91,7 @@ export default function Home() {
 
               {/* Right Column - Profile Photo */}
               <div className="flex justify-center lg:justify-end">
-                <div className="img-wrapper inline-block shrink-0 w-48 h-48 lg:w-64 lg:h-64 sm:w-72 sm:h-72 relative hover:scale-105 transition-transform duration-300 ease-out cursor-hover cursor-none clickable">
+                <div className="img-wrapper inline-block shrink-0 w-48 h-48 lg:w-64 lg:h-64 sm:w-72 sm:h-72 sm:mt-10 relative hover:scale-105 transition-transform duration-300 ease-out cursor-hover cursor-none clickable">
                   {/* Profile Photo */}
                   <Image
                     src="/profile_photo.jpg"
@@ -101,10 +101,12 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div className="flex justify-center border-pro600 dark:border-pro400 border-2 rounded-md pt-6 mt-6 col-span-full gap-6 lg:gap-12">
-                <img src="https://github-readme-stats.vercel.app/api?username=rmluck&show_icons=true&hide=stars,prs,issues,contribs&commits_year=2025&theme=transparent&title_color=10B981&text_color=10B981&hide_border=true&icon_color=10B981&custom_title=Github%20Stats" />
-                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rmluck&langs_count=10&size_weight=0.5&count_weight=0.5&hide=jupyter%20notebook,mako,dockerfile&exclude_repo=Nano-GPT-Development,Microsoft_Intro-Machine-Learning-Course&theme=transparent&title_color=10B981&text_color=10B981&hide_border=true&icon_color=10B981&custom_title=Top%20Languages" />
+              <div className="p-6 mt-6 col-span-full overflow-x-auto w-full">
+                {/* <img src="https://github-readme-stats.vercel.app/api?username=rmluck&show_icons=true&hide=stars,prs,issues,contribs&commits_year=2025&theme=transparent&title_color=10B981&text_color=10B981&hide_border=true&icon_color=10B981&custom_title=Github%20Stats" /> */}
+                {/* <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rmluck&langs_count=10&size_weight=0.5&count_weight=0.5&hide=jupyter%20notebook,mako,dockerfile&exclude_repo=Nano-GPT-Development,Microsoft_Intro-Machine-Learning-Course&theme=transparent&title_color=10B981&text_color=10B981&hide_border=true&icon_color=10B981&custom_title=Top%20Languages" /> */}
                 <GithubStats />
+                {/* <img src="https://leetcard.jacoblin.cool/rmluck?theme=light&font=Inter" /> */}
+                {/* <img src="https://leetgraph.vercel.app/?user=rmluck&theme=light" /> */}
               </div>
             </div>
             

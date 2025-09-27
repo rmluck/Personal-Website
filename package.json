@@ -15,7 +15,9 @@
     "next": "15.5.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-github-calendar": "^4.5.10",
     "react-markdown": "^10.1.0",
+    "react-tooltip": "^5.29.1",
     "three": "^0.180.0"
   },
   "devDependencies": {
