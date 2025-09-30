@@ -49,17 +49,17 @@
 }
 
 html {
-  /* scroll-snap-type: y mandatory; */
+  scroll-snap-type: y mandatory;
 }
 
 body {
   /* font-family: var(--font-text); */
-  /* scroll-snap-type: y mandatory; */
+  scroll-snap-type: y mandatory;
 }
 
-/* section {
+section {
   scroll-snap-align: start;
-} */
+}
 
 /* .clickable {
   transition: transform 0.1s ease;

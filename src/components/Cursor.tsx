@@ -59,11 +59,11 @@ export default function Cursor() {
             style={{
                 x: cursorX,
                 y: cursorY,
-                translateX: "-25%",
-                translateY: "-25%",
+                translateX: "-50%",
+                translateY: "-50%",
             }}
             animate={{ scale: isClicking ? 0.6 : 1 }}
-            transition={{ type: "spring", stiffness: 500, damping: 10 }}
+            transition={{ type: "spring", stiffness: 500, damping: 30 }}
         />
     );
 }

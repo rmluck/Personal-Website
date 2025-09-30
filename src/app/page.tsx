@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Navbar from "@/components/Navbar";
 import Section from "@/components/Section";
 import ScrollHint from "@/components/ScrollHint";
 import GithubStats from "@/components/GithubStats";
@@ -13,11 +14,30 @@ import { experience } from "@/data/experience";
 import { education } from "@/data/education";
 import { skills } from "@/data/skills";
 import { motion } from "framer-motion";
+import { Icon } from "lucide-react";
+import { football } from "@lucide/lab";
+import { Book } from "lucide-react";
+import { Twitter } from "lucide-react";
+import LetterboxdIcon from "@/components/LetterboxdIcon";
+import { Tv } from "lucide-react";
+import { Library } from "lucide-react";
+import { Map } from "lucide-react";
+import { Camera } from "lucide-react";
 
 export default function Home() {
+  const navItems = [
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Projects", href: "#projects" },
+    { label: "Experience", href: "#experience" },
+    { label: "Education", href: "#education" },
+    { label: "Skills", href: "#skills" },
+    { label: "Contact", href: "#contact" },
+  ];
+
   const container = {
     hidden: {
-      opacity: 0
+      opacity: 0,
     },
     show: {
       opacity: 1,
@@ -31,7 +51,7 @@ export default function Home() {
   const item = {
     hidden: {
       opacity: 0,
-      x: -30
+      x: -30,
     },
     show: {
       opacity: 1,
@@ -45,6 +65,8 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <Navbar items={navItems} side="professional" />
+
       {/* Main Content */}
       <main className="flex-1">
         {/* Page Header */}
@@ -60,7 +82,7 @@ export default function Home() {
 
         {/* About Section */}
         <Section>
-          <section id="about" className="flex items-center justify-center px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg border-2 border-pro900 dark:border-pro200 shadow-lg">
+          <section id="about" className="flex items-center justify-center px-6 sm:px-12 py-16 m-24 mt-0 ">
             <div className="grid grid-cols-1 min-[950px]:grid-cols-[2fr_1fr] gap-6 items-center max-w-6xl mx-auto">
               {/* Left Column */}
               <div className="space-y-6">
@@ -75,17 +97,75 @@ export default function Home() {
                 </p>
 
                 {/* Buttons */}
-                <div className="flex flex-wrap gap-4 mt-8">
+                <div className="flex flex-wrap gap-5 mt-8">
                   <motion.div whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.95 }}>
-                    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-md shadow-md border border-accent font-medium text-accent transition-all  hover:shadow-[4px_4px_0px_0px_var(--color-accent)] hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-300 cursor-hover cursor-none clickable">
+                    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-md shadow-md border border-accent font-medium text-accent transition-all  hover:shadow-[4px_4px_0px_0px_var(--color-accent)] hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-300 cursor-hover cursor-none clickable">
                       Download Resume
                     </a>
                   </motion.div>
-                  <motion.div whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.95 }}>
-                    <a href="/" target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-md shadow-md border border-accent font-medium text-accent transition-all hover:shadow-[4px_4px_0px_0px_var(--color-accent)] hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-300 cursor-hover cursor-none clickable">
+                  <div className="flex flex-row space-x-4">
+                    <a
+                      href="/sports"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                    >
+                      <Icon iconNode={football} className="h-7 w-7" />
+                    </a>                    
+                    <a
+                      href="https://x.com/rohandm99"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                    >
+                      <Twitter className="h-7 w-7" />
+                    </a>
+                    <a
+                      href="https://letterboxd.com/rohandm99/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                    >
+                      <LetterboxdIcon className="h-7 w-7" />
+                    </a>
+                    <a
+                      href="https://www.serializd.com/user/rohandm99/profile"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                    >
+                      <Tv className="h-7 w-7" />
+                    </a>
+                    <a
+                      href="https://www.storygraph.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                    >
+                      <Library className="h-7 w-7" />
+                    </a>
+                    <a
+                      href="/travel"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                    >
+                      <Map className="h-7 w-7" />
+                    </a>
+                    <a
+                      href="/photography"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                    >
+                      <Camera className="h-7 w-7" />
+                    </a>
+                  </div>
+                  {/* <motion.div whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.95 }}>
+                    <a href="/personal" target="_blank" rel="noopener noreferrer" className="px-5 py-2 rounded-md shadow-md border border-accent font-medium text-accent transition-all hover:shadow-[4px_4px_0px_0px_var(--color-accent)] hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-300 cursor-hover cursor-none clickable">
                       Learn More
                     </a>
-                  </motion.div>
+                  </motion.div> */}
                 </div>
               </div>
 
@@ -116,7 +196,7 @@ export default function Home() {
 
         {/* Projects Section */}
         <Section>
-          <section id="projects" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg border-2 border-pro900 dark:border-pro200 shadow-lg">
+          <section id="projects" className="px-6 sm:px-12 py-16 m-24 mt-0 ">
             <div className="flex items-center space-x-4 mb-8">
               <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap">
                 PROJECTS
@@ -146,7 +226,7 @@ export default function Home() {
 
         {/* Experience Section */}
         <Section>
-          <section id="experience" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg border-2 border-pro900 dark:border-pro200 shadow-lg">
+          <section id="experience" className="px-6 sm:px-12 py-16 m-24 mt-0 ">
             <div className="flex items-center space-x-4 mb-8">
               <div className="flex-1 h-px bg-pro600 dark:bg-pro400"></div>
               <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap">
@@ -173,7 +253,7 @@ export default function Home() {
 
         {/* Education Section */}
         <Section>
-          <section id="education" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg border-2 border-pro900 dark:border-pro200 shadow-lg">
+          <section id="education" className="px-6 sm:px-12 py-16 m-24 mt-0 ">
             <div className="flex items-center space-x-4 mb-8">
               <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap">
                 EDUCATION
@@ -199,7 +279,7 @@ export default function Home() {
 
         {/* Skills Section */}
         <Section>
-          <section id="skills" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg border border-pro900 dark:border-pro200 shadow-lg">
+          <section id="skills" className="px-6 sm:px-12 py-16 m-24 mt-0 ">
             <div className="flex items-center space-x-4 mb-8">
               <div className="flex-1 h-px bg-pro600 dark:bg-pro400"></div>
               <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap">
@@ -218,7 +298,7 @@ export default function Home() {
 
         {/* Contact Section */}
         <Section>
-          <section id="contact" className="px-6 sm:px-12 py-16 m-24 mt-0 rounded-lg border-2 border-pro900 dark:border-pro200 shadow-lg">
+          <section id="contact" className="px-6 sm:px-12 py-16 m-24 mt-0">
             <div className="max-w-2xl mx-auto bg-pro100 dark:bg-pro850 border border-pro800 dark:border-pro300 rounded-lg shadow-lg p-8">
               <div className="flex items-center space-x-4 mb-8">
                 <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap">

@@ -91,7 +91,7 @@ export default function EducationItem({
             </div>
 
             {/* Tabs */}
-            <div className="group-hover/school:mt-8 opacity-0 max-h-0 overflow-hidden transition-all duration-500 group-hover/school:opacity-100 group-hover/school:max-h-96">
+            <div className="group-hover/school:mt-8 opacity-0 max-h-0 overflow-hidden transition-all duration-500 group-hover/school:opacity-100 group-hover/school:max-h-300">
                 {detailKeys.length > 0 && (
                     <div className="flex flex-col md:flex-row gap-6">
                         {/* Tab Buttons */}
