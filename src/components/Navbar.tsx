@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 
-export default function Navbar( { items: navItems, side }: { items?: { label: string; href: string }[], side: "professional" | "personal" } ) {
+export default function Navbar( { items: navItems }: { items?: { label: string; href: string }[] } ) {
     const [activeSection, setActiveSection] = useState<string>("home");
     const [navMenuOpen, setNavMenuOpen] = useState<boolean>(false);
     const ticking = useRef(false);
@@ -104,7 +104,7 @@ export default function Navbar( { items: navItems, side }: { items?: { label: st
             <nav className="fixed top-0 left-0 z-50 w-full bg-transparent backdrop-blur-xl shadow-2xl font-regular">
                 <div className="flex items-center justify-between px-6 py-3">
                     {/* Logo Placeholder */}
-                    <div className={`font-bold text-xl ${side === "professional" ? "text-pro900 dark:text-pro900" : "text-per900 dark:text-per900"}`}>LOGO</div>
+                    <div className="font-bold text-xl text-pro900 dark:text-pro900" >LOGO</div>
 
                     {/* Navigation Links */}
                     <ul className="hidden md:flex space-x-6 text-sm">
@@ -123,9 +123,7 @@ export default function Navbar( { items: navItems, side }: { items?: { label: st
                                     hover:after:w-full
                                     ${activeSection === item.href.slice(1)
                                         ? "text-accent font-bold"
-                                        : side === "professional"
-                                            ? "text-pro900 dark:text-pro100"
-                                            : "text-per900 dark:text-per100"
+                                        : "text-pro900 dark:text-pro100"
                                     }`}
                                 >
                                     {item.label}
@@ -137,9 +135,9 @@ export default function Navbar( { items: navItems, side }: { items?: { label: st
                     {/* Navigation Menu Button */}
                     {navItems.length > 0 && (
                         <button onClick={() => setNavMenuOpen(true)} className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1 group relative z-50 cursor-hover cursor-none" aria-label="Open menu">
-                            <span className={`block w-6 h-[2px] ${side === "professional" ? "bg-pro900 dark:bg-pro100" : "bg-per900 dark:bg-per100"} transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "rotate-45 translate-y-2 bg-accent" : ""}`}></span>
-                            <span className={`block w-6 h-[2px] ${side === "professional" ? "bg-pro900 dark:bg-pro100" : "bg-per900 dark:bg-per100"} transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "opacity-0" : ""}`}></span>
-                            <span className={`block w-6 h-[2px] ${side === "professional" ? "bg-pro900 dark:bg-pro100" : "bg-per900 dark:bg-per100"} transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "-rotate-45 -translate-y-2 bg-accent" : ""}`}></span>
+                            <span className={`block w-6 h-[2px] bg-pro900 dark:bg-pro100 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "rotate-45 translate-y-2 bg-accent" : ""}`}></span>
+                            <span className={`block w-6 h-[2px] bg-pro900 dark:bg-pro100 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "opacity-0" : ""}`}></span>
+                            <span className={`block w-6 h-[2px] bg-pro900 dark:bg-pro100 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "-rotate-45 -translate-y-2 bg-accent" : ""}`}></span>
                         </button>
                     )}
                     
@@ -148,12 +146,12 @@ export default function Navbar( { items: navItems, side }: { items?: { label: st
 
             {/* Navigation Panel */}
             {navItems.length > 0 && navMenuOpen && (
-                <div onClick={() => setNavMenuOpen(false)} className={`fixed inset-0 z-50 ${side === "professional" ? "bg-pro900/20 dark:bg-pro100/20" : "bg-per900/20 dark:bg-per100/20"} backdrop-blur-sm transition-opacity duration-500 ${navMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}></div>
+                <div onClick={() => setNavMenuOpen(false)} className={`fixed inset-0 z-50 bg-pro900/20 dark:bg-pro100/20 backdrop-blur-sm transition-opacity duration-500 ${navMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}></div>
             )}
             {navItems.length > 0 && (
-                <div className={`fixed top-0 right-0 h-full w-64 ${side === "professional" ? "bg-pro200/95 dark:bg-pro850/95" : "bg-per200/95 dark:bg-per850/95"} backdrop-blur-md shadow-lg transform transition-transform duration-300 z-50 ${navMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
+                <div className={`fixed top-0 right-0 h-full w-64 bg-pro200/95 dark:bg-pro850/95 backdrop-blur-md shadow-lg transform transition-transform duration-300 z-50 ${navMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
                     <div className="flex justify-end p-6">
-                        <button onClick={() => setNavMenuOpen(false)} className={`${side === "professional" ? "text-pro900 dark:text-pro100" : "text-per900 dark:text-per100"} hover:text-accent font-bold text-2xl cursor-hover cursor-none clickable transform hover:-translate-y-1 transition-transform duration-200`}>✕</button>
+                        <button onClick={() => setNavMenuOpen(false)} className="text-pro900 dark:text-pro100 hover:text-accent font-bold text-2xl cursor-hover cursor-none clickable transform hover:-translate-y-1 transition-transform duration-200">✕</button>
                     </div>
                     <ul className="flex flex-col mt-8 ml-6 space-y-6 text-lg font-medium font-regular">
                         {navItems && navItems.map((item) => (
@@ -169,9 +167,7 @@ export default function Navbar( { items: navItems, side }: { items?: { label: st
                                         cursor-hover cursor-none
                                         ${activeSection === item.href.slice(1)
                                         ? "text-accent font-bold"
-                                        : side === "professional"
-                                            ? "text-pro900 dark:text-pro100"
-                                            : "text-per900 dark:text-per100"
+                                        : "text-pro900 dark:text-pro100"
                                         }`}>
                                     {item.label}
                                 </Link>

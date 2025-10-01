@@ -9,6 +9,7 @@ import ProjectCard from "@/components/ProjectCard";
 import ExperienceItem from "@/components/ExperienceItem";
 import EducationItem from "@/components/EducationItem";
 import SkillCategory from "@/components/SkillCategory";
+import Footer from "@/components/Footer";
 import { projects } from "@/data/projects";
 import { experience } from "@/data/experience";
 import { education } from "@/data/education";
@@ -16,9 +17,9 @@ import { skills } from "@/data/skills";
 import { motion } from "framer-motion";
 import { Icon } from "lucide-react";
 import { football } from "@lucide/lab";
-import { Book } from "lucide-react";
 import { Twitter } from "lucide-react";
 import LetterboxdIcon from "@/components/LetterboxdIcon";
+import FableIcon from "@/components/FableIcon";
 import { Tv } from "lucide-react";
 import { Library } from "lucide-react";
 import { Map } from "lucide-react";
@@ -65,7 +66,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar items={navItems} side="professional" />
+      <Navbar items={navItems} />
 
       {/* Main Content */}
       <main className="flex-1">
@@ -93,7 +94,7 @@ export default function Home() {
                   <div className="flex-1 h-px bg-pro600 dark:bg-pro400"></div>
                 </div>
                 <p className="text-sm text-pro800 dark:text-pro300 font-text">
-                  Graduated from the <a href="https://www.ics.uci.edu/" target="_blank" rel="noopener noreferrer" className="text-pro900 dark:text-pro200 font-semibold relative transition-all hover:text-accent after:absolute after:left-0 after:-bottom-0.25 after:h-[1px] after:w-0 after:bg-accent after:transition-all hover:after:w-full cursor-hover cursor-none">Donald Bren School of Information and Computer Sciences</a> at <a href="https://www.uci.edu/" target="_blank" rel="noopener noreferrer" className="text-pro900 dark:text-pro200 font-semibold relative transition-all hover:text-accent after:absolute after:left-0 after:-bottom-0.25 after:h-[1px] after:w-0 after:bg-accent after:transition-all hover:after:w-full cursor-hover cursor-none">University of California, Irvine</a> with a B.S. in Computer Science and specialization in Intelligent Systems. I am passionate about leveraging software development, data analysis, and intelligent systems to solve complex problems.<br /><br />Experienced in full-stack development, artificial intelligence, machine learning, information retrieval, data visualization, and backend data integration through internships, research projects, and academic coursework, with success in creating web applications, data analysis tools, and high-performance search engines.<br /><br />Strong analytical, programming, communication, and leadership skills with a collaborative mindset and proactive learning approach. Eager to tackle new challenges and collaborate in professional settings.
+                  Graduated from the <a href="https://www.ics.uci.edu/" target="_blank" rel="noopener noreferrer" className="text-pro900 dark:text-pro200 font-semibold relative bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-300 hover:text-accent cursor-hover cursor-none">Donald Bren School of Information and Computer Sciences</a> at <a href="https://www.uci.edu/" target="_blank" rel="noopener noreferrer" className="text-pro900 dark:text-pro200 font-semibold relative bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-300 hover:text-accent cursor-hover cursor-none">University of California, Irvine</a> with a B.S. in Computer Science and specialization in Intelligent Systems. I am passionate about leveraging software development, data analysis, and intelligent systems to solve complex problems.<br /><br />Experienced in full-stack development, artificial intelligence, machine learning, information retrieval, data visualization, and backend data integration through internships, research projects, and academic coursework, with success in creating web applications, data analysis tools, and high-performance search engines.<br /><br />Strong analytical, programming, communication, and leadership skills with a collaborative mindset and proactive learning approach. Eager to tackle new challenges and collaborate in professional settings.
                 </p>
 
                 {/* Buttons */}
@@ -137,12 +138,12 @@ export default function Home() {
                       <Tv className="h-7 w-7" />
                     </a>
                     <a
-                      href="https://www.storygraph.com"
+                      href="https://www.fable.co/rohandm99-140100780483"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
                     >
-                      <Library className="h-7 w-7" />
+                      <FableIcon className="h-7 w-7" />
                     </a>
                     <a
                       href="/travel"
@@ -298,7 +299,7 @@ export default function Home() {
 
         {/* Contact Section */}
         <Section>
-          <section id="contact" className="px-6 sm:px-12 py-16 m-24 mt-0">
+          <section id="contact" className="px-6 sm:px-12 pt-16 pb-8 m-24 mt-0 mb-0">
             <div className="max-w-2xl mx-auto bg-pro100 dark:bg-pro850 border border-pro800 dark:border-pro300 rounded-lg shadow-lg p-8">
               <div className="flex items-center space-x-4 mb-8">
                 <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap">
@@ -340,6 +341,10 @@ export default function Home() {
             </div>
           </section>
         </Section>
+
+        <section className="mt-0">
+          <Footer />
+        </section>
       </main>
     </div>
   );

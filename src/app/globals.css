@@ -15,6 +15,7 @@
   --pro900: #000000;
   /* --accent: #3B82F6; */
   --accent: #10B981;
+  /* --accent: #FF5A00; */
   /* --accent: #F59E0B; */
   /* --accent: #8B5CF6; */
   /* --accent: #EC4899; */
@@ -135,4 +136,69 @@ section {
 
 .dark .filter-bw:hover {
   filter: brightness(100%) invert(0);
+}
+
+.leaflet-interactive {
+  stroke: var(--color-pro600);
+  transition: all 0.3s ease;
+}
+
+.place-popup .leaflet-popup-content-wrapper {
+  background-color: var(--color-pro100);
+  color: var(--color-pro800);
+  font-family: var(--font-regular);
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0.9;
+}
+
+.place-popup .leaflet-popup-content-wrapper a {
+  color: var(--color-pro900);
+  position: relative;
+  background: linear-gradient(to right, var(--color-accent), var(--color-accent));
+  background-size: 0% 2px;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease;
+}
+
+.dark .place-popup .leaflet-popup-content-wrapper {
+  background-color: var(--color-pro800);
+  color: var(--color-pro100);
+}
+
+.dark .place-popup .leaflet-popup-content-wrapper a {
+  color: var(--color-pro200);
+}
+
+.place-popup .leaflet-popup-content-wrapper a:hover {
+  background-size: 100% 2px;
+  color: var(--color-accent);
+}
+
+.place-popup .leaflet-popup-tip {
+  background-color: var(--color-pro100);
+}
+
+.dark .place-popup .leaflet-popup-tip {
+  background-color: var(--color-pro800);
+}
+
+.place-tooltip {
+  background-color: var(--color-pro100);
+  color: var(--color-pro800);
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dark .place-tooltip {
+  background-color: var(--color-pro800);
+  color: var(--color-pro100);
+}
+
+.place-title {
+  font-size: 1.2rem;
 }

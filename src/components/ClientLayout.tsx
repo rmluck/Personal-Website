@@ -6,7 +6,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import SocialSidebar from "@/components/SocialSidebar";
 import EmailSidebar from "@/components/EmailSidebar";
 import Loading from "@/components/Loading";
-import Footer from "@/components/Footer";
+// import Footer from "@/components/Footer";
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
@@ -23,7 +23,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       <SocialSidebar />
       <EmailSidebar />
       {loading ? <Loading /> : children}
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }
