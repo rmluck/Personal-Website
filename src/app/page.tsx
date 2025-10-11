@@ -21,7 +21,6 @@ import { Twitter } from "lucide-react";
 import LetterboxdIcon from "@/components/LetterboxdIcon";
 import FableIcon from "@/components/FableIcon";
 import { Tv } from "lucide-react";
-import { Library } from "lucide-react";
 import { Map } from "lucide-react";
 import { Camera } from "lucide-react";
 
@@ -69,7 +68,7 @@ export default function Home() {
       <Navbar items={navItems} />
 
       {/* Main Content */}
-      <main className="flex-1">
+      <main className="flex-1 snap">
         {/* Page Header */}
         <section id="home" className="flex items-center justify-center min-h-[calc(90vh)] px-6 sm:px-12 py-16 m-24 mt-0">
           <div className="max-w-6xl">

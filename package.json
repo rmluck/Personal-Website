@@ -6,12 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "build:photos": "ts-node --esm scripts/generate_photo_index.ts"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.9",
     "@lucide/lab": "^0.1.2",
-    "framer-motion": "^12.23.19",
+    "cloudinary": "^2.7.0",
+    "dotenv": "^17.2.3",
+    "framer-motion": "^12.23.22",
+    "fs": "^0.0.1-security",
     "github-calendar": "^2.3.4",
+    "imagemin": "^9.0.1",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.544.0",
     "mapbox-gl": "^3.15.0",
@@ -19,15 +25,20 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-github-calendar": "^4.5.10",
+    "react-hooks-global-state": "^2.1.0",
     "react-leaflet": "^5.0.0",
     "react-map-gl": "^8.0.4",
     "react-markdown": "^10.1.0",
+    "react-swipeable": "^7.0.2",
     "react-tooltip": "^5.29.1",
+    "react-use": "^17.6.0",
+    "sharp": "^0.34.4",
     "three": "^0.180.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/imagemin": "^9.0.1",
     "@types/leaflet": "^1.9.20",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -38,6 +49,7 @@
     "eslint-config-next": "15.5.3",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.13",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }
