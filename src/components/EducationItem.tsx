@@ -12,7 +12,7 @@ type EducationItemProps = {
     start_date?: number;
     end_date?: number;
     gpa?: number;
-    details?: Record<string, NestedDetails>;
+    details?: Record<string, NestedDetails | undefined>;
     logo?: string;
     link?: string;
 };
@@ -28,7 +28,7 @@ export default function EducationItem({
     logo,
     link,
 } : EducationItemProps) {
-    const detailKeys = Object.keys(details);
+    const detailKeys = Object.keys(details).filter(key => details[key] !== undefined);
     const [activeTab, setActiveTab] = useState<string>(detailKeys[0] || "");
 
     function renderDetails(content: NestedDetails) {

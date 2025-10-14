@@ -11,14 +11,15 @@ type ProjectCardProps = {
     end_date: string;
     image: string;
     skills: {
-        languages: string[];
-        frameworks: string[];
-        tools: string[];
-        domains: string[];
-        soft_skills: string[];
-    }
+        languages?: string[];
+        frameworks?: string[];
+        tools?: string[];
+        domains?: string[];
+        soft_skills?: string[];
+    };
     links: { label: string; url: string; }[];
     side: "left" | "right";
+    featured?: boolean;
 };
 
 export default function FullProjectCard({
@@ -108,7 +109,7 @@ export default function FullProjectCard({
                 </div>
 
                 <div className={`flex flex-wrap gap-2 mb-5 justify-start`}>
-                    {Object.values(skills).flat().map((skill, i) => {
+                    {Object.values(skills).filter((skillArray): skillArray is string[] => Array.isArray(skillArray)).flat().map((skill, i) => {
                         return (
                             <div key={`skill-${i}`} className="flex flex-wrap gap-2 items-center">
                                 <span className="text-pro800 dark:text-pro300 font-text border border-pro300 dark:border-pro800 text-[10px] px-2 py-1 rounded-md hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-200 transition cursor-hover cursor-none clickable">{skill}</span>

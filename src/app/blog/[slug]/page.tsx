@@ -1,0 +1,98 @@
+import { sanityFetch } from "@/sanity/lib/live";
+import { POST_QUERY } from "@/sanity/lib/queries";
+import { BlogPost } from "@/types/blog";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Image from "next/image";
+import Link from "next/link";
+import { urlFor } from "@/sanity/lib/image";
+import { PortableText } from "@portabletext/react";
+import { portableTextComponents } from "@/components/PortableTextComponents";
+import { notFound } from "next/navigation";
+
+interface BlogPostPageProps {
+    params: { slug: string };
+}
+
+export default async function BlogPostPage({ params } : BlogPostPageProps) {
+    const { data: post } = await sanityFetch({
+        query: POST_QUERY,
+        params: { slug: params.slug },
+    }) as { data: BlogPost };
+
+    if (!post) {
+        notFound();
+    }
+
+    return (
+        <div className="flex flex-col min-h-screen">
+            <Navbar items={[]} />
+
+            <main className="flex-1">
+                <article className="max-w-4xl mx-auto px-6 sm:px-12 pt-20 pb-8">
+                    {/* Header */}
+                    <header className="mb-8">
+                        <div className="flex flex-wrap gap-2 mb-4">
+                            {post.categories?.map((category) => (
+                                <Link key={category._id} href={`/blog/category/${category.slug.current}`} className="text-pro800 dark:text-pro300 font-text border border-pro300 dark:border-pro800 text-[12px] px-3 py-1 rounded-lg hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-200 transition cursor-hover cursor-none">
+                                    {category.title}
+                                </Link>
+                            ))}
+                        </div>
+
+                        <h1 className="text-4xl md:text-5xl text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap mb-8">{post.title}</h1>
+
+                        {/* Featured Image */}
+                        {post.mainImage && (
+                            <div className="mb-6">
+                                <Image 
+                                    src={urlFor(post.mainImage.asset).width(800).height(400).url()}
+                                    alt={post.mainImage.alt || post.title}
+                                    width={800}
+                                    height={400}
+                                    className="w-full rounded-lg shadow-lg"
+                                />
+                                <p className="mt-2 text-xs text-pro800 dark:text-pro300 font-text">{post.mainImage.alt}</p>
+                            </div>
+                        )}
+
+                        <div className="flex items-center justify-between text-sm text-pro800 dark:text-pro300 font-regular mb-8">
+                            <div className="flex items-center gap-2">
+                                {post.author.image && (
+                                    <Image 
+                                        src={urlFor(post.author.image.asset).width(32).height(32).url()}
+                                        alt={post.author.name}
+                                        width={32}
+                                        height={32}
+                                        className="rounded-full"
+                                    />
+                                )}
+                                <span>By {post.author.name}</span>
+                            </div>
+                            <time dateTime={post.publishedAt}>
+                                {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                })}
+                            </time>
+                        </div>
+                    </header>
+
+                    <div className="border-t border-pro300 dark:border-pro800 my-8" />
+
+                    {/* Content */}
+                    {post.body && (
+                        <div className="prose prose-lg dark:prose-invert max-w-none text-pro800 dark:text-pro300 font-regular text-sm">
+                            <PortableText value={post.body} components={portableTextComponents} />
+                        </div>
+                    )}
+                </article>
+            </main>
+
+            <section className="mt-0">
+                <Footer />
+            </section>
+        </div>
+    );
+}

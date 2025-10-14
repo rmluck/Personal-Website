@@ -12,6 +12,10 @@
   "dependencies": {
     "@headlessui/react": "^2.2.9",
     "@lucide/lab": "^0.1.2",
+    "@portabletext/react": "^4.0.3",
+    "@sanity/icons": "^3.7.4",
+    "@sanity/image-url": "^1.2.0",
+    "@sanity/vision": "^4.10.2",
     "cloudinary": "^2.7.0",
     "dotenv": "^17.2.3",
     "framer-motion": "^12.23.22",
@@ -22,6 +26,7 @@
     "lucide-react": "^0.544.0",
     "mapbox-gl": "^3.15.0",
     "next": "15.5.3",
+    "next-sanity": "^11.4.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-github-calendar": "^4.5.10",
@@ -32,7 +37,9 @@
     "react-swipeable": "^7.0.2",
     "react-tooltip": "^5.29.1",
     "react-use": "^17.6.0",
+    "sanity": "^4.10.2",
     "sharp": "^0.34.4",
+    "styled-components": "^6.1.19",
     "three": "^0.180.0"
   },
   "devDependencies": {

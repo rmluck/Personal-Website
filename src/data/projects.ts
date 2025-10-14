@@ -8,18 +8,13 @@ export const projects = [
         end_date: "",
         image: "/images/nasa_media_explorer.png",
         skills: {
-            "Languages": [],
-            "Frameworks": [],
-            "Tools": [],
-            "Domains": [],
-            "Soft Skills": [],
+            languages: [],
+            frameworks: [],
+            tools: [],
+            domains: [],
+            soft_skills: [],
         },
-        links: [
-            {
-                label: "",
-                url: "",
-            }
-        ],
+        links: [],
         featured: false,
     },
     {
@@ -31,11 +26,11 @@ export const projects = [
         end_date: "August 2025",
         image: "/images/nasa_media_explorer.png",
         skills: {
-            "Languages": ["Python", "HTML", "CSS", "JavaScript"],
-            "Frameworks": ["FastAPI", "Bootstrap", "Jinja", "spaCy"],
-            "Tools": ["Git"],
-            "Domains": [],
-            "Soft Skills": [],
+            languages: ["Python", "HTML", "CSS", "JavaScript"],
+            frameworks: ["FastAPI", "Bootstrap", "Jinja", "spaCy"],
+            tools: ["Git"],
+            domains: [],
+            soft_skills: [],
         },
         links: [
             {
@@ -54,11 +49,11 @@ export const projects = [
         end_date: "August 2025",
         image: "/images/imdb_review_sentiment_classifier.png",
         skills: {
-            "Languages": ["Python"],
-            "Frameworks": ["NumPy", "Pandas", "Scikit-Learn", "NLTK", "Gensim", "XGBoost"],
-            "Tools": ["Git", "Jupyter", "Kaggle"],
-            "Domains": [],
-            "Soft Skills": [],
+            languages: ["Python"],
+            frameworks: ["NumPy", "Pandas", "Scikit-Learn", "NLTK", "Gensim", "XGBoost"],
+            tools: ["Git", "Jupyter", "Kaggle"],
+            domains: [],
+            soft_skills: [],
         },
         links: [
             {
@@ -77,11 +72,11 @@ export const projects = [
         end_date: "July 2025",
         image: "/images/nfl_mock_draft_simulator.png",
         skills: {
-            "languages": ["Python", "HTML", "CSS", "JavaScript", "SQL"],
-            "frameworks": ["React", "React Router", "PostgreSQL", "FastAPI", "SQLAlchemy", "Pydantic"],
-            "tools": ["Git", "Render", "Netlify", "Supabase"],
-            "domains": [],
-            "soft_skills": [],
+            languages: ["Python", "HTML", "CSS", "JavaScript", "SQL"],
+            frameworks: ["React", "React Router", "PostgreSQL", "FastAPI", "SQLAlchemy", "Pydantic"],
+            tools: ["Git", "Render", "Netlify", "Supabase"],
+            domains: [],
+            soft_skills: [],
         },
         links: [
             {
@@ -104,11 +99,11 @@ export const projects = [
         end_date: "June 2025",
         image: "/images/yelp_review_sentiment_predictor.png",
         skills: {
-            "languages": ["Python"],
-            "frameworks": ["NumPy", "Pandas", "Matplotlib", "Seaborn", "Scikit-learn", "PyTorch", "NLTK", "Pyro"],
-            "tools": ["Git", "Jupyter"],
-            "domains": [],
-            "soft_skills": [],
+            languages: ["Python"],
+            frameworks: ["NumPy", "Pandas", "Matplotlib", "Seaborn", "Scikit-learn", "PyTorch", "NLTK", "Pyro"],
+            tools: ["Git", "Jupyter"],
+            domains: [],
+            soft_skills: [],
         },
         links: [
             {
@@ -131,11 +126,11 @@ export const projects = [
         end_date: "December 2024",
         image: "/images/fabflix.png",
         skills: {
-            "languages": ["Java", "HTML", "CSS", "JavaScript", "SQL"],
-            "frameworks": ["MySQL", "jQuery", "AJAX"],
-            "tools": ["Git", "Docker", "AWS", "Maven", "Tomcat", "Apache", "reCAPTCHA", "Kubernetes"],
-            "domains": [],
-            "soft_skills": [],
+            languages: ["Java", "HTML", "CSS", "JavaScript", "SQL"],
+            frameworks: ["MySQL", "jQuery", "AJAX"],
+            tools: ["Git", "Docker", "AWS", "Maven", "Tomcat", "Apache", "reCAPTCHA", "Kubernetes"],
+            domains: [],
+            soft_skills: [],
         },
         links: [
             {
@@ -158,11 +153,11 @@ export const projects = [
         end_date: "December 2024",
         image: "/images/traffic_signal_control.png",
         skills: {
-            "languages": ["Python", "HTML", "CSS", "JavaScript"],
-            "frameworks": ["RLlib", "NumPy", "Pandas", "Matplotlib", "PyTorch", "Gymnasium"],
-            "tools": ["Git", "Jupyter"],
-            "domains": [],
-            "soft_skills": [],
+            languages: ["Python", "HTML", "CSS", "JavaScript"],
+            frameworks: ["RLlib", "NumPy", "Pandas", "Matplotlib", "PyTorch", "Gymnasium"],
+            tools: ["Git", "Jupyter"],
+            domains: [],
+            soft_skills: [],
         },
         links: [
             {
@@ -189,11 +184,11 @@ export const projects = [
         end_date: "April 2024",
         image: "/images/atlantis_datathon.png",
         skills: {
-            "languages": ["Python"],
-            "frameworks": ["NumPy", "Pandas", "Matplotlib", "Seaborn", "Scikit-learn"],
-            "tools": ["Git", "Jupyter", "DeepNote", "Alteryx Designer", "Google Workspace"],
-            "domains": [],
-            "soft_skills": [],
+            languages: ["Python"],
+            frameworks: ["NumPy", "Pandas", "Matplotlib", "Seaborn", "Scikit-learn"],
+            tools: ["Git", "Jupyter", "DeepNote", "Alteryx Designer", "Google Workspace"],
+            domains: [],
+            soft_skills: [],
         },
         links: [
             {
@@ -216,11 +211,11 @@ export const projects = [
         end_date: "March 2024",
         image: "/images/fashion_mnist_classifier.png",
         skills: {
-            "languages": ["Python"],
-            "frameworks": ["NumPy", "Pandas", "Matplotlib", "Seaborn", "Scikit-learn", "TensorFlow", "Keras", "Pillow"],
-            "tools": ["Git", "Streamlit"],
-            "domains": [],
-            "soft_skills": [],
+            languages: ["Python"],
+            frameworks: ["NumPy", "Pandas", "Matplotlib", "Seaborn", "Scikit-learn", "TensorFlow", "Keras", "Pillow"],
+            tools: ["Git", "Streamlit"],
+            domains: [],
+            soft_skills: [],
         },
         links: [
             {
@@ -243,15 +238,13 @@ export const projects = [
         end_date: "February 2024",
         image: "/images/google_student_developer_challenge.png",
         skills: {
-            "languages": [],
-            "frameworks": [],
-            "tools": [],
-            "domains": [],
-            "soft_skills": [],
+            languages: [],
+            frameworks: [],
+            tools: [],
+            domains: [],
+            soft_skills: [],
         },
-        links: [
-            {},
-        ],
+        links: [],
         featured: false,
     },
     {
@@ -263,11 +256,11 @@ export const projects = [
         end_date: "February 2024",
         image: "/images/netflix_viewing_activity_analysis.png",
         skills: {
-            "languages": ["Python"],
-            "frameworks": ["NumPy", "Pandas", "Matplotlib", "Seaborn"],
-            "tools": ["Git", "Streamlit"],
-            "domains": [],
-            "soft_skills": [],
+            languages: ["Python"],
+            frameworks: ["NumPy", "Pandas", "Matplotlib", "Seaborn"],
+            tools: ["Git", "Streamlit"],
+            domains: [],
+            soft_skills: [],
         },
         links: [
             {
@@ -290,15 +283,13 @@ export const projects = [
         end_date: "December 2023",
         image: "/images/checkers_ai.png",
         skills: {
-            "languages": ["Python", "Java", "C++"],
-            "frameworks": [],
-            "tools": ["Git"],
-            "domains": [],
-            "soft_skills": [],
+            languages: ["Python", "Java", "C++"],
+            frameworks: [],
+            tools: ["Git"],
+            domains: [],
+            soft_skills: [],
         },
-        links: [
-            {},
-        ],
+        links: [],
         featured: false,
     },
     {
@@ -310,15 +301,13 @@ export const projects = [
         end_date: "December 2023",
         image: "/images/ics_search_engine.png",
         skills: {
-            "languages": ["Python", "HTML"],
-            "frameworks": ["Beautiful Soup", "NLTK"],
-            "tools": ["Git"],
-            "domains": [],
-            "soft_skills": [],
+            languages: ["Python", "HTML"],
+            frameworks: ["Beautiful Soup", "NLTK"],
+            tools: ["Git"],
+            domains: [],
+            soft_skills: [],
         },
-        links: [
-            {},
-        ],
+        links: [],
         featured: false,
     },
     {
@@ -330,15 +319,13 @@ export const projects = [
         end_date: "February 2022",
         image: "/images/columns.png",
         skills: {
-            "languages": ["Python"],
-            "frameworks": ["Pygame"],
-            "tools": ["Git"],
-            "domains": [],
-            "soft_skills": [],
+            languages: ["Python"],
+            frameworks: ["Pygame"],
+            tools: ["Git"],
+            domains: [],
+            soft_skills: [],
         },
-        links: [
-            {},
-        ],
+        links: [],
         featured: false,
     },
     {
@@ -350,15 +337,13 @@ export const projects = [
         end_date: "February 2022",
         image: "/images/try_not_to_breathe.png",
         skills: {
-            "languages": ["Python"],
-            "frameworks": [],
-            "tools": ["Git"],
-            "domains": [],
-            "soft_skills": [],
+            languages: ["Python"],
+            frameworks: [],
+            tools: ["Git"],
+            domains: [],
+            soft_skills: [],
         },
-        links: [
-            {},
-        ],
+        links: [],
         featured: false,
     },
     {
@@ -370,15 +355,13 @@ export const projects = [
         end_date: "May 2021",
         image: "/images/vizzor.png",
         skills: {
-            "languages": [],
-            "frameworks": [],
-            "tools": [],
-            "domains": [],
-            "soft_skills": [],
+            languages: [],
+            frameworks: [],
+            tools: [],
+            domains: [],
+            soft_skills: [],
         },
-        links: [
-            {},
-        ],
+        links: [],
         featured: false,
     }
 ]

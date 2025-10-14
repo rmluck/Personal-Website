@@ -42,6 +42,7 @@ export default function Home() {
     show: {
       opacity: 1,
       transition: {
+        type: "spring" as const,
         staggerChildren: 0.5,
         delayChildren: 0.2,
       },
@@ -57,7 +58,7 @@ export default function Home() {
       opacity: 1,
       x: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 60,
       },
     },
@@ -316,19 +317,19 @@ export default function Home() {
               >
                 {/* Name */}
                 <div>
-                  <label htmlFor="name" className="block text-left text-sm font-regular text-pro900 dark:text-pro200 mb-1">Name</label>
+                  <label htmlFor="name" className="block text-left text-sm font-regular text-pro900 dark:text-pro200 mb-1 cursor-none">Name</label>
                   <input type="text" name="name" id="name" required className="w-full px-4 py-2 border border-pro700 dark:border-pro400 rounded-md shadow-sm text-sm font-text text-pro800 dark:text-pro300 focus:outline-none focus:ring-2 focus:ring-accent transition cursor-hover cursor-none" />
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label htmlFor="email" className="block text-left text-sm font-regular text-pro900 dark:text-pro200 mb-1">Email</label>
+                  <label htmlFor="email" className="block text-left text-sm font-regular text-pro900 dark:text-pro200 mb-1 cursor-none">Email</label>
                   <input type="email" name="_replyto" id="email" required className="w-full px-4 py-2 border border-pro700 dark:border-pro400 rounded-md shadow-sm text-sm font-text text-pro800 dark:text-pro300 focus:outline-none focus:ring-2 focus:ring-accent transition cursor-hover cursor-none" />
                 </div>
                 
                 {/* Message */}
                 <div>
-                  <label htmlFor="message" className="block text-left text-sm font-regular text-pro900 dark:text-pro200 mb-1">Message</label>
+                  <label htmlFor="message" className="block text-left text-sm font-regular text-pro900 dark:text-pro200 mb-1 cursor-none">Message</label>
                   <textarea name="message" id="message" rows={5} required className="w-full px-4 py-2 border border-pro700 dark:border-pro400 rounded-md shadow-sm text-sm font-text text-pro800 dark:text-pro300 focus:outline-none focus:ring-2 focus:ring-accent transition cursor-hover cursor-none" />
                 </div>
 

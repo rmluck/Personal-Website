@@ -3,6 +3,7 @@ import ClientLayout from "@/components/ClientLayout";
 import "./globals.css";
 import { useEffect } from "react";
 import VantaBackground from "./vanta-background";
+import { SanityLive } from "@/sanity/lib/live";
 
 const geistBold = Geist({
   variable: "--font-geist-bold",
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       >
         <VantaBackground />
         <ClientLayout>{children}</ClientLayout>
+        <SanityLive />
       </body>
     </html>
   );
