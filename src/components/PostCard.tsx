@@ -49,7 +49,7 @@ export default function PostCard({ post }: PostCardProps) {
 
                     <div className="flex items-center justify-between text-sm text-pro800 dark:text-pro300 font-regular">
                         <div className="flex items-center gap-2">
-                            {post.author.image && (
+                            {/* {post.author.image && (
                                 <Image 
                                     src={urlFor(post.author.image).width(32).height(32).url()}
                                     alt={post.author.name}
@@ -57,8 +57,8 @@ export default function PostCard({ post }: PostCardProps) {
                                     height={32}
                                     className="rounded-full"
                                 />
-                            )}
-                            <span>{post.author.name}</span>
+                            )} */}
+                            <span>By {post.author.name}</span>
                         </div>
                         <time dateTime={post.publishedAt}>
                             {new Date(post.publishedAt).toLocaleDateString("en-US", {

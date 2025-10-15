@@ -4,7 +4,6 @@ import { BlogPost, Category } from "@/types/blog";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PostCard from "@/components/PostCard";
-import Link from "next/link";
 
 export default async function BlogPage() {
     const { data: posts } = await sanityFetch({

@@ -113,7 +113,7 @@ export default function Navbar( { items: navItems }: { items?: NavItem[] } ) {
     return (
         <>
             <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-6xl font-regular">
-                <div className="bg-pro200/80 dark:bg-pro800/80 backdrop-blur-xl shadow-2xl rounded-full border border-pro300/30 dark:border-pro700/30">
+                <div className="bg-pro200/80 dark:bg-pro800/55 backdrop-blur-xl shadow-2xl rounded-full border border-pro300/30 dark:border-pro700/30">
                     <div className="flex items-center justify-between px-8 py-4">
                         {/* Logo Placeholder */}
                         <div className="font-bold text-xl text-pro900 dark:text-pro100" >LOGO</div>
@@ -136,7 +136,7 @@ export default function Navbar( { items: navItems }: { items?: NavItem[] } ) {
                                         after:left-0 after:-bottom-0.5
                                         after:h-[2px] after:w-0
                                         after:bg-accent after:transition-all
-                                        hover:text-accent
+                                        hover:text-accent hover:font-semibold
                                         hover:after:w-full
                                         ${activeSection === item.href.slice(1)
                                             ? "text-accent font-bold"
@@ -152,12 +152,12 @@ export default function Navbar( { items: navItems }: { items?: NavItem[] } ) {
                                     {item.dropdown && activeDropdown === item.label && (
                                         <div className="absolute top-[100%] left-0 pt-3 w-48">
                                             <div className="absolute top-0 left-0 right-0 h-3 bg-transparent" />
-                                            <div className="bg-pro200/85 dark:bg-pro800/85 backdrop-blur-3xl rounded-lg shadow-xl border border-pro300/30 dark:border-pro700/30 py-1">
+                                            <div className="bg-pro200/85 dark:bg-pro800/55 backdrop-blur-3xl rounded-lg shadow-xl border border-pro300/30 dark:border-pro700/30 py-1">
                                                 {item.dropdown.map((dropdownItem) => (
                                                     <Link
                                                         key={dropdownItem.href}
                                                         href={dropdownItem.href}
-                                                        className="block px-4 py-2 text-sm text-pro800 dark:text-pro200 hover:bg-accent/20 hover:text-accent transition-colors cursor-hover cursor-none"
+                                                        className="block px-4 py-2 text-sm text-pro800 dark:text-pro200 hover:bg-accent/20 hover:text-accent hover:font-semibold transition-colors cursor-hover cursor-none"
                                                     >
                                                         {dropdownItem.label}
                                                     </Link>
@@ -186,7 +186,7 @@ export default function Navbar( { items: navItems }: { items?: NavItem[] } ) {
                 <div onClick={() => setNavMenuOpen(false)} className={`fixed inset-0 z-50 bg-pro900/20 dark:bg-pro100/20 backdrop-blur-sm transition-opacity duration-500 ${navMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}></div>
             )}
             {navItems && navItems.length > 0 && (
-                <div className={`fixed top-0 right-0 h-full w-64 bg-pro200/95 dark:bg-pro850/95 backdrop-blur-md shadow-lg transform transition-transform duration-300 z-50 ${navMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
+                <div className={`fixed top-0 right-0 h-full w-64 bg-pro200/95 dark:bg-pro850/95 backdrop-blur-md shadow-lg transform transition-transform duration-300 z-50 overflow-scroll pb-12 ${navMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
                     <div className="flex justify-end p-6">
                         <button onClick={() => setNavMenuOpen(false)} className="text-pro900 dark:text-pro100 hover:text-accent font-bold text-2xl cursor-hover cursor-none clickable transform hover:-translate-y-1 transition-transform duration-200">✕</button>
                     </div>

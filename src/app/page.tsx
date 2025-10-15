@@ -15,11 +15,10 @@ import { experience } from "@/data/experience";
 import { education } from "@/data/education";
 import { skills } from "@/data/skills";
 import { motion } from "framer-motion";
-import { Icon } from "lucide-react";
-import { football } from "@lucide/lab";
 import { Twitter } from "lucide-react";
 import LetterboxdIcon from "@/components/LetterboxdIcon";
 import FableIcon from "@/components/FableIcon";
+import { SquarePen } from "lucide-react";
 import { Tv } from "lucide-react";
 import { Map } from "lucide-react";
 import { Camera } from "lucide-react";
@@ -106,12 +105,12 @@ export default function Home() {
                   </motion.div>
                   <div className="flex flex-row space-x-4">
                     <a
-                      href="/sports"
+                      href="/blog"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
                     >
-                      <Icon iconNode={football} className="h-7 w-7" />
+                      <SquarePen className="h-7 w-7" />
                     </a>                    
                     <a
                       href="https://x.com/rohandm99"
