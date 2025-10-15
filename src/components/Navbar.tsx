@@ -101,46 +101,48 @@ export default function Navbar( { items: navItems }: { items?: { label: string; 
 
     return (
         <>
-            <nav className="fixed top-0 left-0 z-50 w-full bg-transparent backdrop-blur-xl shadow-2xl font-regular">
-                <div className="flex items-center justify-between px-6 py-3">
-                    {/* Logo Placeholder */}
-                    <div className="font-bold text-xl text-pro900 dark:text-pro900" >LOGO</div>
+            <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-6xl font-regular">
+                <div className="bg-pro200/80 dark:bg-pro850/80 backdrop-blur-xl shadow-2xl rounded-full border border-pro300/30 dark:border-pro800/30">
+                    <div className="flex items-center justify-between px-8 py-4">
+                        {/* Logo Placeholder */}
+                        <div className="font-bold text-xl text-pro900 dark:text-pro100" >LOGO</div>
 
-                    {/* Navigation Links */}
-                    <ul className="hidden md:flex space-x-6 text-sm">
-                        {navItems.length > 0 && navItems.map((item) => (
-                            <li key={item.href}>
-                                <Link
-                                    href={item.href}
-                                    scroll={true}
-                                    className={`relative transition-colors
-                                    cursor-hover cursor-none
-                                    after:absolute
-                                    after:left-0 after:-bottom-0.5
-                                    after:h-[2px] after:w-0
-                                    after:bg-accent after:transition-all
-                                    hover:text-accent
-                                    hover:after:w-full
-                                    ${activeSection === item.href.slice(1)
-                                        ? "text-accent font-bold"
-                                        : "text-pro900 dark:text-pro100"
-                                    }`}
-                                >
-                                    {item.label}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
+                        {/* Navigation Links */}
+                        <ul className="hidden md:flex space-x-8 text-sm">
+                            {navItems.length > 0 && navItems.map((item) => (
+                                <li key={item.href}>
+                                    <Link
+                                        href={item.href}
+                                        scroll={true}
+                                        className={`relative transition-colors
+                                        cursor-hover cursor-none
+                                        after:absolute
+                                        after:left-0 after:-bottom-0.5
+                                        after:h-[2px] after:w-0
+                                        after:bg-accent after:transition-all
+                                        hover:text-accent
+                                        hover:after:w-full
+                                        ${activeSection === item.href.slice(1)
+                                            ? "text-accent font-bold"
+                                            : "text-pro900 dark:text-pro100"
+                                        }`}
+                                    >
+                                        {item.label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
 
-                    {/* Navigation Menu Button */}
-                    {navItems.length > 0 && (
-                        <button onClick={() => setNavMenuOpen(true)} className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1 group relative z-50 cursor-hover cursor-none" aria-label="Open menu">
-                            <span className={`block w-6 h-[2px] bg-pro900 dark:bg-pro100 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "rotate-45 translate-y-2 bg-accent" : ""}`}></span>
-                            <span className={`block w-6 h-[2px] bg-pro900 dark:bg-pro100 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "opacity-0" : ""}`}></span>
-                            <span className={`block w-6 h-[2px] bg-pro900 dark:bg-pro100 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "-rotate-45 -translate-y-2 bg-accent" : ""}`}></span>
-                        </button>
-                    )}
-                    
+                        {/* Navigation Menu Button */}
+                        {navItems.length > 0 && (
+                            <button onClick={() => setNavMenuOpen(true)} className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1 group relative z-50 cursor-hover cursor-none" aria-label="Open menu">
+                                <span className={`block w-6 h-[2px] bg-pro900 dark:bg-pro100 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "rotate-45 translate-y-2 bg-accent" : ""}`}></span>
+                                <span className={`block w-6 h-[2px] bg-pro900 dark:bg-pro100 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "opacity-0" : ""}`}></span>
+                                <span className={`block w-6 h-[2px] bg-pro900 dark:bg-pro100 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "-rotate-45 -translate-y-2 bg-accent" : ""}`}></span>
+                            </button>
+                        )}
+                        
+                    </div>
                 </div>
             </nav>
 

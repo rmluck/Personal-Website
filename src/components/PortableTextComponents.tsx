@@ -26,7 +26,7 @@ export const portableTextComponents: PortableTextComponents = {
     },
     marks: {
         highlight: ({ children }) => (
-            <mark className="bg-accent/30 px-1 rounded text-pro800 dark:text-pro300 font-regular text-sm">{children}</mark>
+            <mark className="bg-accent/50 px-1 rounded text-pro800 dark:text-pro300 font-regular text-sm">{children}</mark>
         ),
         sup: ({ children }) => (
             <sup className="text-xs">{children}</sup>

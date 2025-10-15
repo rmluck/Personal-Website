@@ -118,6 +118,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                      title="Twitter"
                     >
                       <Twitter className="h-7 w-7" />
                     </a>
@@ -126,6 +127,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                      title="Letterboxd"
                     >
                       <LetterboxdIcon className="h-7 w-7" />
                     </a>
@@ -134,6 +136,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                      title="Serializd"
                     >
                       <Tv className="h-7 w-7" />
                     </a>
@@ -142,6 +145,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                      title="Fable"
                     >
                       <FableIcon className="h-7 w-7" />
                     </a>
@@ -150,6 +154,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                      title="Travel"
                     >
                       <Map className="h-7 w-7" />
                     </a>
@@ -158,6 +163,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                      title="Photography"
                     >
                       <Camera className="h-7 w-7" />
                     </a>
