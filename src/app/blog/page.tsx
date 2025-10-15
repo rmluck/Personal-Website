@@ -7,8 +7,6 @@ import PostCard from "@/components/PostCard";
 import Link from "next/link";
 
 export default async function BlogPage() {
-    const navItems = [];
-
     const { data: posts } = await sanityFetch({
         query: POSTS_QUERY,
     }) as { data: BlogPost[] };
@@ -35,9 +33,28 @@ export default async function BlogPage() {
         "general": "General"
     };
 
+    const navItems = [
+        ...groupOrder.map((groupKey) => {
+            const groupCategories = groupedCategories?.[groupKey];
+
+            if (!groupCategories || groupCategories.length === 0) {
+                return null;
+            }
+
+            return {
+                label: groupTitles[groupKey as keyof typeof groupTitles] || groupKey,
+                href: "/blog",
+                dropdown: groupCategories.map(category => ({
+                    label: category.title,
+                    href: `/blog/category/${category.slug.current}`,
+                }))
+            };
+        }).filter(Boolean)
+    ];
+
     return (
         <div className="flex flex-col min-h-screen">
-            <Navbar items={[]} />
+            <Navbar items={navItems} />
 
             <main className="flex-1">
                 <section className="px-6 sm:px-12 pt-16 pb-8 ml-12 mr-12">
@@ -49,14 +66,14 @@ export default async function BlogPage() {
 
                     <div className="w-full">
                         {/* Categories Filter */}
-                        <div className="mb-8">
+                        {/* <div className="mb-8"> */}
                             {/* <Link
                                 href="/blog"
                                 className="inline-block px-4 py-2 mb-4 text-pro800 dark:text-pro300 font-text border border-pro300 dark:border-pro800 text-[14px] rounded-lg hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-200 transition cursor-hover cursor-none clickable"
                             >
                                 All Posts
                             </Link> */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-6">
+                            {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-6">
                                 {groupOrder.map((groupKey) => {
                                     const groupCategories = groupedCategories?.[groupKey];
 
@@ -84,7 +101,7 @@ export default async function BlogPage() {
                                     );
                                 })}
                             </div>
-                        </div>
+                        </div> */}
 
                         {/* Posts Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

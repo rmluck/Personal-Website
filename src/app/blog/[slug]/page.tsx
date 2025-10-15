@@ -1,6 +1,6 @@
 import { sanityFetch } from "@/sanity/lib/live";
-import { POST_QUERY } from "@/sanity/lib/queries";
-import { BlogPost } from "@/types/blog";
+import { POST_QUERY, CATEGORIES_QUERY } from "@/sanity/lib/queries";
+import { BlogPost, Category } from "@/types/blog";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
@@ -25,14 +25,55 @@ export default async function BlogPostPage({ params } : BlogPostPageProps) {
         notFound();
     }
 
+    const { data: categories } = await sanityFetch({
+        query: CATEGORIES_QUERY,
+    }) as { data: Category[] };
+
+    const groupedCategories = categories?.reduce((acc, category) => {
+        const group = category.group || "general";
+        if (!acc[group]) {
+            acc[group] = [];
+        }
+        acc[group].push(category);
+        return acc;
+    }, {} as Record<string, Category[]>);
+
+    const groupOrder = ["general", "sports", "entertainment", "lifestyle", "technology"];
+    const groupTitles = {
+        "sports": "Sports",
+        "technology": "Technology",
+        "lifestyle": "Lifestyle",
+        "entertainment": "Entertainment",
+        "general": "General"
+    };
+
+    const navItems = [
+        ...groupOrder.map((groupKey) => {
+            const groupCategories = groupedCategories?.[groupKey];
+
+            if (!groupCategories || groupCategories.length === 0) {
+                return null;
+            }
+
+            return {
+                label: groupTitles[groupKey as keyof typeof groupTitles] || groupKey,
+                href: "/blog",
+                dropdown: groupCategories.map(category => ({
+                    label: category.title,
+                    href: `/blog/category/${category.slug.current}`,
+                }))
+            };
+        }).filter(Boolean)
+    ];
+
     return (
         <div className="flex flex-col min-h-screen">
-            <Navbar items={[]} />
+            <Navbar items={navItems} />
 
             <div className="fixed top-7 left-3 z-40 hidden lg:flex">
                 <Link
                     href="/blog"
-                    className="flex items-center justify-center w-10 h-10 bg-pro200/80 dark:bg-pro850/80 backdrop-blur-xl rounded-full shadow-lg border border-pro300/30 dark:border-pro800/30 hover:bg-accent/30 hover:border-accent transition-all duration-200 cursor-hover cursor-none clickable group"
+                    className="flex items-center justify-center w-10 h-10 bg-pro200/80 dark:bg-pro800/80 backdrop-blur-xl rounded-full shadow-lg border border-pro300/30 dark:border-pro800/30 hover:bg-accent/30 hover:border-accent transition-all duration-200 cursor-hover cursor-none clickable group"
                     title="Back to all posts"                
                 >
                     <ArrowLeftCircle className="w-5 h-5 text-pro800 dark:text-pro300 group-hover:text-accent group-hover:-translate-x-1 transition-all duration-200" />
@@ -40,7 +81,7 @@ export default async function BlogPostPage({ params } : BlogPostPageProps) {
             </div>
 
             <main className="flex-1">
-                <article className="max-w-4xl mx-12 lg:mx-auto px-6 sm:px-12 pt-24 pb-8">
+                <article className="max-w-4xl mx-12 lg:mx-auto px-6 sm:px-12 pt-28 pb-8">
                     <div className="ml-1 mt-3 mb-4 lg:hidden">
                         <Link
                             href="/blog"
