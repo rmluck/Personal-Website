@@ -1,9 +1,11 @@
 import { PortableTextComponents } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
+import PowerRankings from "./PowerRankings";
 
 export const portableTextComponents: PortableTextComponents = {
     types: {
+        rankings: ({ value }) => <PowerRankings data={value} />,
         image: ({ value }) => (
             <div className="my-8">
                 <Image 

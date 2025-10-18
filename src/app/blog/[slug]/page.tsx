@@ -96,13 +96,13 @@ export default async function BlogPostPage({ params } : BlogPostPageProps) {
                     <header className="mb-8">
                         <div className="flex flex-wrap gap-2 mb-4">
                             {post.categories?.map((category) => (
-                                <Link key={category._id} href={`/blog/category/${category.slug.current}`} className="text-pro800 dark:text-pro300 font-text border border-pro300 dark:border-pro800 text-[12px] px-3 py-1 rounded-lg hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-200 transition cursor-hover cursor-none">
+                                <Link key={category._id} href={`/blog/category/${category.slug.current}`} className="font-text border text-[12px] px-3 py-1 rounded-lg bg-accent/30 text-accent font-bold border-accent duration-200 transition cursor-hover cursor-none">
                                     {category.title}
                                 </Link>
                             ))}
                         </div>
 
-                        <h1 className="text-4xl md:text-5xl text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap mb-8">{post.title}</h1>
+                        <h1 className="text-4xl md:text-5xl text-pro900 dark:text-pro200 font-heading font-bold mb-8">{post.title}</h1>
 
                         {/* Featured Image */}
                         {post.mainImage && (

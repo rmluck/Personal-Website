@@ -122,6 +122,11 @@ export const blockContentType = defineType({
           },
         },
       ]
+    }),
+    // Add rankings type here
+    defineArrayMember({
+      type: 'rankings',
+      title: 'Power Rankings',
     })
   ],
 })

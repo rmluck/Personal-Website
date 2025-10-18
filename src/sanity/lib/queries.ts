@@ -53,7 +53,26 @@ export const POST_QUERY = groq`
       },
       alt
     },
-    body,
+    body[] {
+      ...,
+      _type == "rankings" => {
+        ...,
+        entities[] {
+          ...,
+          team-> {
+            _id,
+            name,
+            logo {
+              asset-> {
+                _id,
+                url
+              },
+            },
+            primaryColor
+          }
+        }
+      }
+    },
     categories[]-> {
       _id,
       title,

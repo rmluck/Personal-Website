@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
 
 interface NavItem {
     label: string;
@@ -171,11 +171,18 @@ export default function Navbar( { items: navItems }: { items?: NavItem[] } ) {
 
                         {/* Navigation Menu Button */}
                         {navItems && navItems.length > 0 && (
-                            <button onClick={() => setNavMenuOpen(true)} className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1 group relative z-50 cursor-hover cursor-none" aria-label="Open menu">
-                                <span className={`block w-6 h-[2px] bg-pro900 dark:bg-pro100 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "rotate-45 translate-y-2 bg-accent" : ""}`}></span>
-                                <span className={`block w-6 h-[2px] bg-pro900 dark:bg-pro100 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "opacity-0" : ""}`}></span>
-                                <span className={`block w-6 h-[2px] bg-pro900 dark:bg-pro100 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "-rotate-45 -translate-y-2 bg-accent" : ""}`}></span>
+                            <button>
+                                <Menu 
+                                    onClick={() => setNavMenuOpen(true)} 
+                                    className="md:hidden w-6 h-6 text-pro900 dark:text-pro100 hover:text-accent cursor-hover cursor-none clickable hover:-translate-y-1 transition-all duration-300" 
+                                    aria-label="Open menu" 
+                                />
                             </button>
+                            // <button onClick={() => setNavMenuOpen(true)} className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1 group relative z-50 cursor-hover cursor-none" aria-label="Open menu">
+                            //     <span className={`block w-6 h-[2px] bg-pro900 dark:bg-pro100 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "rotate-45 translate-y-2 bg-accent" : ""}`}></span>
+                            //     <span className={`block w-6 h-[2px] bg-pro900 dark:bg-pro100 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "opacity-0" : ""}`}></span>
+                            //     <span className={`block w-6 h-[2px] bg-pro900 dark:bg-pro100 transition-all duration-300 group-hover:bg-accent group-hover:-translate-y-1 ${navMenuOpen ? "-rotate-45 -translate-y-2 bg-accent" : ""}`}></span>
+                            // </button>
                         )}
                     </div>
                 </div>
