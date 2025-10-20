@@ -12,13 +12,15 @@ import { ArrowLeftCircle } from "lucide-react";
 import { notFound } from "next/navigation";
 
 interface BlogPostPageProps {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 }
 
 export default async function BlogPostPage({ params } : BlogPostPageProps) {
+    const { slug } = await params; // Await params before using
+
     const { data: post } = await sanityFetch({
         query: POST_QUERY,
-        params: { slug: params.slug },
+        params: { slug },
     }) as { data: BlogPost };
 
     if (!post) {
@@ -63,7 +65,7 @@ export default async function BlogPostPage({ params } : BlogPostPageProps) {
                     href: `/blog/category/${category.slug.current}`,
                 }))
             };
-        }).filter(Boolean)
+        }).filter((item): item is NonNullable<typeof item> => item != null)
     ];
 
     return (
@@ -81,7 +83,7 @@ export default async function BlogPostPage({ params } : BlogPostPageProps) {
             </div>
 
             <main className="flex-1">
-                <article className="max-w-4xl mx-12 lg:mx-auto px-6 sm:px-12 pt-28 pb-8">
+                <article className="max-w-4xl mx-12 lg:mx-auto px-6 sm:px-12 mt-26 pt-8 pb-8 bg-pro200 dark:bg-pro800/80 backdrop-blur-xl rounded-lg shadow-xl">
                     <div className="ml-1 mt-3 mb-4 lg:hidden">
                         <Link
                             href="/blog"

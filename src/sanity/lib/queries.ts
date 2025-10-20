@@ -71,7 +71,52 @@ export const POST_QUERY = groq`
             primaryColor
           }
         }
-      }
+      },
+      _type == "gamePicks" => {
+        ...,
+        games[] {
+          ...,
+          game-> {
+            _id,
+            gameDate,
+            location,
+            sport,
+            week,
+            homeTeamRank,
+            homeTeamRecord,
+            awayTeamRank,
+            awayTeamRecord,
+            homeTeam-> {
+              _id,
+              name,
+              abbreviation,
+              logo {
+                asset-> {
+                  _id,
+                  url
+                },
+              },
+              primaryColor,
+              sport,
+              conference
+            },
+            awayTeam-> {
+              _id,
+              name,
+              abbreviation,
+              logo {
+                asset-> {
+                  _id,
+                  url
+                },
+              },
+              primaryColor,
+              sport,
+              conference
+            }
+          }
+        }
+      },
     },
     categories[]-> {
       _id,

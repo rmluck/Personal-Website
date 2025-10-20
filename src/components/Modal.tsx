@@ -1,4 +1,4 @@
-import { Dialog } from "@headlessui/react";
+import { Dialog, DialogPanel } from "@headlessui/react";
 import { motion } from "framer-motion";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useRef, useEffect, useState } from "react";
@@ -23,7 +23,7 @@ export default function Modal({
     const [direction, setDirection] = useState(0);
 
     function handleClose() {
-        router.push("/photography", undefined, { shallow: true });
+        router.push("/photography");
         if (onClose) onClose();
     }
 
@@ -35,7 +35,7 @@ export default function Modal({
 
         setDirection(newIndex > currentIndex ? 1 : -1);
         setCurrentIndex(newIndex);
-        router.push(`?photoId=${nextPhoto.id}`, { shallow: true });
+        router.push(`/photography?photoId=${nextPhoto.id}`);
     }
 
     useKeyPress(["ArrowLeft"], () => {
@@ -50,6 +50,10 @@ export default function Modal({
         }
     });
 
+    useKeyPress(["Escape"], () => {
+        handleClose();
+    });
+
     useEffect(() => {
         document.body.classList.add("modal-open");
 
@@ -60,11 +64,9 @@ export default function Modal({
 
     return (
         <Dialog
-            static
             open={true}
             onClose={handleClose}
-            initialFocus={overlayRef}
-            className="fixed inset-0 z-10 flex items-center justify-center"
+            className="fixed inset-0 z-50 flex items-center justify-center"
         >
             <motion.div 
                 ref={overlayRef}
@@ -75,7 +77,7 @@ export default function Modal({
                 onClick={handleClose}
                 aria-hidden="true"
             />
-            <Dialog.Panel>
+            <DialogPanel>
                 <SharedModal 
                     index={currentIndex}
                     direction={direction}
@@ -85,7 +87,7 @@ export default function Modal({
                     closeModal={handleClose}
                     navigation={true}
                 />
-            </Dialog.Panel>
+            </DialogPanel>
         </Dialog>
     );
 }

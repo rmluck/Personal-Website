@@ -52,7 +52,7 @@ export default function CategoryPageClient({ posts, categories, category }: Cate
                     href: `/blog/category/${category.slug.current}`,
                 }))
             };
-        }).filter(Boolean)
+        }).filter((item): item is NonNullable<typeof item> => item != null)
     ];
 
     return (

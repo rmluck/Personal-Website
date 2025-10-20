@@ -34,7 +34,7 @@ export default function ThemeToggle() {
     return (
         <button
             onClick={toggleTheme}
-            className="fixed bottom-5 right-5 w-12 h-12 rounded-full bg-pro800 dark:bg-pro200 flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-hover cursor-none clickable z-40 group"
+            className="fixed bottom-5 right-5 w-12 h-12 rounded-full bg-pro800 dark:bg-pro200 flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-hover cursor-none clickable z-60 group"
         >
             <AnimatePresence mode="wait">
                 {theme === "light" ? (

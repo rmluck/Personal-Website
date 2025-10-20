@@ -17,8 +17,8 @@ interface Entity {
     movement?: string;
     movementAmount?: number;
     analysis?: string;
-    recentResult?: string;
-    nextGame?: string;
+    lastWeek?: string;
+    thisWeek?: string;
 }
 
 interface PowerRankingsProps {
@@ -67,27 +67,6 @@ export default function PowerRankings({ data } : PowerRankingsProps) {
             default:
                 return "";
         }
-    };
-
-    const getFilterForColor = (hexColor?: string) => {
-        if (!hexColor) return "brightness(0.85)";
-
-        const r = parseInt(hexColor.slice(1, 3), 16);
-        const g = parseInt(hexColor.slice(3, 5), 16);
-        const b = parseInt(hexColor.slice(5, 7), 16);
-        
-        const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-
-        return luminance < 0.4 ? "brightness(1.25)" : "brightness(0.75)";
-    }
-
-    const getContrastColor = (hexColor?: string) => {
-        if (!hexColor) return "#000000";
-        const r = parseInt(hexColor.slice(1, 3), 16);
-        const g = parseInt(hexColor.slice(3, 5), 16);
-        const b = parseInt(hexColor.slice(5, 7), 16);
-        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-        return brightness > 125 ? "#000000" : "#FFFFFF";
     };
 
     return (
@@ -198,27 +177,31 @@ export default function PowerRankings({ data } : PowerRankingsProps) {
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         {/* Analysis */}
                                         <div>
-                                            <h4 className="font-bold text-pro900 dark:text-pro200 mb-2">Analysis</h4>
-                                            <p className="text-sm text-pro800 dark:text-pro300 leading-relaxed">
-                                                {entity.analysis || ""}
-                                            </p>
+                                            {entity.analysis && (
+                                                <>
+                                                    <h4 className="font-bold text-pro900 dark:text-pro200 mb-2">Analysis</h4>
+                                                    <p className="text-sm text-pro800 dark:text-pro300 leading-relaxed">
+                                                        {entity.analysis}
+                                                    </p>
+                                                </>
+                                            )}
                                         </div>
 
                                         <div className="space-y-3">
-                                            {entity.recentResult && (
+                                            {entity.lastWeek && (
                                                 <div>
-                                                    <h4 className="font-bold text-pro900 dark:text-pro200 mb-1 text-sm">Last Game</h4>
+                                                    <h4 className="font-bold text-pro900 dark:text-pro200 mb-1 text-sm">Last Week</h4>
                                                     <p className="text-sm text-pro700 dark:text-pro400 font-text">
-                                                        {entity.recentResult}
+                                                        {entity.lastWeek}
                                                     </p>
                                                 </div>
                                             )}
 
-                                            {entity.nextGame && (
+                                            {entity.thisWeek && (
                                                 <div>
-                                                    <h4 className="font-bold text-pro900 dark:text-pro200 mb-1 text-sm">Next Game</h4>
+                                                    <h4 className="font-bold text-pro900 dark:text-pro200 mb-1 text-sm">This Week</h4>
                                                     <p className="text-sm text-pro700 dark:text-pro400 font-text">
-                                                        {entity.nextGame}
+                                                        {entity.thisWeek}
                                                     </p>
                                                 </div>
                                             )}

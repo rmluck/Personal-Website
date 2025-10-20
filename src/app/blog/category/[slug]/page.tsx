@@ -5,17 +5,19 @@ import { notFound } from "next/navigation";
 import CategoryPageClient from "@/components/BlogCategoryPage";
 
 interface CategoryPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export default async function BlogCategoryPage({ params } : CategoryPageProps) {
+export default async function BlogCategoryPage({ params }: CategoryPageProps) {
+    const { slug } = await params; // Await params before using
+
     const { data: categories } = await sanityFetch({
         query: CATEGORIES_QUERY,
     }) as { data: Category[] };
 
-    const category = categories?.find(cat => cat.slug.current === params.slug);
+    const category = categories?.find(cat => cat.slug.current === slug);
 
     if (!category) {
         notFound();

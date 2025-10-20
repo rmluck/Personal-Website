@@ -5,8 +5,10 @@ import {categoryType} from './categoryType'
 import {postType} from './postType'
 import {authorType} from './authorType'
 import {rankingsType} from './rankingsType'
-import { teamType } from './teams'
+import { teamType } from './teamType'
+import { gameType } from './gameType'
+import { gamePicksType } from './gamePicksType'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [blockContentType, categoryType, postType, authorType, rankingsType, teamType],
+  types: [blockContentType, categoryType, postType, authorType, rankingsType, teamType, gameType, gamePicksType],
 }

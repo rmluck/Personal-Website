@@ -12,6 +12,12 @@ export const teamType = defineType({
       validation: Rule => Rule.required()
     }),
     defineField({
+      name: 'abbreviation',
+      title: 'Abbreviation',
+      type: 'string',
+      validation: Rule => Rule.required().max(10)
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',

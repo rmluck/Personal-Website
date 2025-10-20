@@ -19,6 +19,8 @@ export default function Navbar( { items: navItems }: { items?: NavItem[] } ) {
     const ticking = useRef(false);
 
     useEffect(() => {
+        if (!navItems || navItems.length === 0) return;
+
         const sectionIds = navItems.map((item) => item.href.slice(1));
 
         const getSections = () => sectionIds.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
@@ -120,9 +122,9 @@ export default function Navbar( { items: navItems }: { items?: NavItem[] } ) {
 
                         {/* Navigation Links */}
                         <ul className="hidden md:flex space-x-6 text-sm">
-                            {navItems && navItems.length > 0 && navItems.map((item) => (
+                            {navItems && navItems.length > 0 && navItems.map((item, index) => (
                                 <li 
-                                    key={item.href}
+                                    key={`nav-item-${index}`}
                                     className="relative"
                                     onMouseEnter={() => item.dropdown && setActiveDropdown(item.label)}
                                     onMouseLeave={() => setActiveDropdown(null)}
@@ -198,8 +200,8 @@ export default function Navbar( { items: navItems }: { items?: NavItem[] } ) {
                         <button onClick={() => setNavMenuOpen(false)} className="text-pro900 dark:text-pro100 hover:text-accent font-bold text-2xl cursor-hover cursor-none clickable transform hover:-translate-y-1 transition-transform duration-200">✕</button>
                     </div>
                     <ul className="flex flex-col mt-8 ml-6 space-y-4 font-medium font-regular">
-                        {navItems.map((item) => (
-                            <li key={item.href}>
+                        {navItems.map((item, index) => (
+                            <li key={`mobile-nav-item-${index}`}>
                                 <Link href={item.href} scroll onClick={() => setNavMenuOpen(false)} className=
                                 {`text-lg relative transition-colors
                                         after:absolute

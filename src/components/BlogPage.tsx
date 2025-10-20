@@ -43,13 +43,13 @@ export default function BlogPageClient({ posts, categories }: BlogPageClientProp
 
             return {
                 label: groupTitles[groupKey as keyof typeof groupTitles] || groupKey,
-                href: "/blog",
+                href: `/blog#${groupKey}`,
                 dropdown: groupCategories.map(category => ({
                     label: category.title,
                     href: `/blog/category/${category.slug.current}`,
                 }))
             };
-        }).filter(Boolean)
+        }).filter((item): item is NonNullable<typeof item> => item != null)
     ];
 
     return (

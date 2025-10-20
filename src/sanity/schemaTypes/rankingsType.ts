@@ -85,14 +85,14 @@ export const rankingsType = defineType({
                             description: "Detailed analysis of this team's ranking",
                         }),
                         defineField({
-                            name: "recentResult",
-                            title: "Recent Result",
+                            name: "lastWeek",
+                            title: "Last Week",
                             type: "string",
                             description: "e.g., 'W 35-21 vs Alabama' or 'L 28-31 @ Oregon'",
                         }),
                         defineField({
-                            name: "nextGame",
-                            title: "Next Game",
+                            name: "thisWeek",
+                            title: "This Week",
                             type: "string",
                             description: "e.g., '@ Georgia' or 'vs Missouri'",
                         }),
