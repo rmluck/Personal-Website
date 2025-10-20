@@ -49,3 +49,4 @@ next-env.d.ts
 
 # sanity studio build
 /dist
+.sanity
