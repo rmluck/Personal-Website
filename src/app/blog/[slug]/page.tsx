@@ -83,7 +83,7 @@ export default async function BlogPostPage({ params } : BlogPostPageProps) {
             </div>
 
             <main className="flex-1">
-                <article className="max-w-4xl mx-12 lg:mx-auto px-6 sm:px-12 mt-26 pt-8 pb-8 bg-pro200 dark:bg-pro800/80 backdrop-blur-xl rounded-lg shadow-xl">
+                <article className="max-w-4xl mx-12 lg:mx-auto px-6 sm:px-12 mt-26 pt-8 pb-8 bg-pro200 dark:bg-pro800/80 backdrop-blur-xl rounded-lg shadow-2xl">
                     <div className="ml-1 mt-3 mb-4 lg:hidden">
                         <Link
                             href="/blog"

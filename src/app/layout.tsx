@@ -1,7 +1,6 @@
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import ClientLayout from "@/components/ClientLayout";
 import "./globals.css";
-import { useEffect } from "react";
 import VantaBackground from "./vanta-background";
 import { SanityLive } from "@/sanity/lib/live";
 
@@ -39,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="scroll-smooth cursor-none">
       <head>
         <title>Rohan Mistry</title>
+        <meta name="apple-mobile-web-app-title" content="Rohan Mistry" />
       </head>
       <body
         className={`${geistBold.variable} ${geistRegular.variable} ${geistMono.variable} ${interBold.variable} ${interRegular.variable} antialiased`}

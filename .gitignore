@@ -49,4 +49,6 @@ next-env.d.ts
 
 # sanity studio build
 /dist
+
+# sanity local development
 .sanity

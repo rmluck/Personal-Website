@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import { ChevronDown, Menu } from "lucide-react";
+import Logo from "./SiteLogo";
 
 interface NavItem {
     label: string;
@@ -118,7 +119,9 @@ export default function Navbar( { items: navItems }: { items?: NavItem[] } ) {
                 <div className="bg-pro200/80 dark:bg-pro800/55 backdrop-blur-xl shadow-2xl rounded-full border border-pro300/30 dark:border-pro700/30">
                     <div className="flex items-center justify-between px-8 py-4">
                         {/* Logo Placeholder */}
-                        <div className="font-bold text-xl text-pro900 dark:text-pro100" >LOGO</div>
+                        <Link href="/" className="flex items-center">
+                            <Logo className="text-pro900 dark:text-pro100 hover:text-accent hover:-translate-y-1 transition-all duration-200 cursor-none cursor-hover clickable" width={60} height={36} />
+                        </Link>
 
                         {/* Navigation Links */}
                         <ul className="hidden md:flex space-x-6 text-sm">
