@@ -52,3 +52,6 @@ next-env.d.ts
 
 # sanity local development
 .sanity
+
+# old logos
+public/site_logo_options/
