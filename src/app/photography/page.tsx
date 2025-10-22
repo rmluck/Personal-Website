@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { useLastViewedPhoto } from "@/utils/photography_utils";
 import type { ImageProps } from "@/utils/photography_utils";
@@ -12,7 +12,6 @@ import Modal from "@/components/Modal";
 import photos from "../../../public/data/photos.json";
 
 export default function Photography() {
-    const router = useRouter();
     const searchParams = useSearchParams();
     const photoId = searchParams.get("photoId");
     const [lastViewedPhoto, setLastViewedPhoto] = useLastViewedPhoto();

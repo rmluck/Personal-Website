@@ -13,7 +13,7 @@ export default function Modal({
     images: ImageProps[];
     onClose?: () => void;
 }) {
-    let overlayRef = useRef(null);
+    const overlayRef = useRef(null);
     const router = useRouter();
 
     const searchParams = useSearchParams();

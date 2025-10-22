@@ -25,14 +25,12 @@ type ProjectCardProps = {
 export default function FullProjectCard({
     name,
     type,
-    brief,
     description,
     start_date,
     end_date,
     image,
     skills,
     links,
-    side,
 } : ProjectCardProps) {
     function getIcon(label: string) {
         switch (label) {

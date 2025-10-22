@@ -92,7 +92,7 @@ export const gameType = defineType({
       homeRank: 'homeTeamRank',
       awayRank: 'awayTeamRank',
     },
-    prepare({ homeTeam, awayTeam, gameDate, week, homeRank, awayRank }) {
+    prepare({ homeTeam, awayTeam, gameDate, week }) {
       const date = gameDate ? new Date(gameDate).toLocaleDateString() : '';
       return {
         title: `${awayTeam || 'Away'} @ ${homeTeam || 'Home'}`,

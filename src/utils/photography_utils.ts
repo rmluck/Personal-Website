@@ -28,7 +28,7 @@ export const variants = {
 };
 
 export const range = (start: number, end: number) => {
-    let output = [];
+    const output: number[] = [];
     if (typeof end === "undefined") {
         end = start;
         start = 0;
@@ -77,7 +77,7 @@ export interface SharedModalProps {
 }
 
 function forceDownload(blobUrl: string, filename: string) {
-    let a: any = document.createElement("a");
+    const a: HTMLAnchorElement = document.createElement("a");
     a.download = filename;
     a.href = blobUrl;
     document.body.appendChild(a);
@@ -86,7 +86,7 @@ function forceDownload(blobUrl: string, filename: string) {
 };
 
 export function downloadPhoto(url: string, filename: string) {
-    if (!filename) filename = url.split("\\").pop()?.split("/").pop();
+    if (!filename) filename = url.split("\\").pop()?.split("/").pop() || "";
     fetch(url, {
         headers: new Headers({
             Origin: location.origin,
@@ -95,7 +95,7 @@ export function downloadPhoto(url: string, filename: string) {
     })
         .then((response) => response.blob())
         .then((blob) => {
-            let blobUrl = window.URL.createObjectURL(blob);
+            const blobUrl = window.URL.createObjectURL(blob);
             forceDownload(blobUrl, filename);
         })
         .catch((e) => console.error(e));

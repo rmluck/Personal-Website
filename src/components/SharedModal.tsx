@@ -21,7 +21,7 @@ export default function SharedModal({
     const [showInfo, setShowInfo] = useState(false);
     const [isClosingPanel, setIsClosingPanel] = useState(false);
 
-    let filteredImages = images.filter((img: ImageProps, i: number) => 
+    const filteredImages = images.filter((img: ImageProps, i: number) => 
         range(Math.max(0, index - 15), Math.min(images.length, index + 16)).includes(i)
     );
 
@@ -44,7 +44,7 @@ export default function SharedModal({
         const state = image.context?.custom?.state || "";
         const country = image.context?.custom?.country || "";
 
-        let locationParts = [];
+        const locationParts = [];
         if (city) locationParts.push(city);
         if (state) locationParts.push(state);
         if (country && country !== "United States") locationParts.push(country);
@@ -63,7 +63,7 @@ export default function SharedModal({
         setLoaded(false);
     }, [index]);
 
-    let currentImage = currentPhoto || images[index];
+    const currentImage = currentPhoto || images[index];
     const isPortrait = currentImage.height > currentImage.width;
 
     return (
@@ -304,7 +304,7 @@ export default function SharedModal({
                             className="mx-auto mt-6 mb-6 flex aspect-[3/2] h-14"
                         >
                             <AnimatePresence initial={false}>
-                                {filteredImages.map(({ publicId, format, id, context, urls }) => (
+                                {filteredImages.map(({ id, context, urls }) => (
                                     <motion.button
                                         initial={{
                                             width: "0%",

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
-import { ChevronDown, ChevronUp, MapPin, Clock, Target } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 interface GameData {
   game: {
@@ -61,18 +61,18 @@ export default function GamePicks({ data }: GamePicksProps) {
     setExpandedGames(newExpanded);
   };
 
-  const getConfidenceColor = (confidence?: string) => {
-    switch (confidence) {
-      case 'high':
-        return 'text-green-600 bg-green-100';
-      case 'medium':
-        return 'text-yellow-600 bg-yellow-100';
-      case 'low':
-        return 'text-red-600 bg-red-100';
-      default:
-        return 'text-gray-600 bg-gray-100';
-    }
-  };
+  // const getConfidenceColor = (confidence?: string) => {
+  //   switch (confidence) {
+  //     case 'high':
+  //       return 'text-green-600 bg-green-100';
+  //     case 'medium':
+  //       return 'text-yellow-600 bg-yellow-100';
+  //     case 'low':
+  //       return 'text-red-600 bg-red-100';
+  //     default:
+  //       return 'text-gray-600 bg-gray-100';
+  //   }
+  // };
 
   const formatGameTime = (dateString: string) => {
     const date = new Date(dateString);
@@ -90,25 +90,25 @@ export default function GamePicks({ data }: GamePicksProps) {
     };
   };
 
-  const getPickIndicator = (game: GameData) => {
-    const picks = [];
+  // const getPickIndicator = (game: GameData) => {
+  //   const picks = [];
     
-    if (game.straightUpPick) {
-      const team = game.straightUpPick === 'home' ? game.game.homeTeam : game.game.awayTeam;
-      picks.push(`SU: ${team.name}`);
-    }
+  //   if (game.straightUpPick) {
+  //     const team = game.straightUpPick === 'home' ? game.game.homeTeam : game.game.awayTeam;
+  //     picks.push(`SU: ${team.name}`);
+  //   }
     
-    if (game.spreadPick) {
-      const team = game.spreadPick === 'home' ? game.game.homeTeam : game.game.awayTeam;
-      picks.push(`ATS: ${team.name}`);
-    }
+  //   if (game.spreadPick) {
+  //     const team = game.spreadPick === 'home' ? game.game.homeTeam : game.game.awayTeam;
+  //     picks.push(`ATS: ${team.name}`);
+  //   }
 
-    if (game.overUnderPick) {
-      picks.push(`O/U: ${game.overUnderPick.toUpperCase()}`);
-    }
+  //   if (game.overUnderPick) {
+  //     picks.push(`O/U: ${game.overUnderPick.toUpperCase()}`);
+  //   }
 
-    return picks.length > 0 ? picks.join(' | ') : 'No picks made';
-  };
+  //   return picks.length > 0 ? picks.join(' | ') : 'No picks made';
+  // };
 
   const getTeamPickBadges = (game: GameData, teamSide: "home" | "away") => {
     const badges = [];

@@ -25,7 +25,6 @@ export default function ProjectCard({
     name,
     type,
     brief,
-    description,
     start_date,
     end_date,
     image,

@@ -331,7 +331,7 @@ export default function Home() {
                 <div className="flex-1 h-px bg-pro600 dark:bg-pro400"></div>
               </div>
               <p className="text-center mb-6 text-pro800 dark:text-pro300 font-text text-sm">
-                Have a question or want to work together? Fill out the form below and I'll get back to you!
+                Have a question or want to work together? Fill out the form below and I&apos;ll get back to you!
               </p>
               <form
                 action="https://formspree.io/f/xzzaqalq"

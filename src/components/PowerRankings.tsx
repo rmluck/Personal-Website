@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
-import { ChevronDown, ChevronUp, MoveUp, MoveDown, Minus, Star } from "lucide-react";
+import { ChevronDown, ChevronUp, MoveUp, MoveDown, Minus } from "lucide-react";
 
 interface Entity {
     rank: number;

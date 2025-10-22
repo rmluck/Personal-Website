@@ -112,7 +112,7 @@ export default function Navbar( { items: navItems }: { items?: NavItem[] } ) {
             imgs.forEach((img) => img.removeEventListener("load", onScroll));
             observer.disconnect();
         };
-    }, []);
+    }, [activeSection, navItems]);
 
     return (
         <>
