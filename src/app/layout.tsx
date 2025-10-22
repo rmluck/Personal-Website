@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="scroll-smooth cursor-none">
       <head>
         <title>Rohan Mistry</title>
-        <meta name="apple-mobile-web-app-title" content="Rohan Mistry" />
+        <meta name="apple-mobile-web-app-title" content="Rohan" />
       </head>
       <body
         className={`${geistBold.variable} ${geistRegular.variable} ${geistMono.variable} ${interBold.variable} ${interRegular.variable} antialiased`}

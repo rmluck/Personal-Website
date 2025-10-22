@@ -65,7 +65,7 @@ export default function FullProjectCard({
             </div>
 
             {/* Project Content */}
-            <div className={`flex flex-col justify-center order-2 bg-pro200/80 dark:bg-pro800/50 rounded-b-md p-4 shadow-sm`}>
+            <div className={`flex flex-col justify-center order-2 bg-pro200/80 dark:bg-pro800/50 rounded-b-md p-8 shadow-sm`}>
                 <p className="text-sm text-accent font-text tracking-wider mb-2">
                     {type}
                 </p>

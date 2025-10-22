@@ -6,9 +6,22 @@ import sharp from "sharp";
 async function generatePhotoIndex() {
     console.log("Fetching photos from Cloudinary...");
 
-    const photos = await getPhotos();
+    const allPhotos = await getPhotos("");
 
-    console.log(`Fetched ${photos.length} photos.`);
+    console.log(`Fetched ${allPhotos.length} photos.`);
+
+    const photos = allPhotos.filter(photo => {
+        const context = photo.context.custom || {};
+        const isPrivate = context["private"] && context["private"] === "true";
+
+        if (isPrivate) {
+            console.log(`Skipping private photo: ${photo.public_id}`);
+        }
+
+        return !isPrivate;
+    });
+
+    console.log(`Processing ${photos.length} public photos...`);
 
     const photoData = await Promise.all(
         photos.map(async (photo: any, index: number) => {

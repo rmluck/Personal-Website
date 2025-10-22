@@ -87,7 +87,8 @@ export default function Home() {
               {/* Left Column */}
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
-                  <h2 className="text-5xl text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap">
+                  <h2 className="text-5xl text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap"
+                  style={{ textShadow: "2px 2px 0 var(--accent)" }}>
                     ABOUT ME
                   </h2>
                   <div className="flex-1 h-px bg-pro600 dark:bg-pro400"></div>
@@ -204,7 +205,8 @@ export default function Home() {
         <Section>
           <section id="projects" className="px-6 sm:px-12 py-16 m-24 mt-0 ">
             <div className="flex items-center space-x-4 mb-8">
-              <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap">
+              <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap"
+              style={{ textShadow: "2px 2px 0 var(--accent)" }}>
                 PROJECTS
               </h2>
               <div className="flex-1 h-px bg-pro600 dark:bg-pro400"></div>
@@ -235,7 +237,8 @@ export default function Home() {
           <section id="experience" className="px-6 sm:px-12 py-16 m-24 mt-0 ">
             <div className="flex items-center space-x-4 mb-8">
               <div className="flex-1 h-px bg-pro600 dark:bg-pro400"></div>
-              <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap">
+              <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap"
+              style={{ textShadow: "2px 2px 0 var(--accent)" }}>
                 EXPERIENCE
               </h2>
             </div>
@@ -261,7 +264,8 @@ export default function Home() {
         <Section>
           <section id="education" className="px-6 sm:px-12 py-16 m-24 mt-0 ">
             <div className="flex items-center space-x-4 mb-8">
-              <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap">
+              <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap"
+              style={{ textShadow: "2px 2px 0 var(--accent)" }}>
                 EDUCATION
               </h2>
               <div className="flex-1 h-px bg-pro600 dark:bg-pro400"></div>
@@ -288,7 +292,8 @@ export default function Home() {
           <section id="skills" className="px-6 sm:px-12 py-16 m-24 mt-0 ">
             <div className="flex items-center space-x-4 mb-8">
               <div className="flex-1 h-px bg-pro600 dark:bg-pro400"></div>
-              <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap">
+              <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap"
+              style={{ textShadow: "2px 2px 0 var(--accent)" }}>
                 SKILLS
               </h2>
             </div>
@@ -307,7 +312,8 @@ export default function Home() {
           <section id="contact" className="px-6 sm:px-12 pt-16 pb-8 m-24 mt-0 mb-0">
             <div className="max-w-2xl mx-auto bg-pro100 dark:bg-pro850 border border-pro800 dark:border-pro300 rounded-lg shadow-lg p-8">
               <div className="flex items-center space-x-4 mb-8">
-                <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap">
+                <h2 className="text-4xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap"
+                style={{ textShadow: "2px 2px 0 var(--accent)" }}>
                   CONTACT
                 </h2>
                 <div className="flex-1 h-px bg-pro600 dark:bg-pro400"></div>

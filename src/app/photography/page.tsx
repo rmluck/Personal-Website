@@ -6,7 +6,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { useLastViewedPhoto } from "@/utils/photography_utils";
 import type { ImageProps } from "@/utils/photography_utils";
 import Modal from "@/components/Modal";
@@ -45,9 +44,12 @@ export default function Photography() {
             <Navbar items={[]} />
 
             <main className="flex-1">
-                <section className="px-6 sm:px-12 pt-16 pb-8 ml-12 mr-12">
+                <section className="px-6 sm:px-12 pb-8 mx-12 mb-0">
                     <div className="mb-10 mt-10">
-                        <h2 className="text-5xl text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap text-center">
+                        <h2
+                            className="text-5xl text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap text-center"
+                            style={{ textShadow: "3px 3px 0 var(--accent)" }}
+                        >
                             PHOTOGRAPHY
                         </h2>
                     </div>

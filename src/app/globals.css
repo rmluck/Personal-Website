@@ -51,7 +51,7 @@
 }
 
 html {
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
 }
 
 body {
@@ -65,6 +65,8 @@ body {
 
 .snap section {
   scroll-snap-align: start;
+  /* scroll-snap-stop: normal;
+  margin-bottom: 100px; */
 }
 
 /* .clickable {

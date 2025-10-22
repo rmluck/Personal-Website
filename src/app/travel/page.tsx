@@ -109,8 +109,6 @@ export default function Travel() {
                 <div class="popup-content">
                     <strong class="place-title">${feature.properties.name}</strong><br/>
                     ${country.years.length > 0 ? "Visited in " + country.years.join(", ") + "<br/>" : ""}<br />
-                    <a href="${country.blog || "#"}" target="_blank">Blog posts</a><br/>
-                    <a href="${country.photos || "#"}" target="_blank">Photos</a>
                 </div>
             `, {
                 className: "place-popup",
@@ -135,14 +133,15 @@ export default function Travel() {
             <Navbar items={[]} />
 
             <main className="flex-1">
-                <section className="px-6 sm:px-12 pt-16 pb-8 m-24 mb-0">
-                    <div className="mb-10 mt-10">
-                        <h2 className="text-5xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap">
+                <section className="px-6 sm:px-12 py-8 mx-24 mt-10 mb-0">
+                    <div className="mb-6 mt-10">
+                        <h2 className="text-5xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap"
+                        style={{ textShadow: "3px 3px 0 var(--accent)" }}>
                             TRAVEL
                         </h2>
                     </div>
 
-                    <div className="w-full h-[80vh] border-4 border-pro400 dark:border-pro800 rounded-sm relative z-0">
+                    <div className="w-full h-[75vh] border-4 border-pro400 dark:border-pro800 rounded-sm relative z-0">
                         <MapContainer
                             center={[20, 0] as LatLngExpression} // initial view: [lat, lng]
                             zoom={2}
@@ -170,8 +169,8 @@ export default function Travel() {
                                     <Popup>
                                         <strong>{city.name}</strong><br />
                                         Visited: {city.years.join(", ")}<br />
-                                        <a href={city.blog || "#"} target="_blank">Blog posts</a><br />
-                                        <a href={city.photos || "#"} target="_blank">Photos</a>
+                                        {/* <a href={city.blog || "#"} target="_blank">Blog posts</a><br />
+                                        <a href={city.photos || "#"} target="_blank">Photos</a> */}
                                     </Popup>
                                     <Tooltip direction="top" offset={[0, -8]} opacity={0.9} permanent={false} className="place-tooltip">
                                         {city.name}

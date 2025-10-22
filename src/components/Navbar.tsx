@@ -17,6 +17,7 @@ export default function Navbar( { items: navItems }: { items?: NavItem[] } ) {
     const [activeSection, setActiveSection] = useState<string>("home");
     const [navMenuOpen, setNavMenuOpen] = useState<boolean>(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    const hasNavItems = navItems && navItems.length > 0;
     const ticking = useRef(false);
 
     useEffect(() => {
@@ -115,16 +116,16 @@ export default function Navbar( { items: navItems }: { items?: NavItem[] } ) {
 
     return (
         <>
-            <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-6xl font-regular">
+            <nav className={`${hasNavItems ? "w-[90%] max-w-6xl font-regular left-1/2" : "w-20 left-1/20"} fixed top-4 transform -translate-x-1/2 z-50 `}>
                 <div className="bg-pro200/80 dark:bg-pro800/55 backdrop-blur-xl shadow-2xl rounded-full border border-pro300/30 dark:border-pro700/30">
-                    <div className="flex items-center justify-between px-8 py-4">
+                    <div className={`${hasNavItems ? "px-8 justify-between" : "justify-center"} flex items-center py-4`}>
                         {/* Logo Placeholder */}
                         <Link href="/" className="flex items-center">
                             <Logo className="text-pro900 dark:text-pro100 hover:text-accent hover:-translate-y-1 transition-all duration-200 cursor-none cursor-hover clickable" width={60} height={36} />
                         </Link>
 
                         {/* Navigation Links */}
-                        <ul className="hidden md:flex space-x-6 text-sm">
+                        <ul className="hidden md:flex space-x-6 text-md">
                             {navItems && navItems.length > 0 && navItems.map((item, index) => (
                                 <li 
                                     key={`nav-item-${index}`}

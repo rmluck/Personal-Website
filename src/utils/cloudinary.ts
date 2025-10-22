@@ -25,13 +25,13 @@ export const cloudinaryPresets = {
     original: { width: 2560, crop: "fit", },
 };
 
-export async function getPhotos() {
+export async function getPhotos(folderPath: string = "") {
     const resources: any[] = [];
     let nextCursor: string | undefined;
     do {
         const response = await cloudinary.api.resources({
             type: "upload",
-            prefix: "",
+            prefix: folderPath,
             max_results: 400,
             next_cursor: nextCursor,
             tags: true,
