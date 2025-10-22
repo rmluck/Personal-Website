@@ -11,6 +11,7 @@ export default function SocialSidebar() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                        title="Github"
                     >
                         <Github className="h-5 w-5" />
                     </a>
@@ -22,6 +23,7 @@ export default function SocialSidebar() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                        title="LinkedIn"
                     >
                         <Linkedin className="h-5 w-5" />
                     </a>
@@ -33,6 +35,7 @@ export default function SocialSidebar() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                        title="Instagram"
                     >
                         <Instagram className="h-5 w-5" />
                     </a>

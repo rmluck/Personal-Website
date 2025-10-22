@@ -53,7 +53,7 @@ export default function FullProjectCard({
         <li className={`relative flex flex-col items-center lg:items-stretch`}>
             {/* Project Image */}
             <div className="w-full h-full relative order-1 group cursor-hover cursor-none clickable">
-                <div className="relative w-full h-150 rounded-t-md overflow-hidden shadow-md">
+                <div className="relative w-full h-100 rounded-t-md overflow-hidden shadow-md">
                     <Image 
                         src={image}
                         alt={name}
@@ -61,7 +61,7 @@ export default function FullProjectCard({
                         className="object-cover group-hover:scale-105 transition duration-500 ease-out opacity-50 group-hover:opacity-100 saturate-0 group-hover:saturate-100"
                     />
                 </div>
-                <div className="absolute w-full h-150 inset-0 rounded-lg shadow-md bg-accent opacity-50 mix-blend-color transition duration-500 ease-out group-hover:opacity-0"></div>
+                <div className="absolute w-full h-100 inset-0 rounded-lg shadow-md bg-accent opacity-50 mix-blend-color transition duration-500 ease-out group-hover:opacity-0"></div>
             </div>
 
             {/* Project Content */}

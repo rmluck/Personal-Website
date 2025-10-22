@@ -93,7 +93,7 @@ export default function Home() {
                   </h2>
                   <div className="flex-1 h-px bg-pro600 dark:bg-pro400"></div>
                 </div>
-                <p className="text-sm text-pro800 dark:text-pro300 font-text">
+                <p className="text-sm text-pro800 dark:text-pro300 font-regular">
                   Graduated from the <a href="https://www.ics.uci.edu/" target="_blank" rel="noopener noreferrer" className="text-pro900 dark:text-pro200 font-semibold relative bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-300 hover:text-accent cursor-hover cursor-none">Donald Bren School of Information and Computer Sciences</a> at <a href="https://www.uci.edu/" target="_blank" rel="noopener noreferrer" className="text-pro900 dark:text-pro200 font-semibold relative bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-300 hover:text-accent cursor-hover cursor-none">University of California, Irvine</a> with a B.S. in Computer Science and specialization in Intelligent Systems. I am passionate about leveraging software development, data analysis, and intelligent systems to solve complex problems.<br /><br />Experienced in full-stack development, artificial intelligence, machine learning, information retrieval, data visualization, and backend data integration through internships, research projects, and academic coursework, with success in creating web applications, data analysis tools, and high-performance search engines.<br /><br />Strong analytical, programming, communication, and leadership skills with a collaborative mindset and proactive learning approach. Eager to tackle new challenges and collaborate in professional settings.
                 </p>
 
@@ -110,6 +110,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                      title="Blog"
                     >
                       <SquarePen className="h-7 w-7" />
                     </a>                    
@@ -177,9 +178,8 @@ export default function Home() {
               </div>
 
               {/* Right Column - Profile Photo */}
-              <div className="flex justify-center lg:justify-end">
+              {/* <div className="flex justify-center lg:justify-end">
                 <div className="img-wrapper inline-block shrink-0 w-48 h-48 lg:w-64 lg:h-64 sm:w-72 sm:h-72 sm:mt-10 relative hover:scale-105 transition-transform duration-300 ease-out cursor-hover cursor-none clickable">
-                  {/* Profile Photo */}
                   <Image
                     src="/profile_photo.jpg"
                     alt="Profile photo"
@@ -187,7 +187,19 @@ export default function Home() {
                     className="object-cover relative w-full h-full rounded-full shadow-lg transition-all duration-300 ease-out"
                   />
                 </div>
+              </div> */}
+
+              <div className="relative inline-block shrink-0 w-48 h-48 lg:w-64 lg:h-64 sm:w-72 sm:h-72 sm:mt-10">
+                <div className="relative w-full h-full rounded-full border-[6px] border-accent shadow-xl shadow-accent/25">
+                  <Image
+                    src="/profile_photo.jpg"
+                    alt="Profile photo"
+                    fill
+                    className="object-cover rounded-full hover:scale-105 transition-transform duration-300 ease-out cursor-hover cursor-none clickable"
+                  />
+                </div>
               </div>
+
               <div className="p-6 mt-6 col-span-full overflow-x-auto w-full">
                 {/* <img src="https://github-readme-stats.vercel.app/api?username=rmluck&show_icons=true&hide=stars,prs,issues,contribs&commits_year=2025&theme=transparent&title_color=10B981&text_color=10B981&hide_border=true&icon_color=10B981&custom_title=Github%20Stats" /> */}
                 {/* <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rmluck&langs_count=10&size_weight=0.5&count_weight=0.5&hide=jupyter%20notebook,mako,dockerfile&exclude_repo=Nano-GPT-Development,Microsoft_Intro-Machine-Learning-Course&theme=transparent&title_color=10B981&text_color=10B981&hide_border=true&icon_color=10B981&custom_title=Top%20Languages" /> */}

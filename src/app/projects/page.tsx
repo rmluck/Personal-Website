@@ -12,8 +12,8 @@ export default function Projects() {
             <Navbar items={[]} />
             
             <main className="flex-1">
-                <section className="px-6 sm:px-12 py-8 mx-24 mt-10 mb-0">
-                    <div className="mb-6 mt-10">
+                <section className="px-6 sm:px-12 pb-8 mx-24 mb-0">
+                    <div className="mb-10 mt-10">
                         <h2 className="text-5xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap"
                         style={{ textShadow: "3px 3px 0 var(--accent)" }}>
                             PROJECTS
