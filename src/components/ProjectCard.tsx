@@ -209,7 +209,7 @@ export default function ProjectCard({
                         fill
                         className={`
                             object-cover
-                            opacity-50 saturate-0
+                            sm:opacity-50 sm:saturate-0
                             transition duration-500 ease-out
                             group-hover:scale-105
                             group-hover:opacity-100
@@ -222,7 +222,7 @@ export default function ProjectCard({
                 <div className={`
                     absolute inset-0
                     w-full h-64 lg:h-80
-                    bg-accent
+                    sm:bg-accent
                     rounded-lg shadow-md
                     opacity-50 mix-blend-color
                     transition duration-500 ease-out

@@ -44,12 +44,12 @@ export default function Photography() {
             <Navbar items={[]} />
 
             <main className="flex-1">
-                <section className="px-6 sm:px-12 pb-8 mx-12 mb-0">
+                <section className="px-6 sm:px-12 py-12 mx-4 sm:mx-18 lg:mx-24 mt-0 mb-0">
                     {/* Header */}
-                    <div className="mb-10 mt-10">
+                    <div className="mb-6 mt-10">
                         <h2
                             className={`
-                                text-5xl text-pro900 dark:text-pro200
+                                text-4xl sm:text-5xl text-pro900 dark:text-pro200
                                 font-heading font-bold
                                 text-center whitespace-nowrap
                             `}

@@ -136,12 +136,12 @@ export const education = [
         logo: "/logos/ayala_high_school_logo.png",
         link: "https://ayala.chino.k12.ca.us",
     },
-    {
-        school: "Self-Learning & Online Courses",
-        details: {
-            online_courses: [],
-            certifications: [],
-            books: [],
-        }
-    },
+    // {
+    //     school: "Self-Learning & Online Courses",
+    //     details: {
+    //         online_courses: [],
+    //         certifications: [],
+    //         books: [],
+    //     }
+    // },
 ];

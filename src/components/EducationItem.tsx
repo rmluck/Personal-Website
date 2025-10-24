@@ -30,7 +30,12 @@ export default function EducationItem({
 } : EducationItemProps) {
     // Filter out undefined detail keys
     const detailKeys = Object.keys(details).filter(key => details[key] !== undefined);
+    const [isExpanded, setIsExpanded] = useState(false);
     const [activeTab, setActiveTab] = useState<string>(detailKeys[0] || "");
+
+    const toggleExpanded = () => {
+        setIsExpanded(!isExpanded);
+    }
 
     // Recursive function to render nested details
     function renderDetails(content: NestedDetails) {
@@ -55,15 +60,33 @@ export default function EducationItem({
     return (
         <div
             className={`
-                p-6 w-full
+                relative p-6 w-full
                 border border-pro800 dark:border-pro300
                 rounded-md shadow-md
                 transition-all duration-500
                 group/school
             `}
+            onClick={toggleExpanded}
         >
+            {detailKeys.length > 0 && (
+                <div className="sm:hidden absolute top-6 right-6 text-pro600 dark:text-pro400">
+                    <svg
+                        className={`
+                            w-5 h-5
+                            transition-transform duration-300
+                            ${isExpanded ? "rotate-180" : ""}
+                        `}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                </div>
+            )}
+
             {/* School Information */}
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-6 pr-8">
                 {/* School Logo */}
                 {logo && (
                     <div className="group/logo">
@@ -71,8 +94,8 @@ export default function EducationItem({
                             className={`
                                 flex flex-shrink-0
                                 items-center justify-center
-                                relative w-30 h-30
-                                border-3 border-accent
+                                relative w-20 h-20 sm:w-30 sm:h-30
+                                sm:border-3 sm:border-accent
                                 rounded-full shadow-md
                                 overflow-hidden
                                 transition-colors duration-500
@@ -86,7 +109,7 @@ export default function EducationItem({
                                 height={120}
                                 className={`
                                     object-cover
-                                    opacity-50 saturate-0
+                                    sm:opacity-50 sm:saturate-0
                                     transition duration-500
                                     group-hover/logo:scale-105
                                     group-hover/logo:opacity-100
@@ -98,7 +121,7 @@ export default function EducationItem({
                             <div
                                 className={`
                                     absolute inset-0
-                                    bg-accent opacity-70
+                                    sm:bg-accent opacity-70
                                     rounded-lg mix-blend-color
                                     transition-opacity duration-500 ease-out
                                     group-hover/school:opacity-0
@@ -109,9 +132,9 @@ export default function EducationItem({
                 )}
 
                 {/* School Details */}
-                <div>
+                <div className="flex-1 min-w-0">
                     {/* School Name */}
-                    <h3 className="text-2xl text-pro900 dark:text-pro200 font-regular font-bold">
+                    <h3 className="text-xl sm:text-2xl text-pro900 dark:text-pro200 font-regular font-bold">
                         <a
                             href={link}
                             target="_blank"
@@ -133,7 +156,7 @@ export default function EducationItem({
                     {degree &&
                         <p
                             className={`
-                                text-lg text-pro800 dark:text-pro300
+                                text-sm sm:text-lg text-pro800 dark:text-pro300
                                 font-regular font-bold
                             `}
                         >
@@ -143,70 +166,94 @@ export default function EducationItem({
 
                     {/* Dates */}
                     {(start_date || end_date) && (
-                        <span className="text-sm text-pro800 dark:text-pro300 font-regular">
+                        <span className="text-xs sm:text-sm text-pro800 dark:text-pro300 font-regular">
                             {start_date} - {end_date}
                         </span>
                     )}
 
                     {/* GPA */}
                     {gpa &&
-                        <p className="text-sm text-pro700 dark:text-pro400 font-regular">
+                        <p className="text-xs sm:text-sm text-pro700 dark:text-pro400 font-regular">
                             GPA: {gpa}
                         </p>
                     }
                 </div>
             </div>
 
-            {/* Tabs */}
+            {/* School Details */}
             <div
                 className={`
-                    max-h-0 opacity-0
-                    overflow-hidden
                     transition-all duration-500
-                    group-hover/school:mt-8
-                    group-hover/school:max-h-300
-                    group-hover/school:opacity-100
+
+                    ${isExpanded
+                        ? "max-h-120 opacity-100 mt-8"
+                        : "max-h-0 opacity-0"
+                    }
+
+                    sm:max-h-0
+                    sm:opacity-0
+                    sm:group-hover/school:mt-8
+                    sm:group-hover/school:max-h-120
+                    sm:group-hover/school:opacity-100
                 `}
             >
                 {detailKeys.length > 0 && (
-                    <div className="flex flex-col md:flex-row gap-6">
-                        {/* Tab Buttons */}
-                        <div className="flex md:flex-col relative">
-                            <div 
-                                className={`
-                                    absolute left-0 w-0.75
-                                    bg-accent
-                                    transition-all duration-300
-                                `}
-                                style={{
-                                    top: `${detailKeys.indexOf(activeTab) * 2.25}rem`,
-                                    height: "2.25rem",
-                                }}
-                            />
+                    <>
+                        {/* Simple Stacked Content */}
+                        <div className="block sm:hidden space-y-6 max-h-90 overflow-scroll">
                             {detailKeys.map((key) => (
-                                <button
-                                    key={key}
-                                    onClick={() => setActiveTab(key)}
-                                    className={`
-                                        px-4 py-2
-                                        text-sm font-text text-left
-                                        border-l-3 border-pro300 dark:border-pro800
-                                        transition-colors duration-200
-                                        cursor-none
-                                        ${activeTab === key ?
-                                            "bg-pro200 dark:bg-pro800 text-accent" : "text-pro800 dark:text-pro300 hover:bg-pro200 dark:hover:bg-pro800 hover:text-accent cursor-hover"}
-                                    `}
-                                >
-                                    {key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
-                                </button>
+                                <div key={key}>
+                                    <h4 className="text-lg text-pro900 dark:text-pro200 font-semibold mb-3 border-pro300 dark:border-pro700 pb-2">
+                                        {key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
+                                    </h4>
+
+                                    <div className="pl-2">
+                                        {renderDetails(details[key]!)}
+                                    </div>
+                                </div>
                             ))}
                         </div>
 
-                        {/* Tab Content */}
-                        <div className="flex-1">
-                            {activeTab && renderDetails(details[activeTab]!)}
+                        {/* Tabbed Interface */}
+                        <div className="hidden sm:flex flex-col md:flex-row gap-6 max-h-120 overflow-scroll">
+                            {/* Tab Buttons */}
+                            <div className="flex md:flex-col relative">
+                                <div 
+                                    className={`
+                                        absolute left-0 w-0.75
+                                        bg-accent
+                                        transition-all duration-300
+                                    `}
+                                    style={{
+                                        top: `${detailKeys.indexOf(activeTab) * 2.25}rem`,
+                                        height: "2.25rem",
+                                    }}
+                                />
+                                {detailKeys.map((key) => (
+                                    <button
+                                        key={key}
+                                        onClick={() => setActiveTab(key)}
+                                        className={`
+                                            px-4 py-2
+                                            text-sm font-text text-left
+                                            border-l-3 border-pro300 dark:border-pro800
+                                            transition-colors duration-200
+                                            cursor-none
+                                            ${activeTab === key ?
+                                                "bg-pro200 dark:bg-pro800 text-accent" : "text-pro800 dark:text-pro300 hover:bg-pro200 dark:hover:bg-pro800 hover:text-accent cursor-hover"}
+                                        `}
+                                    >
+                                        {key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
+                                    </button>
+                                ))}
+                            </div>
+
+                            {/* Tab Content */}
+                            <div className="flex-1">
+                                {activeTab && renderDetails(details[activeTab]!)}
+                            </div>
                         </div>
-                    </div>
+                    </>
                 )}
             </div>
         </div>

@@ -76,7 +76,10 @@ export default function Home() {
           id="home"
           className={`
             flex items-center justify-center
-            min-h-[calc(90vh)] px-6 sm:px-12 py-16 m-24 mt-0
+            min-h-[calc(90vh)]
+            px-4 sm:px-6 lg:px-12
+            py-8 sm:py-12 lg:py-16
+            m-4 sm:m-8 lg:m-24 mt-0
           `}
         >
           <div className="max-w-6xl">
@@ -106,7 +109,9 @@ export default function Home() {
             id="about"
             className={`
               flex items-center justify-center
-              px-6 sm:px-12 py-16 m-24 mt-0
+              px-6 sm:px-12
+              py-16
+              m-4 sm:m-18 lg:m-24 mt-0
             `}
           >
             <div 
@@ -114,7 +119,7 @@ export default function Home() {
                 grid grid-cols-1
                 min-[1050px]:grid-cols-[2fr_1fr]
                 items-center gap-6
-                max-w-6xl mx-auto
+                max-w-6xl mx-auto w-full
               `}
             >
               {/* Left Column - About Me */}
@@ -122,7 +127,7 @@ export default function Home() {
                 <div className="flex items-center space-x-4">
                   <h2
                     className={`
-                      text-5xl text-pro900 dark:text-pro200
+                      text-4xl sm:text-5xl text-pro900 dark:text-pro200
                       font-heading font-bold
                       whitespace-nowrap
                     `}
@@ -148,6 +153,7 @@ export default function Home() {
                     <span className="w-2 h-2 bg-accent rounded-full mr-2"></span>
                     22 years old
                   </div>
+
                   <div className={`
                     inline-flex items-center
                     px-3 py-2
@@ -159,6 +165,7 @@ export default function Home() {
                     <span className="w-2 h-2 bg-accent rounded-full mr-2"></span>
                     Chino Hills, CA
                   </div>
+
                   <div className={`
                     inline-flex items-center
                     px-3 py-2
@@ -173,7 +180,7 @@ export default function Home() {
                 </div>
 
                 {/* Bio */}
-                <p className="text-sm text-pro800 dark:text-pro300 font-text">
+                <p className="text-xs sm:text-sm text-pro800 dark:text-pro300 font-text">
                   Graduated from the <a href="https://www.ics.uci.edu/" target="_blank" rel="noopener noreferrer" className="relative text-pro900 dark:text-pro200 font-semibold bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat hover:bg-[length:100%_2px] hover:text-accent transition-all duration-300 cursor-hover cursor-none">Donald Bren School of Information and Computer Sciences</a> at <a href="https://www.uci.edu/" target="_blank" rel="noopener noreferrer" className="relative text-pro900 dark:text-pro200 font-semibold bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat hover:bg-[length:100%_2px] hover:text-accent transition-all duration-300 cursor-hover cursor-none">University of California, Irvine</a> with a B.S. in Computer Science and specialization in Intelligent Systems. I am passionate about leveraging software development, data analysis, and intelligent systems to solve complex problems.<br /><br />Experienced in full-stack development, artificial intelligence, machine learning, information retrieval, data visualization, and backend data integration through internships, research projects, and academic coursework, with success in creating web applications, data analysis tools, and high-performance search engines.<br /><br />Strong analytical, programming, communication, and leadership skills with a collaborative mindset and proactive learning approach. Eager to tackle new challenges and collaborate in professional settings.
                 </p>
               </div>
@@ -234,12 +241,15 @@ export default function Home() {
                       className={`
                         px-6 py-3
                         border border-accent
-                        rounded-md shadow-md
-                        text-accent font-medium
+                        rounded-md
+                        text-accent font-bold
+                        bg-accent/30 shadow-[2px_2px_0px_0px_var(--color-accent)]
+                        sm:bg-transparent sm:shadow-md
+                        sm:font-medium
                         transition-all duration-300 
                         hover:bg-accent/30 hover:border-accent
                         hover:shadow-[4px_4px_0px_0px_var(--color-accent)]
-                        hover:text-accent hover:font-bold
+                        hover:font-bold
                         cursor-hover cursor-none clickable
                       `}
                     >
@@ -247,8 +257,8 @@ export default function Home() {
                     </a>
                   </motion.div>
 
-                  <div className="flex flex-row space-x-4 sm:pt-5 md:pt-0">
-                    <a
+                  <div className="flex flex-row space-x-4 pt-5 md:pt-0">
+                    {/* <a
                       href="/blog"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -261,7 +271,7 @@ export default function Home() {
                       title="Blog"
                     >
                       <SquarePen className="h-7 w-7" />
-                    </a>
+                    </a> */}
 
                     <a
                       href="https://x.com/rohandm99"
@@ -363,7 +373,7 @@ export default function Home() {
               </div>
 
               {/* Github Stats */}
-              <div className="p-6 mt-6 col-span-full overflow-x-auto w-full order-4">
+              <div className="p-2 mt-4 sm:mt-6 col-span-full overflow-x-auto w-full order-4">
                 {/* <img src="https://github-readme-stats.vercel.app/api?username=rmluck&show_icons=true&hide=stars,prs,issues,contribs&commits_year=2025&theme=transparent&title_color=10B981&text_color=10B981&hide_border=true&icon_color=10B981&custom_title=Github%20Stats" /> */}
                 {/* <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rmluck&langs_count=10&size_weight=0.5&count_weight=0.5&hide=jupyter%20notebook,mako,dockerfile&exclude_repo=Nano-GPT-Development,Microsoft_Intro-Machine-Learning-Course&theme=transparent&title_color=10B981&text_color=10B981&hide_border=true&icon_color=10B981&custom_title=Top%20Languages" /> */}
                 <p
@@ -386,12 +396,12 @@ export default function Home() {
 
         {/* Projects Section */}
         <Section>
-          <section id="projects" className="px-6 sm:px-12 py-16 m-24 mt-0">
+          <section id="projects" className="px-6 sm:px-12 py-16 m-4 sm:m-18 lg:m-24 mt-0">
             {/* Section Header */}
             <div className="flex items-center space-x-4 mb-8">
               <h2
                 className={`
-                  text-4xl text-center
+                  text-4xl sm:text-5xl text-center
                   text-pro900 dark:text-pro200
                   font-heading font-bold
                   whitespace-nowrap
@@ -431,8 +441,10 @@ export default function Home() {
                   className={`
                     px-6 py-3
                     border border-accent
-                    rounded-xl shadow-md
-                    text-accent font-medium
+                    rounded-md
+                    text-accent font-bold
+                    bg-accent/30 shadow-[2px_2px_0px_0px_var(--color-accent)]
+                    sm:bg-transparent sm:shadow-md sm:font-medium
                     transition-all transform duration-300
                     hover:-translate-y-1 hover:-translate-x-1
                     hover:bg-accent/30 hover:border-accent
@@ -450,7 +462,7 @@ export default function Home() {
 
         {/* Experience Section */}
         <Section>
-          <section id="experience" className="px-6 sm:px-12 py-16 m-24 mt-0 ">
+          <section id="experience" className="px-6 sm:px-12 py-16 m-4 sm:m-18 lg:m-24 mt-0">
             {/* Section Header */}
             <div className="flex items-center space-x-4 mb-8">
               {/* Horizontal line */}
@@ -458,7 +470,7 @@ export default function Home() {
 
               <h2
                 className={`
-                  text-4xl text-center
+                  text-4xl sm:text-5xl text-center
                   text-pro900 dark:text-pro200
                   font-heading font-bold
                   whitespace-nowrap
@@ -491,12 +503,12 @@ export default function Home() {
 
         {/* Education Section */}
         <Section>
-          <section id="education" className="px-6 sm:px-12 py-16 m-24 mt-0 ">
+          <section id="education" className="px-6 sm:px-12 py-16 m-4 sm:m-18 lg:m-24 mt-0">
             {/* Section Header */}
             <div className="flex items-center space-x-4 mb-8">
               <h2
                 className={`
-                  text-4xl text-center
+                  text-4xl sm:text-5xl text-center
                   text-pro900 dark:text-pro200
                   font-heading font-bold
                   whitespace-nowrap
@@ -529,7 +541,7 @@ export default function Home() {
 
         {/* Skills Section */}
         <Section>
-          <section id="skills" className="px-6 sm:px-12 py-16 m-24 mt-0 ">
+          <section id="skills" className="px-6 sm:px-12 py-16 m-4 sm:m-18 lg:m-24 mt-0">
             {/* Section Header */}
             <div className="flex items-center space-x-4 mb-8">
               {/* Horizontal line */}
@@ -537,7 +549,7 @@ export default function Home() {
 
               <h2
                 className={`
-                  text-4xl text-center
+                  text-4xl sm:text-5xl text-center
                   text-pro900 dark:text-pro200
                   font-heading font-bold
                   whitespace-nowrap
@@ -559,7 +571,7 @@ export default function Home() {
 
         {/* Contact Section */}
         <Section>
-          <section id="contact" className="px-6 sm:px-12 pt-16 pb-8 m-24 mt-0 mb-0">
+          <section id="contact" className="px-6 sm:px-12 pt-16 pb-8 m-4 sm:m-18 lg:m-24 mt-0 mb-0">
             <div
               className={`
                 p-8 max-w-2xl mx-auto
@@ -572,7 +584,7 @@ export default function Home() {
               <div className="flex items-center space-x-4 mb-8">
                 <h2
                   className={`
-                    text-4xl text-center
+                    text-4xl sm:text-5xl text-center
                     text-pro900 dark:text-pro200
                     font-heading font-bold
                     whitespace-nowrap
@@ -695,9 +707,11 @@ export default function Home() {
                     type="submit"
                     className={`
                       px-6 py-3
-                      rounded-xl shadow-md
                       border border-accent
-                      text-accent font-medium
+                      rounded-md
+                      text-accent font-bold
+                      bg-accent/30 shadow-[2px_2px_0px_0px_var(--color-accent)]
+                      sm:bg-transparent sm:shadow-md sm:font-medium
                       transition-all transform duration-300 
                       hover:-translate-y-1 hover:-translate-x-1
                       hover:bg-accent/30 hover:border-accent

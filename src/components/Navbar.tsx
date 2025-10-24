@@ -123,7 +123,7 @@ export default function Navbar(
                 className={`
                     fixed top-8 z-50
                     transform -translate-x-1/2
-                    ${hasNavItems ? "w-[90%] max-w-6xl font-regular left-1/2" : "w-16 lg:left-1/28 md:left-1/20 sm:left-1/14 left-1/16"}  
+                    ${hasNavItems ? "w-[90%] max-w-6xl font-regular left-1/2" : "w-16 lg:left-1/28 md:left-1/20 sm:left-1/14 left-1/10"}  
                 `}
             >
                 <div className={`

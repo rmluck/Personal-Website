@@ -130,12 +130,12 @@ export default function Travel() {
             <Navbar items={[]} />
 
             <main className="flex-1">
-                <section className="px-6 sm:px-12 py-8 mx-24 mt-10 mb-0">
+                <section className="px-6 sm:px-12 py-8 mx-4 sm:mx-18 lg:mx-24 mt-0 mb-10">
                     {/* Header */}
                     <div className="mb-6 mt-10">
                         <h2
                             className={`
-                                text-5xl text-pro900 dark:text-pro200
+                                text-4xl sm:text-5xl text-pro900 dark:text-pro200
                                 font-heading font-bold
                                 text-center whitespace-nowrap
                             `}
