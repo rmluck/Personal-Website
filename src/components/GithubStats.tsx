@@ -7,6 +7,7 @@ import "react-tooltip/dist/react-tooltip.css";
 export default function GithubStats() {
     const [isDark, setIsDark] = useState(false);
 
+    // Observe changes to the document's class list to detect dark mode changes
     useEffect(() => {
         const observer = new MutationObserver(() => {
             setIsDark(document.documentElement.classList.contains('dark'));
@@ -23,7 +24,7 @@ export default function GithubStats() {
     }, []);
 
     return (
-        <div className="text-pro900 dark:text-pro100 min-w-full flex justify-center">
+        <div className="flex justify-center min-w-full text-pro900 dark:text-pro100">
             <GitHubCalendar
                 username="rmluck"
                 theme={{

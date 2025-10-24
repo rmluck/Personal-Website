@@ -1,29 +1,26 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function Cursor() {
-    // const mouseX = useMotionValue(0);
-    // const mouseY = useMotionValue(0);
-
-    // const springConfig = { stiffness: 300, damping: 30 };
-    // const cursorX = useSpring(mouseX, springConfig);
-    // const cursorY = useSpring(mouseY, springConfig);
-
-    const[mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
+    // State to track mouse position, hovering state, and clicking state
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [isHovering, setIsHovering] = useState(false);
     const [isClicking, setIsClicking] = useState(false);
 
+    // Update mouse position on mouse move
     useEffect(() => {
         const moveCursor = (e: MouseEvent) => {
             setMousePosition({ x: e.clientX, y: e.clientY });
         };
+
         window.addEventListener("mousemove", moveCursor);
+
         return () => window.removeEventListener("mousemove", moveCursor);
     }, []);
 
+    // Handle hover state for elements with the "cursor-hover" class
     useEffect(() => {
         const handleEnter = (e: MouseEvent) => {
             if ((e.target as Element).closest(".cursor-hover")) {
@@ -33,14 +30,17 @@ export default function Cursor() {
         const handleLeave = (e: MouseEvent) => {
             setIsHovering(false);
         };
+
         document.addEventListener("mouseover", handleEnter);
         document.addEventListener("mouseout", handleLeave);
+
         return () => {
             document.removeEventListener("mouseover", handleEnter);
             document.removeEventListener("mouseout", handleLeave);
         };
     }, []);
 
+    // Handle clicking state
     useEffect(() => {
         const handleDown = () => setIsClicking(true);
         const handleUp = () => setIsClicking(false);
@@ -56,7 +56,13 @@ export default function Cursor() {
 
     return (
         <motion.div 
-            className={`fixed top-0 left-0 rounded-full bg-accent pointer-events-none z-100 transition-color transition-opacity ${isHovering ? "bg-accent/30 w-8 h-8" : "bg-accent w-4 h-4"}`}
+            className={`
+                fixed z-100 top-0 left-0
+                bg-accent rounded-full
+                transition-color transition-opacity
+                pointer-events-none 
+                ${isHovering ? "w-8 h-8 bg-accent/30 " : "w-4 h-4 bg-accent"}
+            `}
             style={{
                 left: mousePosition.x - (isHovering ? 16 : 8),
                 top: mousePosition.y - (isHovering ? 16 : 8),

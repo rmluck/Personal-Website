@@ -3,10 +3,12 @@ dotenv.config({ path: ".env.local" });
 
 import { v2 as cloudinary } from "cloudinary";
 
+// Ensure environment variables are set
 const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
 const apiKey = process.env.CLOUDINARY_API_KEY;
 const apiSecret = process.env.CLOUDINARY_API_SECRET;
 
+// Throw error if any required env vars are missing
 if (!cloudName || !apiKey || !apiSecret) {
     throw new Error("Cloudinary environment variables are not set properly.");
 }
@@ -18,6 +20,7 @@ cloudinary.config({
     secure: true,
 });
 
+// Preset transformations for different use cases
 export const cloudinaryPresets = {
     grid: { width: 720, height: 480, crop: "fill", },
     modal: { width: 2560, crop: "fit", },
@@ -25,9 +28,11 @@ export const cloudinaryPresets = {
     original: { width: 2560, crop: "fit", },
 };
 
+// Function to fetch photos from a specific folder in Cloudinary
 export async function getPhotos(folderPath: string = "") {
     const resources: any[] = [];
     let nextCursor: string | undefined;
+
     do {
         const response = await cloudinary.api.resources({
             type: "upload",
@@ -40,9 +45,11 @@ export async function getPhotos(folderPath: string = "") {
         resources.push(...(response.resources || []));
         nextCursor = response.next_cursor;
     } while (nextCursor);
+
     return resources;
 }
 
+// Function to build a Cloudinary image URL with specified transformations
 export function buildPhotoUrl(
     publicId: string,
     options: { width?: number; height?: number; crop?: string; quality?: string; format?: string; } = {}

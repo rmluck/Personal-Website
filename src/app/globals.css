@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
+/* Define a custom variant for dark mode */
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
+  /* Grayscale Palette */
   --pro100: #FFFFFF;
   --pro200: #F0F0F0;
   --pro300: #CCCCCC;
@@ -13,8 +15,9 @@
   --pro800: #333333;
   --pro850: #1A1A1A;
   --pro900: #000000;
-  --accent: #10B981;
 
+  /* Accent Color */
+  --accent: #10B981;
   /* --accent: #3B82F6; */
   /* --accent: #FF5A00; */
   /* --accent: #F59E0B; */
@@ -23,6 +26,7 @@
 }
 
 @theme inline {
+  /* Colors */
   --color-pro100: var(--pro100);
   --color-pro200: var(--pro200);
   --color-pro300: var(--pro300);
@@ -35,6 +39,7 @@
   --color-pro900: var(--pro900);
   --color-accent: var(--accent);
 
+  /* Fonts */
   /* --font-heading: var(--font-geist-bold); */
   --font-heading: var(--font-inter-bold);
   /* --font-regular: var(--font-geist-regular); */
@@ -54,24 +59,13 @@ html {
   scroll-snap-type: y proximity;
 }
 
-body {
-  /* font-family: var(--font-text); */
-  /* scroll-snap-type: y mandatory; */
-}
-
 .no-snap {
   scroll-snap-type: none;
 }
 
 .snap section {
   scroll-snap-align: start;
-  /* scroll-snap-stop: normal;
-  margin-bottom: 100px; */
 }
-
-/* .clickable {
-  transition: transform 0.1s ease;
-} */
 
 .clickable:active {
   transform: scale(0.96) translateY(2px);
@@ -96,10 +90,10 @@ body {
 .img-wrapper::before {
   content: "";
   position: absolute;
+  z-index: 1;
   inset: -6px;
   background: linear-gradient(45deg, var(--color-accent), transparent, var(--color-accent));
   border-radius: 50%;
-  z-index: -1;
   animation: rotate 3s linear infinite;
 }
 
@@ -151,21 +145,21 @@ body {
 }
 
 .place-popup .leaflet-popup-content-wrapper {
+  padding: 12px;
   background-color: var(--color-pro100);
   color: var(--color-pro800);
-  font-family: var(--font-regular);
-  padding: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-regular);
   opacity: 0.9;
 }
 
 .place-popup .leaflet-popup-content-wrapper a {
-  color: var(--color-pro900);
   position: relative;
   background: linear-gradient(to right, var(--color-accent), var(--color-accent));
   background-size: 0% 2px;
   background-position: left bottom;
   background-repeat: no-repeat;
+  color: var(--color-pro900);
   transition: all 0.3s ease;
 }
 
@@ -192,13 +186,13 @@ body {
 }
 
 .place-tooltip {
+  padding: 4px 8px;
   background-color: var(--color-pro100);
   color: var(--color-pro800);
-  font-weight: bold;
-  font-size: 0.9rem;
-  padding: 4px 8px;
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
 .dark .place-tooltip {

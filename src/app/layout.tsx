@@ -1,25 +1,25 @@
-import { Geist, Geist_Mono, Inter } from "next/font/google";
-import ClientLayout from "@/components/ClientLayout";
 import "./globals.css";
+import ClientLayout from "@/components/ClientLayout";
 import VantaBackground from "./vanta-background";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
 import { SanityLive } from "@/sanity/lib/live";
 
-const geistBold = Geist({
-  variable: "--font-geist-bold",
-  subsets: ["latin"],
-  weight: "700",
-});
+// const geistBold = Geist({
+//   variable: "--font-geist-bold",
+//   subsets: ["latin"],
+//   weight: "700",
+// });
 
-const geistRegular = Geist({
-  variable: "--font-geist-regular",
-  subsets: ["latin"],
-  weight: "400",
-});
+// const geistRegular = Geist({
+//   variable: "--font-geist-regular",
+//   subsets: ["latin"],
+//   weight: "400",
+// });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 const interBold = Inter({
   variable: "--font-inter-bold",
@@ -40,9 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <title>Rohan Mistry</title>
         <meta name="apple-mobile-web-app-title" content="Rohan" />
       </head>
-      <body
-        className={`${geistBold.variable} ${geistRegular.variable} ${geistMono.variable} ${interBold.variable} ${interRegular.variable} antialiased`}
-      >
+      <body className={`${interBold.variable} ${interRegular.variable} antialiased`}>
         <VantaBackground />
         <ClientLayout>{children}</ClientLayout>
         <SanityLive />

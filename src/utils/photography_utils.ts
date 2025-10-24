@@ -1,13 +1,11 @@
 import { createGlobalState } from "react-hooks-global-state";
 import { useEffect } from "react";
 
+// Global state to track last viewed photo
 const initialState = { photoToScrollTo: null as string | null };
 const { useGlobalState } = createGlobalState(initialState);
 
-export const useLastViewedPhoto = () => {
-    return useGlobalState("photoToScrollTo");
-};
-
+// Animation variants for photo modal transitions
 export const variants = {
     enter: (direction: number) => {
         return {
@@ -27,6 +25,12 @@ export const variants = {
     },
 };
 
+// Custom hook to access and update the last viewed photo
+export const useLastViewedPhoto = () => {
+    return useGlobalState("photoToScrollTo");
+};
+
+// Utility function to create a range of numbers
 export const range = (start: number, end: number) => {
     const output: number[] = [];
     if (typeof end === "undefined") {
@@ -76,6 +80,7 @@ export interface SharedModalProps {
     direction?: number;
 }
 
+// Function to force download of a blob URL
 function forceDownload(blobUrl: string, filename: string) {
     const a: HTMLAnchorElement = document.createElement("a");
     a.download = filename;
@@ -85,6 +90,7 @@ function forceDownload(blobUrl: string, filename: string) {
     a.remove();
 };
 
+// Function to download a photo from a given URL
 export function downloadPhoto(url: string, filename: string) {
     if (!filename) filename = url.split("\\").pop()?.split("/").pop() || "";
     fetch(url, {
@@ -101,6 +107,7 @@ export function downloadPhoto(url: string, filename: string) {
         .catch((e) => console.error(e));
 };
 
+// Custom hook to handle key press events
 export function useKeyPress(keys: string[], callback: (key: string) => void) {
     useEffect(() => {
         const handler = (event: KeyboardEvent) => {

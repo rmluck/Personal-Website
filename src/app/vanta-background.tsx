@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Script from "next/script";
+import { useEffect, useRef } from "react";
 
 export default function VantaBackground() {
     const vantaRef = useRef<any>(null);
 
+    // Function to get colors based on theme
     const getColors = (isDark: boolean) => ({
         highlightColor: isDark ? "#000000" : "#FFFFFF",
         midtoneColor: isDark ? "#333333" : "#CCCCCC",
@@ -13,6 +14,7 @@ export default function VantaBackground() {
         baseColor: isDark ? "#1A1A1A" : "#F0F0F0",
     });
 
+    // Initialize Vanta effect
     useEffect(() => {
         const initVanta = () => {
             const isDark = document.documentElement.classList.contains("dark");
@@ -46,8 +48,14 @@ export default function VantaBackground() {
 
     return (
         <>
-            <Script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" strategy="beforeInteractive" />
-            <Script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.fog.min.js" strategy="beforeInteractive" />
+            <Script
+                src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"
+                strategy="beforeInteractive"
+            />
+            <Script
+                src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.fog.min.js"
+                strategy="beforeInteractive"
+            />
             <div id="background" className="fixed inset-0 -z-10"></div>
         </>
     );

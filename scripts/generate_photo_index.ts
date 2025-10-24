@@ -1,15 +1,15 @@
 import fs from "fs";
 import path from "path";
-import { getPhotos, buildPhotoUrl, cloudinaryPresets } from "../src/utils/cloudinary.ts";
 import sharp from "sharp";
+import { getPhotos, buildPhotoUrl, cloudinaryPresets } from "../src/utils/cloudinary.ts";
 
 async function generatePhotoIndex() {
+    // Fetch photos from Cloudinary
     console.log("Fetching photos from Cloudinary...");
-
     const allPhotos = await getPhotos("");
-
     console.log(`Fetched ${allPhotos.length} photos.`);
 
+    // Filter out private photos
     const photos = allPhotos.filter(photo => {
         const context = photo.context.custom || {};
         const isPrivate = context["private"] && context["private"] === "true";
@@ -21,13 +21,12 @@ async function generatePhotoIndex() {
         return !isPrivate;
     });
 
+    // Process each photo
     console.log(`Processing ${photos.length} public photos...`);
-
     const photoData = await Promise.all(
         photos.map(async (photo: any, index: number) => {
             const publicId = photo.public_id;
             const format = photo.format;
-
             const urls = {
                 grid: buildPhotoUrl(publicId, { ...cloudinaryPresets.grid }),
                 modal: buildPhotoUrl(publicId, { ...cloudinaryPresets.modal }),
@@ -35,6 +34,7 @@ async function generatePhotoIndex() {
                 original: buildPhotoUrl(publicId, { ...cloudinaryPresets.original }),
             };
 
+            // Generate blurred placeholder
             const smallUrl = buildPhotoUrl(publicId, { width: 16, height: 10, });
             const response = await fetch(smallUrl);
             const buffer = Buffer.from(await response.arrayBuffer());
@@ -56,10 +56,10 @@ async function generatePhotoIndex() {
         })
     );
 
+    // Write to JSON file
     const outputPath = path.join(process.cwd(), "public/data/photos.json");
     fs.mkdirSync(path.dirname(outputPath), { recursive: true });
     fs.writeFileSync(outputPath, JSON.stringify(photoData, null, 2));
-
     console.log(`Photo index generated at ${outputPath}`);
 }
 

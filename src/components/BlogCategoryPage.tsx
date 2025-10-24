@@ -1,13 +1,13 @@
 "use client";
 
-import { BlogPost, Category } from "@/types/blog";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Link from "next/link";
 import PostCard from "@/components/PostCard";
 import BlogSearch from "@/components/BlogSearch";
-import { useSearchPosts } from "@/hooks/useSearchPosts";
 import { ArrowLeftCircle } from "lucide-react";
+import { BlogPost, Category } from "@/types/blog";
+import { useSearchPosts } from "@/hooks/useSearchPosts";
 
 interface CategoryPageClientProps {
     posts: BlogPost[];
@@ -15,9 +15,13 @@ interface CategoryPageClientProps {
     category: Category;
 }
 
-export default function CategoryPageClient({ posts, categories, category }: CategoryPageClientProps) {
+export default function CategoryPageClient(
+    { posts, categories, category } : CategoryPageClientProps
+) {
+    // Search functionality
     const { searchTerm, setSearchTerm, filteredPosts, resultsCount, totalCount } = useSearchPosts(posts);
 
+    // Group categories for navbar
     const groupedCategories = categories?.reduce((acc, category) => {
         const group = category.group || "general";
         if (!acc[group]) {
@@ -27,6 +31,7 @@ export default function CategoryPageClient({ posts, categories, category }: Cate
         return acc;
     }, {} as Record<string, Category[]>);
 
+    // Navbar items
     const groupOrder = ["general", "sports", "entertainment", "lifestyle", "technology"];
     const groupTitles = {
         "sports": "Sports",
@@ -35,7 +40,6 @@ export default function CategoryPageClient({ posts, categories, category }: Cate
         "entertainment": "Entertainment",
         "general": "General"
     };
-
     const navItems = [
         ...groupOrder.map((groupKey) => {
             const groupCategories = groupedCategories?.[groupKey];
@@ -59,13 +63,32 @@ export default function CategoryPageClient({ posts, categories, category }: Cate
         <div className="flex flex-col min-h-screen">
             <Navbar items={navItems} />
 
+            {/* Back to all posts button */}
             <div className="fixed top-7 left-3 z-40 hidden lg:flex">
                 <Link
                     href="/blog"
-                    className="flex items-center justify-center w-10 h-10 bg-pro200/80 dark:bg-pro800/80 backdrop-blur-xl rounded-full shadow-lg border border-pro300/30 dark:border-pro800/30 hover:bg-accent/30 hover:border-accent transition-all duration-200 cursor-hover cursor-none clickable group"
-                    title="Back to all posts"                
+                    className={`
+                        flex items-center justify-center
+                        w-10 h-10
+                        bg-pro200/80 dark:bg-pro800/80
+                        border border-pro300/30 dark:border-pro800/30
+                        backdrop-blur-xl rounded-full shadow-lg
+                        transition-all duration-200
+                        hover:bg-accent/30 hover:border-accent
+                        cursor-hover cursor-none clickable
+                        group
+                    `}
+                    title="Back to all posts"
                 >
-                    <ArrowLeftCircle className="w-5 h-5 text-pro800 dark:text-pro300 group-hover:text-accent group-hover:-translate-x-1 transition-all duration-200" />
+                    <ArrowLeftCircle
+                        className={`
+                            w-5 h-5
+                            text-pro800 dark:text-pro300
+                            transition-all duration-200
+                            group-hover:-translate-x-1
+                            group-hover:text-accent
+                        `}
+                    />
                 </Link>
             </div>
 

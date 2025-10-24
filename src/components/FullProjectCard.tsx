@@ -32,6 +32,7 @@ export default function FullProjectCard({
     skills,
     links,
 } : ProjectCardProps) {
+    // Function to get the appropriate icon based on the link label
     function getIcon(label: string) {
         switch (label) {
             case "GitHub":
@@ -48,54 +49,111 @@ export default function FullProjectCard({
     }
 
     return (
-        <li className={`relative flex flex-col items-center lg:items-stretch`}>
+        <li className="flex flex-col items-center lg:items-stretch relative">
             {/* Project Image */}
-            <div className="w-full h-full relative order-1 group cursor-hover cursor-none clickable">
-                <div className="relative w-full h-100 rounded-t-md overflow-hidden shadow-md">
+            <div
+                className={`
+                    relative order-1
+                    w-full h-full
+                    cursor-hover cursor-none clickable
+                    group
+                `}
+            >
+                <div
+                    className={`
+                        relative w-full h-100
+                        rounded-t-md shadow-md
+                        overflow-hidden
+                    `}
+                >
                     <Image 
                         src={image}
                         alt={name}
                         fill
-                        className="object-cover group-hover:scale-105 transition duration-500 ease-out opacity-50 group-hover:opacity-100 saturate-0 group-hover:saturate-100"
+                        className={`
+                            object-cover
+                            opacity-50 saturate-0
+                            transition duration-500 ease-out
+                            group-hover:scale-105
+                            group-hover:opacity-100
+                            group-hover:saturate-100
+                        `}
                     />
                 </div>
-                <div className="absolute w-full h-100 inset-0 rounded-lg shadow-md bg-accent opacity-50 mix-blend-color transition duration-500 ease-out group-hover:opacity-0"></div>
+
+                {/* Overlay */}
+                <div className={`
+                    absolute inset-0
+                    w-full h-100
+                    bg-accent
+                    rounded-lg shadow-md
+                    opacity-50 mix-blend-color
+                    transition duration-500 ease-out
+                    group-hover:opacity-0
+                `}></div>
             </div>
 
-            {/* Project Content */}
-            <div className={`flex flex-col justify-center order-2 bg-pro200/80 dark:bg-pro800/50 rounded-b-md p-8 shadow-sm`}>
-                <p className="text-sm text-accent font-text tracking-wider mb-2">
+            {/* Project Details */}
+            <div
+                className={`
+                    flex flex-col justify-center
+                    order-2 p-8
+                    bg-pro200/80 dark:bg-pro800/50
+                    rounded-b-md shadow-sm
+                `}
+            >
+                {/* Project Type */}
+                <p className="mb-2 text-sm text-accent font-text tracking-wider">
                     {type}
                 </p>
+
+                {/* Project Name */}
                 <h3 className="text-2xl font-heading font-bold text-pro900 dark:text-pro200 mb-1">
                     <a
                         href={links[0]?.url || "#"}
                         target="_blank"
                         rel="noopener noreferrer"
-                        // className="hover:text-accent transition-colors relative after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full cursor-hover cursor-none"
-                        className="relative bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-300 hover:text-accent cursor-hover cursor-none"
+                        className={`
+                            relative
+                            bg-gradient-to-r from-accent to-accent
+                            bg-[length:0%_2px] bg-left-bottom bg-no-repeat
+                            transition-all duration-300
+                            hover:bg-[length:100%_2px] hover:text-accent
+                            cursor-hover cursor-none
+                        `}
                     >
                         {name}
                     </a>
                 </h3>
+
+                {/* Project Dates */}
                 {(start_date || end_date) && (start_date != end_date && (
-                    <span className="text-sm font-regular text-pro800 dark:text-pro300 mb-3">
+                    <span className="mb-3 text-sm text-pro800 dark:text-pro300 font-regular">
                         {start_date} - {end_date}
                     </span>
                 )) || (start_date == end_date && (
-                    <span className="text-sm font-regular text-pro800 dark:text-pro300 mb-3">
+                    <span className="mb-3 text-sm text-pro800 dark:text-pro300 font-regular">
                         {start_date}
                     </span>
                 ))}
 
-                <div className={`mb-4 text-pro800 dark:text-pro300 font-text text-sm`}>
+                {/* Project Description */}
+                <div className="mb-4 text-sm text-pro800 dark:text-pro300 font-text">
                     <ReactMarkdown
                         components={{
                             a: ({ node, ...props }) => (
                                 <a 
                                     {...props}
-                                    // className="inline-flex text-pro900 dark:text-pro200 font-semibold relative transition-all hover:text-accent after:absolute after:left-0 after:-bottom-0.25 after:h-[1px] after:w-0 after:bg-accent after:transition-all hover:after:w-full cursor-hover cursor-none"
-                                    className="text-pro900 dark:text-pro200 font-semibold relative bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-300 hover:text-accent cursor-hover cursor-none"
+                                    className={`
+                                        relative
+                                        bg-gradient-to-r from-accent to-accent
+                                        bg-[length:0%_2px] bg-left-bottom bg-no-repeat
+                                        text-pro900 dark:text-pro200
+                                        font-semibold
+                                        transition-all duration-300
+                                        hover:bg-[length:100%_2px] hover:text-accent
+                                        cursor-hover cursor-none
+                                    `}
                                 >
                                     {props.children}
                                 </a>
@@ -106,11 +164,28 @@ export default function FullProjectCard({
                     </ReactMarkdown>
                 </div>
 
+                {/* Skills */}
                 <div className={`flex flex-wrap gap-2 mb-5 justify-start`}>
                     {Object.values(skills).filter((skillArray): skillArray is string[] => Array.isArray(skillArray)).flat().map((skill, i) => {
                         return (
-                            <div key={`skill-${i}`} className="flex flex-wrap gap-2 items-center">
-                                <span className="text-pro800 dark:text-pro300 font-text border border-pro300 dark:border-pro800 text-[10px] px-2 py-1 rounded-md hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-200 transition cursor-hover cursor-none clickable">{skill}</span>
+                            <div
+                                key={`skill-${i}`}
+                                className="flex flex-wrap gap-2 items-center"
+                            >
+                                <span
+                                    className={`
+                                        px-2 py-1
+                                        border border-pro300 dark:border-pro800
+                                        text-[10px] text-pro800 dark:text-pro300
+                                        font-text
+                                        rounded-md
+                                        transition duration-200
+                                        hover:bg-accent/30 hover:border-accent
+                                        hover:text-accent hover:font-bold  cursor-hover cursor-none clickable
+                                    `}
+                                >
+                                    {skill}
+                                </span>
                             </div>
                         );
                     })}
@@ -124,7 +199,13 @@ export default function FullProjectCard({
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={link.label}
-                            className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                            className={`
+                                inline-block
+                                text-pro600 dark:text-pro400 
+                                transition-all transform duration-200
+                                hover:text-accent hover:-translate-y-1
+                                cursor-hover cursor-none
+                            `}
                         >
                             {getIcon(link.label)}
                         </a>

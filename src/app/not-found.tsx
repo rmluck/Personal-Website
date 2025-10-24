@@ -7,18 +7,18 @@ export default function NotFound() {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       
-      <main className="flex-1 flex items-center justify-center px-6 sm:px-12">
+      <main className="flex flex-1 items-center justify-center px-6 sm:px-12">
         <div className="text-center max-w-2xl mx-auto">
           {/* Large 404 */}
           <div className="mb-8">
-            <h1 className="text-9xl md:text-[12rem] font-bold text-accent/60 leading-none">
+            <h1 className="text-9xl md:text-[12rem] text-accent/60 font-bold leading-none">
               404
             </h1>
           </div>
           
           {/* Error Message */}
           <div className="mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-pro900 dark:text-pro200 mb-4">
+            <h2 className="mb-4 text-3xl md:text-4xl text-pro900 dark:text-pro200 font-bold">
               Page Not Found
             </h2>
             <p className="text-lg text-pro700 dark:text-pro300 mb-8">
@@ -30,7 +30,18 @@ export default function NotFound() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/"
-              className="inline-flex items-center px-6 py-3 rounded-xl shadow-md border border-accent font-medium text-accent transition-all transform hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[4px_4px_0px_0px_var(--color-accent)] hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-300 cursor-hover cursor-none clickable"
+              className={`
+                inline-flex items-center
+                px-6 py-3
+                text-accent font-medium
+                border border-accent rounded-xl shadow-md
+                transition-all transform duration-300
+                hover:-translate-x-1 hover:-translate-y-1 
+                hover:bg-accent/30 hover:border-accent
+                hover:text-accent hover:font-bold
+                hover:shadow-[4px_4px_0px_0px_var(--color-accent)]
+                cursor-none cursor-hover clickable
+              `}
             >
               ← Back to Home
             </Link>

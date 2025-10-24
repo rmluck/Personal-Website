@@ -32,6 +32,7 @@ export default function ProjectCard({
     links,
     side,
 } : ProjectCardProps) {
+    // Function to get the appropriate icon based on the link label
     function getIcon(label: string) {
         switch (label) {
             case "GitHub":
@@ -48,23 +49,46 @@ export default function ProjectCard({
     }
 
     return (
-        <li className={`relative flex flex-col items-center lg:items-stretch gap-8 ${side === "left" ? "lg:flex-row-reverse" : "lg:flex-row"}`}>
-            {/* Project Content */}
-            <div className={`lg:w-1/2 flex flex-col justify-center order-2 lg:order-1 ${side === "left" ? "text-right" : "text-left"}`}>
-                <p className="text-sm text-accent font-text tracking-wider mb-2">
+        <li
+            className={`
+                relative flex flex-col gap-8
+                items-center lg:items-stretch
+                ${side === "left" ? "lg:flex-row-reverse" : "lg:flex-row"}
+            `}
+        >
+            {/* Project Details */}
+            <div
+                className={`
+                    flex flex-col justify-center
+                    order-2 lg:order-1 lg:w-1/2
+                    ${side === "left" ? "text-right" : "text-left"}
+                `}
+            >
+                {/* Project Type */}
+                <p className="mb-2 text-sm text-accent font-text tracking-wider">
                     {type}
                 </p>
-                <h3 className="text-2xl font-heading font-bold text-pro900 dark:text-pro200 mb-1">
+
+                {/* Project Name */}
+                <h3 className="mb-1 text-2xl text-pro900 dark:text-pro200 font-heading font-bold">
                     <a
                         href={links[0]?.url || "#"}
                         target="_blank"
                         rel="noopener noreferrer"
-                        // className="hover:text-accent transition-colors relative after:absolute after:left-0 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full cursor-hover cursor-none"
-                        className="relative bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-300 hover:text-accent cursor-hover cursor-none"
+                        className={`
+                            relative
+                            bg-gradient-to-r from-accent to-accent
+                            bg-[length:0%_2px] bg-left-bottom bg-no-repeat
+                            transition-all duration-300
+                            hover:bg-[length:100%_2px] hover:text-accent 
+                            cursor-hover cursor-none
+                        `}
                     >
                         {name}
                     </a>
                 </h3>
+
+                {/* Project Dates */}
                 {(start_date || end_date) && (start_date != end_date && (
                     <span className="text-sm font-regular text-pro800 dark:text-pro300 mb-3">
                         {start_date} - {end_date}
@@ -75,14 +99,32 @@ export default function ProjectCard({
                     </span>
                 ))}
 
-                <div className={`relative z-10 bg-pro200/80 dark:bg-pro800/50 rounded-sm p-4 shadow-sm mb-4 text-pro800 dark:text-pro300 font-text text-sm ${side === "left" ? "lg:-ml-20" : "lg:-mr-20"} backdrop-blur-md`}>
+                {/* Project Brief */}
+                <div
+                    className={`
+                        relative p-4 mb-4 z-10
+                        bg-pro200/80 dark:bg-pro800/50
+                        backdrop-blur-md
+                        text-sm font-text
+                        text-pro800 dark:text-pro300
+                        rounded-sm shadow-sm
+                        ${side === "left" ? "lg:-ml-20" : "lg:-mr-20"}
+                    `}
+                >
                     <ReactMarkdown
                         components={{
                             a: ({ node, ...props }) => (
                                 <a 
                                     {...props}
-                                    // className="inline-flex text-pro900 dark:text-pro200 font-semibold relative transition-all hover:text-accent after:absolute after:left-0 after:-bottom-0.25 after:h-[1px] after:w-0 after:bg-accent after:transition-all hover:after:w-full cursor-hover cursor-none"
-                                    className="text-pro900 dark:text-pro200 font-semibold relative bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat hover:bg-[length:100%_2px] transition-all duration-300 hover:text-accent cursor-hover cursor-none"
+                                    className={`
+                                        relative
+                                        text-pro900 dark:text-pro200 font-semibold 
+                                        bg-gradient-to-r from-accent to-accent
+                                        bg-[length:0%_2px] bg-left-bottom bg-no-repeat
+                                        transition-all duration-300
+                                        hover:bg-[length:100%_2px] hover:text-accent 
+                                        cursor-hover cursor-none
+                                    `}
                                 >
                                     {props.children}
                                 </a>
@@ -93,17 +135,44 @@ export default function ProjectCard({
                     </ReactMarkdown>
                 </div>
 
-                <div className={`flex flex-wrap gap-2 mb-5 ${side === "left" ? "justify-end" : "justify-start"}`}>
+                {/* Skills */}
+                <div
+                    className={`
+                        flex flex-wrap gap-2 mb-5
+                        ${side === "left" ? "justify-end" : "justify-start"}
+                    `}
+                >
                     {Object.values(skills).flat().map((skill, i) => {
                         return (
-                            <div key={`skill-${i}`} className="flex flex-wrap gap-2 items-center">
-                                <span className="text-pro800 dark:text-pro300 font-text border border-pro300 dark:border-pro800 text-[10px] px-2 py-1 rounded-md hover:bg-accent/30 hover:text-accent hover:font-bold hover:border-accent duration-200 transition cursor-hover cursor-none clickable">{skill}</span>
+                            <div
+                                key={`skill-${i}`}
+                                className="flex flex-wrap gap-2 items-center"
+                            >
+                                <span className={`
+                                    px-2 py-1
+                                    text-[10px] font-text
+                                    text-pro800 dark:text-pro300
+                                    border border-pro300 dark:border-pro800
+                                    rounded-md
+                                    transition duration-200
+                                    hover:bg-accent/30 hover:border-accent
+                                    hover:text-accent hover:font-bold
+                                    cursor-hover cursor-none clickable
+                                `}>
+                                    {skill}
+                                </span>
                             </div>
                         );
                     })}
                 </div>
 
-                <div className={`flex items-center gap-4 ${side === "left" ? "justify-end" : "justify-start"}`}>
+                {/* Links */}
+                <div
+                    className={`
+                        flex items-center gap-4
+                        ${side === "left" ? "justify-end" : "justify-start"}
+                    `}
+                >
                     {links.map((link, i) => (
                         <a
                             key={`link-${i}`}
@@ -111,7 +180,12 @@ export default function ProjectCard({
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={link.label}
-                            className="inline-block text-pro600 dark:text-pro400 hover:text-accent transform hover:-translate-y-1 transition-all duration-200 cursor-hover cursor-none"
+                            className={`
+                                inline-block text-pro600 dark:text-pro400
+                                transition-all transform duration-200
+                                hover:text-accent hover:-translate-y-1
+                                cursor-hover cursor-none
+                            `}
                         >
                             {getIcon(link.label)}
                         </a>
@@ -120,48 +194,41 @@ export default function ProjectCard({
             </div>
 
             {/* Project Image */}
-            <div className="w-full lg:w-1/2 relative order-1 lg:order-2 group cursor-hover cursor-none clickable">
-                <div className="relative w-full h-64 lg:h-80 rounded-lg overflow-hidden shadow-md">
+            <div
+                className={`
+                    relative order-1 lg:order-2
+                    w-full lg:w-1/2
+                    cursor-hover cursor-none clickable
+                    group
+                `}
+            >
+                <div className="relative w-full h-64 lg:h-80 rounded-lg shadow-md overflow-hidden">
                     <Image 
                         src={image}
                         alt={name}
                         fill
-                        className="object-cover group-hover:scale-105 transition duration-500 ease-out opacity-50 group-hover:opacity-100 saturate-0 group-hover:saturate-100"
+                        className={`
+                            object-cover
+                            opacity-50 saturate-0
+                            transition duration-500 ease-out
+                            group-hover:scale-105
+                            group-hover:opacity-100
+                            group-hover:saturate-100
+                        `}
                     />
                 </div>
-                <div className="absolute w-full h-64 lg:h-80 inset-0 rounded-lg shadow-md bg-accent opacity-50 mix-blend-color transition duration-500 ease-out group-hover:opacity-0"></div>
+
+                {/* Overlay Effect */}
+                <div className={`
+                    absolute inset-0
+                    w-full h-64 lg:h-80
+                    bg-accent
+                    rounded-lg shadow-md
+                    opacity-50 mix-blend-color
+                    transition duration-500 ease-out
+                    group-hover:opacity-0
+                `}></div>
             </div>
         </li>
-        // <div className="bg-light-pbg rounded-2xl shadow-md overflow-hidden flex flex-col hover:shadow-lg transition">
-        //     {/* Project Image */}
-        //     <div className="relative w-full h-48">
-        //         <Image src={image} alt={title} fill className="object-cover" />
-        //     </div>
-
-        //     {/* Project Details */}
-        //     <div className="flex flex-col flex-grow p-4">
-        //         <h3 className="font-regular text-xl font-semibold text-light-ptxt mb-2">{title}</h3>
-        //         <p className="text-light-stxt flex-grow font-text">{description}</p>
-
-        //         {/* Tags */}
-        //         <div className="flex flex-wrap gap-2 mt-3">
-        //             {tags.map((tag) => (
-        //                 <span key={tag} className="bg-border/50 text-light-stxt text-xs px-2 py-1 rounded-full cursor-pointer hover:bg-border/70 transition">
-        //                     {tag}
-        //                 </span>
-        //             ))}
-        //         </div>
-
-        //         {/* Links */}
-        //         <div className="flex gap-4 mt-4">
-        //             {links.map((link) => (
-        //                 <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-blue-600 hover:underline">
-        //                     {link.icon ? link.icon : <ExternalLink className="h-4 w-4" />}
-        //                     {link.label}
-        //                 </a>
-        //             ))}
-        //         </div>
-        //     </div>
-        // </div>
     );
 }

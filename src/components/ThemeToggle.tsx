@@ -4,8 +4,25 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function ThemeToggle() {
+    // State to track current theme
     const [theme, setTheme] = useState<"light" | "dark">("light");
 
+    // Animation variants for the icons
+    const iconVariants = {
+        initial: { opacity: 0, rotate: -90, scale: 0.5 },
+        animate: { opacity: 1, rotate: 0, scale: 1 },
+        exit: { opacity: 0, rotate: 90, scale: 0.5 },
+    };
+
+    // Function to toggle theme
+    const toggleTheme = () => {
+        const newTheme = theme === "light" ? "dark" : "light";
+        setTheme(newTheme);
+        document.documentElement.classList.toggle("dark", newTheme === "dark");
+        localStorage.setItem("theme", newTheme);
+    };
+
+    // On component mount, set theme based on localStorage or system preference
     useEffect(() => {
         const storedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
         if (storedTheme) {
@@ -18,23 +35,20 @@ export default function ThemeToggle() {
         }
     }, []);
 
-    const toggleTheme = () => {
-        const newTheme = theme === "light" ? "dark" : "light";
-        setTheme(newTheme);
-        document.documentElement.classList.toggle("dark", newTheme === "dark");
-        localStorage.setItem("theme", newTheme);
-    };
-
-    const iconVariants = {
-        initial: { opacity: 0, rotate: -90, scale: 0.5 },
-        animate: { opacity: 1, rotate: 0, scale: 1 },
-        exit: { opacity: 0, rotate: 90, scale: 0.5 },
-    };
-
     return (
         <button
             onClick={toggleTheme}
-            className="fixed bottom-5 right-5 w-12 h-12 rounded-full bg-pro800 dark:bg-pro200 flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-hover cursor-none clickable z-60 group"
+            className={`
+                flex items-center justify-center
+                fixed bottom-5 right-5 z-60
+                w-12 h-12
+                bg-pro800 dark:bg-pro200
+                rounded-full shadow-lg
+                transition-transform
+                hover:scale-110
+                cursor-hover cursor-none clickable
+                group
+            `}
         >
             <AnimatePresence mode="wait">
                 {theme === "light" ? (

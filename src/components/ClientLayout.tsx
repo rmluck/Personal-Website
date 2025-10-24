@@ -1,16 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import Loading from "@/components/Loading";
 import Cursor from "@/components/Cursor";
 import ThemeToggle from "@/components/ThemeToggle";
 import SocialSidebar from "@/components/SocialSidebar";
 import EmailSidebar from "@/components/EmailSidebar";
-import Loading from "@/components/Loading";
-// import Footer from "@/components/Footer";
+import { useEffect, useState } from "react";
 
-export default function ClientLayout({ children }: { children: React.ReactNode }) {
+export default function ClientLayout(
+  { children } : { children: React.ReactNode }
+) {
   const [loading, setLoading] = useState(true);
 
+  // Simulate a loading delay
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 500);
     return () => clearTimeout(timer);
@@ -23,7 +25,6 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       <SocialSidebar />
       <EmailSidebar />
       {loading ? <Loading /> : children}
-      {/* <Footer /> */}
     </>
   )
 }
