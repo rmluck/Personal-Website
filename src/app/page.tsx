@@ -112,13 +112,13 @@ export default function Home() {
             <div 
               className={`
                 grid grid-cols-1
-                min-[950px]:grid-cols-[2fr_1fr]
+                min-[1050px]:grid-cols-[2fr_1fr]
                 items-center gap-6
                 max-w-6xl mx-auto
               `}
             >
               {/* Left Column - About Me */}
-              <div className="space-y-6 order-2 min-[950px]:order-1">
+              <div className="space-y-6 order-2 min-[1050px]:order-1">
                 <div className="flex items-center space-x-4">
                   <h2
                     className={`
@@ -176,9 +176,53 @@ export default function Home() {
                 <p className="text-sm text-pro800 dark:text-pro300 font-text">
                   Graduated from the <a href="https://www.ics.uci.edu/" target="_blank" rel="noopener noreferrer" className="relative text-pro900 dark:text-pro200 font-semibold bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat hover:bg-[length:100%_2px] hover:text-accent transition-all duration-300 cursor-hover cursor-none">Donald Bren School of Information and Computer Sciences</a> at <a href="https://www.uci.edu/" target="_blank" rel="noopener noreferrer" className="relative text-pro900 dark:text-pro200 font-semibold bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat hover:bg-[length:100%_2px] hover:text-accent transition-all duration-300 cursor-hover cursor-none">University of California, Irvine</a> with a B.S. in Computer Science and specialization in Intelligent Systems. I am passionate about leveraging software development, data analysis, and intelligent systems to solve complex problems.<br /><br />Experienced in full-stack development, artificial intelligence, machine learning, information retrieval, data visualization, and backend data integration through internships, research projects, and academic coursework, with success in creating web applications, data analysis tools, and high-performance search engines.<br /><br />Strong analytical, programming, communication, and leadership skills with a collaborative mindset and proactive learning approach. Eager to tackle new challenges and collaborate in professional settings.
                 </p>
+              </div>
 
-                {/* Links */}
-                <div className="flex flex-wrap gap-5 mt-8">
+              {/* Right Column - Profile Photo */}
+              <div
+                className={`
+                  relative inline-block shrink-0
+                  items-center justify-center
+                  w-48 h-48 mx-auto
+                  min-[1050px]:w-64 min-[1050px]:h-64
+                  sm:w-72 sm:h-72 sm:mt-10
+                  order-1 min-[1050px]:order-2
+                `}
+              >
+                <div
+                  className={`
+                    relative w-full h-full
+                    border-[6px] border-accent
+                    rounded-full shadow-xl shadow-accent/25
+                  `}
+                >
+                  <Image
+                    src="/profile_photo.jpg"
+                    alt="Profile photo"
+                    fill
+                    className={`
+                      object-cover rounded-full hover:scale-105
+                      transition-transform duration-300 ease-out
+                      cursor-hover cursor-none clickable
+                    `}
+                  />
+                </div>
+              </div>
+
+              {/* <div className="flex justify-center lg:justify-end">
+                <div className="img-wrapper inline-block shrink-0 w-48 h-48 lg:w-64 lg:h-64 sm:w-72 sm:h-72 sm:mt-10 relative hover:scale-105 transition-transform duration-300 ease-out cursor-hover cursor-none clickable">
+                  <Image
+                    src="/profile_photo.jpg"
+                    alt="Profile photo"
+                    fill
+                    className="object-cover relative w-full h-full rounded-full shadow-lg transition-all duration-300 ease-out"
+                  />
+                </div>
+              </div> */}
+
+              {/* Links */}
+              <div className="col-span-full order-3">
+                <div className="flex flex-wrap gap-5 mt-2">
                   <motion.div
                     whileHover={{ scale: 1.05, y: -3 }}
                     whileTap={{ scale: 0.95 }}
@@ -203,7 +247,7 @@ export default function Home() {
                     </a>
                   </motion.div>
 
-                  <div className="flex flex-row space-x-4 sm:pt-2 md:pt-0">
+                  <div className="flex flex-row space-x-4 sm:pt-5 md:pt-0">
                     <a
                       href="/blog"
                       target="_blank"
@@ -318,50 +362,8 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right Column - Profile Photo */}
-              <div
-                className={`
-                  relative inline-block shrink-0
-                  w-48 h-48
-                  lg:w-64 lg:h-64
-                  sm:w-72 sm:h-72 sm:mt-10
-                  order-1 min-[950px]:order-2
-                  justify-self-center min-[950px]:justify-self-auto
-                `}
-              >
-                <div
-                  className={`
-                    relative w-full h-full
-                    border-[6px] border-accent
-                    rounded-full shadow-xl shadow-accent/25
-                  `}
-                >
-                  <Image
-                    src="/profile_photo.jpg"
-                    alt="Profile photo"
-                    fill
-                    className={`
-                      object-cover rounded-full hover:scale-105
-                      transition-transform duration-300 ease-out
-                      cursor-hover cursor-none clickable
-                    `}
-                  />
-                </div>
-              </div>
-
-              {/* <div className="flex justify-center lg:justify-end">
-                <div className="img-wrapper inline-block shrink-0 w-48 h-48 lg:w-64 lg:h-64 sm:w-72 sm:h-72 sm:mt-10 relative hover:scale-105 transition-transform duration-300 ease-out cursor-hover cursor-none clickable">
-                  <Image
-                    src="/profile_photo.jpg"
-                    alt="Profile photo"
-                    fill
-                    className="object-cover relative w-full h-full rounded-full shadow-lg transition-all duration-300 ease-out"
-                  />
-                </div>
-              </div> */}
-
               {/* Github Stats */}
-              <div className="p-6 mt-6 col-span-full overflow-x-auto w-full order-3">
+              <div className="p-6 mt-6 col-span-full overflow-x-auto w-full order-4">
                 {/* <img src="https://github-readme-stats.vercel.app/api?username=rmluck&show_icons=true&hide=stars,prs,issues,contribs&commits_year=2025&theme=transparent&title_color=10B981&text_color=10B981&hide_border=true&icon_color=10B981&custom_title=Github%20Stats" /> */}
                 {/* <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rmluck&langs_count=10&size_weight=0.5&count_weight=0.5&hide=jupyter%20notebook,mako,dockerfile&exclude_repo=Nano-GPT-Development,Microsoft_Intro-Machine-Learning-Course&theme=transparent&title_color=10B981&text_color=10B981&hide_border=true&icon_color=10B981&custom_title=Top%20Languages" /> */}
                 <p
