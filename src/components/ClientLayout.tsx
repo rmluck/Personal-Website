@@ -11,6 +11,42 @@ export default function ClientLayout(
   { children } : { children: React.ReactNode }
 ) {
   const [loading, setLoading] = useState(true);
+  const [hasMouse, setHasMouse] = useState(false);
+
+  // Detect if device has a mouse/trackpad
+  useEffect(() => {
+    const checkForMouse = () => {
+      if (window.matchMedia) {
+        const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
+        const canHover = window.matchMedia("(hover: hover)").matches;
+        setHasMouse(hasFinePointer && canHover);
+      } else {
+        setHasMouse(true);
+      }
+    };
+
+    checkForMouse();
+
+    const finePointerQuery = window.matchMedia("(pointer: fine)");
+    const hoverQuery = window.matchMedia("(hover: hover)");
+
+    finePointerQuery.addEventListener("change", checkForMouse);
+    hoverQuery.addEventListener("change", checkForMouse);
+
+    return () => {
+      finePointerQuery.removeEventListener("change", checkForMouse);
+      hoverQuery.removeEventListener("change", checkForMouse);
+    };
+  }, []);
+
+  // Apply cursor-none class to html element when mouse is detected
+  useEffect(() => {
+    if (hasMouse) {
+      document.documentElement.classList.add("cursor-none");
+    } else {
+      document.documentElement.classList.remove("cursor-none");
+    }
+  }, [hasMouse]);
 
   // Simulate a loading delay
   useEffect(() => {
@@ -20,7 +56,7 @@ export default function ClientLayout(
 
   return (
     <>
-      <Cursor />
+      {hasMouse && <Cursor />}
       <ThemeToggle />
       <SocialSidebar />
       <EmailSidebar />

@@ -118,7 +118,7 @@ export default function Home() {
               `}
             >
               {/* Left Column - About Me */}
-              <div className="space-y-6">
+              <div className="space-y-6 order-2 min-[950px]:order-1">
                 <div className="flex items-center space-x-4">
                   <h2
                     className={`
@@ -325,6 +325,8 @@ export default function Home() {
                   w-48 h-48
                   lg:w-64 lg:h-64
                   sm:w-72 sm:h-72 sm:mt-10
+                  order-1 min-[950px]:order-2
+                  justify-self-center min-[950px]:justify-self-auto
                 `}
               >
                 <div
@@ -359,7 +361,7 @@ export default function Home() {
               </div> */}
 
               {/* Github Stats */}
-              <div className="p-6 mt-6 col-span-full overflow-x-auto w-full">
+              <div className="p-6 mt-6 col-span-full overflow-x-auto w-full order-3">
                 {/* <img src="https://github-readme-stats.vercel.app/api?username=rmluck&show_icons=true&hide=stars,prs,issues,contribs&commits_year=2025&theme=transparent&title_color=10B981&text_color=10B981&hide_border=true&icon_color=10B981&custom_title=Github%20Stats" /> */}
                 {/* <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rmluck&langs_count=10&size_weight=0.5&count_weight=0.5&hide=jupyter%20notebook,mako,dockerfile&exclude_repo=Nano-GPT-Development,Microsoft_Intro-Machine-Learning-Course&theme=transparent&title_color=10B981&text_color=10B981&hide_border=true&icon_color=10B981&custom_title=Top%20Languages" /> */}
                 <p
