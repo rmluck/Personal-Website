@@ -45,7 +45,7 @@
   /* --font-regular: var(--font-geist-regular); */
   --font-regular: var(--font-inter-regular);
   /* --font-text: var(--font-geist-mono); */
-  --font-text: ui-monospace;
+  --font-text: ui-monospace, 'SF Mono', monospace;
 }
 
 @media (prefers-color-scheme: dark) {
