@@ -6,7 +6,7 @@ export const projects = [
         description: "Personal website and portfolio developed using Next.js and TypeScript to showcase my projects, experience, and interests. Features a modern, responsive design with interactive elements such as image galleries, travel maps, and blog posts. Styled with Tailwind CSS for a clean and professional look. The home page includes a background section along with featured projects, prior job experiences, educational background, and technical skills. Deployed on Vercel for optimal performance and accessibility.",
         start_date: "September 2025",
         end_date: "October 2025",
-        image: "/images/nasa_media_explorer.png",
+        image: "/site/home_page.png",
         skills: {
             languages: ["TypeScript"],
             frameworks: ["React", "Next.js", "Node.js", "Tailwind CSS", "Framer Motion", "Vanta.js", "Lucide", "Sharp", "Leaflet", "GeoJSON"],
