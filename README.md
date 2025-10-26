@@ -192,7 +192,6 @@ The home page serves as the central hub of the portfolio. Use the sticky navigat
 * **TypeScript**: Full type safety throughout application.
 * **Server-Side Rendering**: Next.js App Router for optimal performance.
 * **Image Optimization**: Next.js Image component with Cloudinary integration.
-* **SEO Optimized**: Proper meta tags and structured data.
 * **Performance**: Optimized bundle sizes and lazy loading.
 * **Error Handling**: Custom 404 page and error boundaries.
 
@@ -200,14 +199,19 @@ The home page serves as the central hub of the portfolio. Use the sticky navigat
 
 ## 🚧 Future Improvements
 
+### Home Page Additions
+* "Currently Working On" / "Now" section
+
 ### Design Enhancements
 * More micro-animations and interactions
-* Advanced typography and layout improvements
+* Advanced typography (SF Mono) and layout improvements
 * Enhanced mobile design optimizations
 * Custom illustrations and graphics
 
 ### Technical Improvements
+* Push new branch for local developments
 * Enhanced SEO with structured data
+* Add proper meta tags and Open Graph images
 * Google Analytics integration
 * Automated sitemap generation
 * Progressive Web App features
@@ -221,6 +225,7 @@ The home page serves as the central hub of the portfolio. Use the sticky navigat
 * Lightbox improvements with better touch gestures
 
 ### Blog Enhancements
+* Implement new design types (i.e., player rankings, movie reviews)
 * Social sharing buttons for blog posts
 * Related posts recommendations
 * Reading progress indicators
