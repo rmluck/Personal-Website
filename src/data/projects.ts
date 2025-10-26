@@ -1,20 +1,29 @@
 export const projects = [
     {
         name: "Personal Website",
-        type: "",
-        brief: "",
-        description: "",
-        start_date: "",
-        end_date: "",
+        type: "Web Application",
+        brief: "Personal website and portfolio showcasing my projects, experience, and interests. Built with Next.js and TypeScript, featuring a modern, responsive design and interactive elements. Styled with Tailwind CSS and deployed on Vercel.",
+        description: "Personal website and portfolio developed using Next.js and TypeScript to showcase my projects, experience, and interests. Features a modern, responsive design with interactive elements such as image galleries, travel maps, and blog posts. Styled with Tailwind CSS for a clean and professional look. The home page includes a background section along with featured projects, prior job experiences, educational background, and technical skills. Deployed on Vercel for optimal performance and accessibility.",
+        start_date: "September 2025",
+        end_date: "October 2025",
         image: "/images/nasa_media_explorer.png",
         skills: {
-            languages: [],
-            frameworks: [],
-            tools: [],
+            languages: ["TypeScript"],
+            frameworks: ["React", "Next.js", "Node.js", "Tailwind CSS", "Framer Motion", "Vanta.js", "Lucide", "Sharp", "Leaflet", "GeoJSON"],
+            tools: ["Git", "ESLint", "PostCSS", "Sanity", "Formspree", "Cloudinary", "Vercel", "Cloudflare"],
             domains: [],
             soft_skills: [],
         },
-        links: [],
+        links: [
+            {
+                label: "GitHub",
+                url: "https://github.com/rmluck/personal-website",
+            },
+            {
+                label: "Live Site",
+                url: "https://rohanmistry.me",
+            },
+        ],
         featured: false,
     },
     {

@@ -1,3 +1,5 @@
+import { log } from "console";
+
 export const skills = [
     {
         category: "Languages",
@@ -157,6 +159,30 @@ export const skills = [
                 logo: "/logos/pydantic.png",
             },
             {
+                skill: "Framer Motion",
+                logo: "/logos/framer_motion.png",
+            },
+            {
+                skill: "Vanta.js",
+                logo: "/logos/vanta_js.png",
+            },
+            {
+                skill: "Lucide",
+                logo: "/logos/lucide.png",
+            },
+            {
+                skill: "Sharp",
+                logo: "/logos/sharp.png",
+            },
+            {
+                skill: "Leaflet",
+                logo: "/logos/leaflet.png",
+            },
+            {
+                skill: "GeoJSON",
+                logo: "/logos/geojson.png",
+            },
+            {
                 skill: "Pillow",
                 logo: "/logos/pillow.png",
             },
@@ -211,6 +237,26 @@ export const skills = [
                 logo: "/logos/recaptcha.png",
             },
             {
+                skill: "ESLint",
+                logo: "/logos/eslint.png",
+            },
+            {
+                skill: "PostCSS",
+                logo: "/logos/postcss.png",
+            },
+            {
+                skill: "Sanity",
+                logo: "/logos/sanity.png",
+            },
+            {
+                skill: "Formspree",
+                logo: "/logos/formspree.png",
+            },
+            {
+                skill: "Cloudinary",
+                logo: "/logos/cloudinary.png",
+            },
+            {
                 skill: "Kubernetes",
                 logo: "/logos/kubernetes.png",
             },
@@ -257,6 +303,14 @@ export const skills = [
             {
                 skill: "Streamlit",
                 logo: "/logos/streamlit.png",
+            },
+            {
+                skill: "Vercel",
+                logo: "/logos/vercel.png",
+            },
+            {
+                skill: "Cloudflare",
+                logo: "/logos/cloudflare.png",
             },
         ],
         color: "yellow",
