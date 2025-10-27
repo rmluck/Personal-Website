@@ -101,6 +101,10 @@ export const skills = [
                 logo: "/logos/scikit_learn.png",
             },
             {
+                skill: "Selenium",
+                logo: "/logos/selenium.png",
+            },
+            {
                 skill: "jQuery",
                 logo: "/logos/jquery.png",
             },
@@ -265,6 +269,10 @@ export const skills = [
             {
                 skill: "Kaggle",
                 logo: "/logos/kaggle.png",
+            },
+            {
+                skill: "Hugging Face",
+                logo: "/logos/hugging_face.png",
             },
             {
                 skill: "DeepNote",

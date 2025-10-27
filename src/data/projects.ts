@@ -29,8 +29,8 @@ export const projects = [
     {
         name: "NASA Media Explorer",
         type: "Web Application",
-        brief: "Search engine application with interactive features that allows users to explore [NASA's image and video library](https://images.nasa.gov). Built with Python.",
-        description: "Search engine application that allows users to explore [NASA's public image and video library](https://images.nasa.gov). Data crawling and indexing implemented with Python. Natural language search functionality enables users to find media by entering descriptive queries. Dynamic interface offers interactive grid layout, infinite scrolling, and advanced filtering options to refine search results for seamless media discovery.",
+        brief: "Full-stack search engine application that indexes and searches [NASA's media archive of images and videos](https://images.nasa.gov), providing interactive media exploration platform.",
+        description: "Sophisticated full-stack search engine that transforms how users discover and explore [NASA's vast media archive](https://images.nasa.gov). The application intelligently indexes over 100,000 historical images and videos spanning from 1920 to present, implementing advanced information retrieval techniques including inverted indexing, Okapi BM25 document scoring, and natural language processing with spaCy for context-aware search capabilities.\nThe system features a custom-built Python backend leveraging FastAPI for high-performance API development, automated web crawling for data acquisition, and optimized indexing algorithms that enable sub-second search responses across the massive dataset. The responsive frontend delivers an immersive user experience with infinite scrolling, real-time filtering by date ranges and media types, lazy loading for optimal performance, and an interactive modal system for full-resolution media viewing with comprehensive metadata display.\nThis project demonstrates end-to-end software engineering proficiency, from API integration and data pipeline architecture to advanced search algorithm implementation and UI/UX design. The application showcases expertise in information retrieval systems, natural language processing, performance optimization, and creating scalable solutions for large-scale data exploration, making complex scientific archives accessible through intuitive, visually engaging interfaces.",
         start_date: "August 2025",
         end_date: "August 2025",
         image: "/images/nasa_media_explorer.png",
@@ -52,8 +52,8 @@ export const projects = [
     {
         name: "IMDB Review Sentiment Classifier",
         type: "Machine Learning Model",
-        brief: "Natural language processing pipeline for classifying [IMDB](https://www.imdb.com) movie reviews based on review sentiment.",
-        description: "Natural language processing (NLP) pipeline developed to classify [IMDB](https://www.imdb.com) movie reviews as positive or negative based on review sentiment analysis. Built for the [\"Bag of Words Meets Bags of Popcorn\" Kaggle competition](https://www.kaggle.com/competitions/word2vec-nlp-tutorial). Implemented text preprocesing techniques including tokenization, stopword removal, and lemmatization to clean and prepare review text data with Google's Word2Vec embeddings. Developed and trained several machine learning models including Random Forest and XGBoost classifiers to achieve 86% cross-validated accuracy.",
+        brief: "Natural language processing pipeline using Word2Vec embeddings to classify 100,000 [IMDB](https://www.imdb.com) movie reviews with 86% accuracy.",
+        description: "Comprehensive sentiment analysis solution that processes 100,000 [IMDB](https://www.imdb.com) movie reviews through a sophisticated natural language processing pipeline. Implemented text processing techniques including HTML tag removal, lemmatization, and stop-word filtering, then leveraged Google's Word2Vec neural embeddings to capture semantic relationships between words. The solution features multiple modeling approaches: traditional bag-of-words with TF-IDF weighting, word vector averaging with semantic clustering, and centroid-based feature extraction. Achieved 86% cross-validated accuracy through ensemble learning with XGBoost and Random Forest, implementing stratified K-fold validation and hyperparameter tuning with early stopping to prevent overfitting. Built for the [\"Bag of Words Meets Bags of Popcorn\" Kaggle competition](https://www.kaggle.com/competitions/word2vec-nlp-tutorial).",
         start_date: "August 2025",
         end_date: "August 2025",
         image: "/images/imdb_review_sentiment_classifier.png",
@@ -75,8 +75,8 @@ export const projects = [
     {
         name: "NFL Mock Draft Simulator",
         type: "Web Application",
-        brief: "Full-stack web application for simulating [NFL draft](https://www.nfl.com/draft) scenarios. Users can control specific teams, make real-time draft selections, and view draft results dynamically. Built with React (Vite) frontend and FastAPI backend, using PostgreSQL for database management. Deployed with Netlify, Render, and Supabase.",
-        description: "Full-stack web application designed and developed to simulate [NFL draft](https://www.nfl.com/draft) scenarios, allowing users to control specific teams, make real-time draft selections, and view draft results dynamically. Built with a React (Vite) frontend with JavaScript and a FastAPI backend with tools like SQLAlchemy and Pydantic, using PostgreSQL for database management. Deployed with Netlify, Render, and Supabase. Users can simulate the NFL draft round-by-round, view and track draft picks live, select specific teams to control, and undo or trade picks. For non-user-controlled picks, the CPU auto-selects from the big board according to a positional weight-based algorithm. Export options via PNG, CSV, and JSON. Responsive frontend web design using HTML and CSS optimized for desktop. CORS-configured secure API access.",
+        brief: "Full-stack web application that simulates [NFL draft](https://www.nfl.com/draft) scenarios with real-time user team management and automated CPU drafting algorithms.",
+        description: "Comprehensive full-stack web application that delivers an immersive [NFL Draft](https://www.nfl.com/draft) simulation experience, combining modern web technologies with sophisticated algorithmic decision-making. Built with a React frontend and FastAPI backend, the platform enables users to control multiple NFL teams simultaneously while an intelligent CPU system manages non-controlled teams using weighted algorithms based on positional needs and player rankings. The application features real-time draft progression, dynamic team roster management, and interactive trade evaluation systems powered by industry-standard draft value charts. The platform demonstrates advanced full-stack development capabilities through its PostgreSQL database architecture, RESTful API design, and responsive user interface that handles complex state management across multiple concurrent draft simulations. Key technical achievements include implementing real-time data synchronization, automated background processing for CPU picks, comprehensive CRUD operations, and seamless deployment across cloud platforms (Netlify, Render, Supabase). The application processes over 250+ player profiles and manages intricate relational data structures while maintaining optimal performance through connection pooling and caching strategies.",
         start_date: "April 2025",
         end_date: "July 2025",
         image: "/images/nfl_mock_draft_simulator.png",
@@ -102,8 +102,8 @@ export const projects = [
     {
         name: "Yelp Review Sentiment Predictor",
         type: "Machine Learning Model",
-        brief: "Bayesian regression model for predicting [Yelp](https://www.yelp.com/) restaurant star ratings.",
-        description: "Bayesian regression model developed to predict [Yelp](https://www.yelp.com/) restaurant star ratings based on review sentiment and restaurant popularity. Used natural language processing techniques, text sentiment analysis, and business popularity metrics to analyze how customer perceptions and business characteristics influence star ratings.",
+        brief: "Bayesian machine learning model to predict [Yelp](https://www.yelp.com/) restaurant ratings from sentiment analysis.",
+        description: "Machine learning pipeline that leverages Bayesian linear regression to predict [Yelp](https://www.yelp.com/) restaurant star ratings based on customer sentiment analysis and business popularity metrics. The project processed Yelp's massive Open Dataset, filtering down to 664 California restaurants with 50-1,000 reviews to create a robust 30,000+ review dataset for model training and validation. Implemented advanced probabilistic programming techniques using Pyro and PyTorch, incorporating VADER sentiment analysis to extract emotional signals from review text and log-transformed review counts as popularity proxies. The Bayesian approach provided uncertainty quantification through posterior distributions, offering 95% credible intervals for predictions rather than point estimates. The model achieved strong predictive performance with comprehensive evaluation including RMSE metrics, posterior predictive checks, and credible interval analysis.",
         start_date: "May 2025",
         end_date: "June 2025",
         image: "/images/yelp_review_sentiment_predictor.png",
@@ -129,8 +129,8 @@ export const projects = [
     {
         name: "Fabflix",
         type: "Web Application",
-        brief: "Full-stack web application for film browsing, searching, and purchasing. Database of 15,000+ films and 60,000+ actors. Hosted on AWS with robust features including full-text search, session-based cart checkout, secure login, and performance optimizations. Deployed with Docker and Kubernetes.",
-        description: "Dynamic full-stack architecture built from scratch, including web application allowing customers to browse, search, and purchase films from large database consisting of over 15,000 films and 60,000 actors. Hosted application on AWS EC2 instance for scalable resources. Integrated Tomcat, Maven, HTTPS, and MySQL. Developed ETL pipeline to parse film metadata to augment database. Constructed robust frontend interface using HTML, CSS, JavaScript, jQuery, and AJAX. Implemented over 20 features within fully-functional application including importing catalogue of thousands of films, full-text search with autocomplete suggestions and sorting backed by cache and JDBC, session-based cart checkout, secure login using SHA256 password encryption hashing, bot detection using reCAPTCHA, and protection against SQL injection attacks via PreparedStatements. Improved website performance 30% by implementing optimization techinques such as MySQL connection pooling, MySQL replication, and Apache load balancing. Deployed Docker-containerized version of project on Kubernetes cluster spanning multiple AWS instances. Leveraged JMeter to analyze application performance and identify bottlenecks.",
+        brief: "Cloud-native full-stack web application for film browsing, searching, and purchasing built with large database of films and actors.",
+        description: "Cloud-native full-stack e-commerce web application for online movie browsing and purchasing through a sophisticated, scalable architecture. Built from scratch using Java servlets, MySQL, and modern web technologies, the platform manages a massive database of over 15,000 films and 60,000 actors while delivering lightning-fast search functionality powered by full-text indexing, intelligent autocomplete, and caching mechanisms. The application implements enterprise-grade security features including SHA256 password encryption, reCAPTCHA bot protection, and SQL injection prevention through PreparedStatements. Cutting-edge DevOps practices and cloud engineering expertise through containerized deployment pipeline. By leveraging Docker containerization and Kubernetes orchestration across multiple AWS EC2 instances, the application achieves horizontal scalability and high availability. Performance optimization techniques include MySQL connection pooling, master-slave replication, and Apache load balancing resulted in 30% improvement in response times. System architecture incorporates session management, real-time cart functionality, secure payment processing, and an administrative dashboard for content management. Comprehensive performance analysis using JMeter enabled data-driven optimization decisions while the ETL pipeline efficiently processes and imports large-scale film metadata to maintain an up-to-date catalog.",
         start_date: "September 2024",
         end_date: "December 2024",
         image: "/images/fabflix.png",
@@ -158,6 +158,7 @@ export const projects = [
         type: "Machine Learning Model",
         brief: "Reinforcement learning framework for optimizing traffic signal control in urban environments. Utilizes multi-agent proximal policy optimization (MAPPO) to dynamically adjust signal timings based on real-time traffic data from [CityFlow](https://cityflow.readthedocs.io/en/latest/#) simulations, reducing congestion and improving traffic flow.",
         description: "Multi-agent reinforcement learning (MARL) framework designed and implemented to optimize traffic signal control in urban road networks. Focused on leveraging advanced algorithms like multi-agent proximal policy optimization (MAPPO) to dynamically adjust signal timings based on real-time traffic data, reducing congestion, minimizing vehicle delays, and increasing overall traffic throughput. System treats each intersection as independent agent capable of coordinating actions with neighboring agents while utilizing centralized training and decentralized execution. Implemented dynamic reward functions to encourage smooth traffic flow, integrated [CityFlow](https://cityflow.readthedocs.io/en/latest/#) simulation environments for large-scale testing, and used real-world datasets such as UC Irvine Traffic Flow Forecasting dataset for model evaluation. Implemented features such as detailed state representations and action spaces to manage signal phase configurations. Leveraged Ray's [RLLib library](https://docs.ray.io/en/latest/rllib/index.html) to traing and tune model on training simulations and improve model. Model achieved significant improvements in metrics such as mean velocity, halting duration, and lane occupancy, demonstrating scalability and adaptability in complex traffic environments.",
+        // Need to update brief and description using AI later (and update GitHub README)
         start_date: "September 2024",
         end_date: "December 2024",
         image: "/images/traffic_signal_control.png",
@@ -189,6 +190,7 @@ export const projects = [
         type: "Data Analysis",
         brief: "Exploratory data analysis project focused on the Airbnb market in Dublin. Awarded \"Best Analysis of Airbnb Market in Dublin\" at [UC Irvine Datathon 2024](https://atlantis-datathon-2024.devpost.com/project-gallery).",
         description: "Awarded \"Best Analysis of Airbnb Market in Dublin [Sponsored by [StrataScratch](https://www.stratascratch.com)]\" Award at [UC Irvine Datathon 2024](https://atlantis-datathon-2024.devpost.com/project-gallery). Conducted in-depth exploratory data analysis using StrataScratch datasets. Collaborated with team to visualize insights on market supply and demand, focusing on elevating [Airbnb](https://www.airbnb.com) user experience for guests and hosts. Leveraged tools such as DeepNote, Alteryx Designer, and Python libraries including Pandas, NumPy, Matplotlib, Seaborn, and Scikit-learn to clean, analyze, and visualize data. Developed and tested decision tree classifier machine learning model that achieved 89.35% accuracy.",
+        // Need to update brief and description using AI later (and update GitHub README)
         start_date: "April 2024",
         end_date: "April 2024",
         image: "/images/atlantis_datathon.png",
@@ -216,6 +218,7 @@ export const projects = [
         type: "Machine Learning Model",
         brief: "Web application for classifying [Fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist) images using various machine learning models including Logistic Regression, K-Nearest Neighbors, Feedforward Neural Network, and Convolutional Neural Network. Built with Python and Streamlit.",
         description: "Web application developed using Python and TensorFlow/Keras that classifies images from the [Fashion-MNIST dataset](https://github.com/zalandoresearch/fashion-mnist) into one of ten categories (e.g., T-shirt, Trouser, Pullover, Dress, Coat, Sandal, Shirt, Sneaker, Bag, Ankle Boot). The model is trained on a dataset of 70,000 images of various items of clothing. Users can upload grayscale 28x28 images to receive predictions from several employed Scikit-learn machine learning models including Logistic Regression, K-Nearest Neighbors, Feedforward Neural Network, and Convolutional Neural Network. The application also supports evaluation on the test set with detailed visualizations.",
+        // Need to update brief and description using AI later (and update GitHub README)
         start_date: "February 2024",
         end_date: "March 2024",
         image: "/images/fashion_mnist_classifier.png",
@@ -238,29 +241,30 @@ export const projects = [
         ],
         featured: true,
     },
-    {
-        name: "Google Developer Student Solution Challenge",
-        type: "",
-        brief: "",
-        description: "",
-        start_date: "January 2024",
-        end_date: "February 2024",
-        image: "/images/google_student_developer_challenge.png",
-        skills: {
-            languages: [],
-            frameworks: [],
-            tools: [],
-            domains: [],
-            soft_skills: [],
-        },
-        links: [],
-        featured: false,
-    },
+    // {
+    //     name: "Google Developer Student Solution Challenge",
+    //     type: "",
+    //     brief: "",
+    //     description: "",
+    //     start_date: "January 2024",
+    //     end_date: "February 2024",
+    //     image: "/images/google_student_developer_challenge.png",
+    //     skills: {
+    //         languages: [],
+    //         frameworks: [],
+    //         tools: [],
+    //         domains: [],
+    //         soft_skills: [],
+    //     },
+    //     links: [],
+    //     featured: false,
+    // },
     {
         name: "Netflix Viewing Activity Analysis",
         type: "Data Analysis",
         brief: "Web application for analyzing and visualizing [Netflix](https://www.netflix.com/) viewing history. Provides insights into user viewing patterns based on frequency, duration, and location. Built with Python and Streamlit.",
         description: "Web application designed and developed using Python libraries to process and analyze [Netflix](https://www.netflix.com/) viewing history, deployed with Streamlit. Generates visualizations and insights regarding user viewing patterns based on frequency, duration, and location, providing a comprehensive overview of user behavior. Features include data cleaning, transformation, and interactive visualizations such as bar charts, pie charts, and line graphs to illustrate trends. Users can upload their own viewing history data to explore personalized insights.",
+        // Need to update brief and description using AI later (and update GitHub README)
         start_date: "March 2023",
         end_date: "February 2024",
         image: "/images/netflix_viewing_activity_analysis.png",
@@ -288,6 +292,7 @@ export const projects = [
         type: "Artificial Intelligence Model",
         brief: "AI agent for playing checkers using Monte Carlo Tree Search. Includes command-line interface for human players to compete against the AI. Built with Python.",
         description: "Checkers AI agent developed using Python that employs Monte Carlo Tree Search (MCTS) algorithm to play the game of checkers optimally. The AI evaluates possible moves by simulating numerous random game outcomes, allowing it to make informed decisions based on statistical analysis. The agent reads percepts and acts rationally based on the current state of the game and the opposing player's moves. The implementation includes a command-line interface for human players to compete against the AI, with features such as move validation, game state management, and win/loss detection. The AI is capable of adapting its strategy based on the opponent's skill level, providing a challenging experience for players of varying expertise.",
+        // Need to update brief and description using AI later (and update GitHub README)
         start_date: "September 2023",
         end_date: "December 2023",
         image: "/images/checkers_ai.png",
@@ -306,6 +311,7 @@ export const projects = [
         type: "Search Engine",
         brief: "Customized web search engine and crawler designed for efficient document retrieval and analysis.",
         description: "Customized web search engine and crawler that handles 50,000+ documents under operational contstraints with a query response time under 100ms. Incorporates partial indexing and uses Porter stemmer to improve textual matches. Scraper parses web responses and extracts critical information for detailed report. Improved ranking accuracy by 75% for subset of [UCI ICS web domain pages](https://www.ics.uci.edu/) through TF-IDF weighting and cosine similarity scoring alongside weighted HTML tags. Uses sim-hashing to detect and eliminate near-duplicate pages. Tokenizer built to process text and output word frequencies of pages and shared word frequencies between pages.",
+        // Need to update brief and description using AI later (and update GitHub README)
         start_date: "September 2023",
         end_date: "December 2023",
         image: "/images/ics_search_engine.png",
@@ -324,6 +330,7 @@ export const projects = [
         type: "Game Development",
         brief: "Columns match-three puzzle video game with falling jewels and dynamic gameplay. Built with Python and Pygame.",
         description: "Fully-functioning Columns match-three puzzle video game designed with grid-field of cells and cooled jewels that fall, freeze, match, rotate, shift, and disappear throughout gameplay. Playable version implemented with Python and Pygame.",
+        // Need to update brief and description using AI later (and update GitHub README)
         start_date: "February 2022",
         end_date: "February 2022",
         image: "/images/columns.png",
@@ -342,6 +349,7 @@ export const projects = [
         type: "Data Analysis",
         brief: "Air quality analysis program that connects to PurpleAir API to monitor air quality based on user-defined location and Air Quality Index threshold.",
         description: "Air quality analysis program that receives location and Air Quality Index threshold as inputs and connects to [PurpleAir API](https://api.purpleair.com) for air quality monitoring sensor data to determine variable number of nearby locations with poorest air quality. [Nominatim API](https://nominatim.org/release-docs/latest/api/Overview/), forward geocoding, and reverse geocoding methods used to calculate nearest locations.",
+        // Need to update brief and description using AI later (and update GitHub README)
         start_date: "February 2022",
         end_date: "February 2022",
         image: "/images/try_not_to_breathe.png",
@@ -360,6 +368,7 @@ export const projects = [
         type: "Engineering Design",
         brief: "Capstone group project focused on designing a solar UV-blocking car visor. Investigated solar radiation issues, analyzed prior solutions, brainstormed concepts, and constructed a physical prototype.",
         description: "Capstone group project involving complete engineering research and design process. Investigated and researched solar ultraviolet radiation issues related to driving. Documented and analyzed prior solution attempts and patents on the market for automobile sun visors that block sun radiation. Brainstormed potential design concepts and generated sketches and 3D models, concluded by printing and constructing physical prototype of car visor. Presented to Civil Engineering and Architecture class.",
+        // Need to update brief and description using AI later (and update GitHub README)
         start_date: "August 2020",
         end_date: "May 2021",
         image: "/images/vizzor.png",

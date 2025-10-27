@@ -9,6 +9,13 @@ type ExperienceItemProps = {
     start_date: string;
     end_date: string;
     description: string[];
+    skills: {
+        languages: string[];
+        frameworks: string[];
+        tools: string[];
+        domains: string[];
+        soft_skills: string[];
+    };
     logo: string;
     link: string;
 };
@@ -19,6 +26,7 @@ export default function ExperienceItem({
     start_date,
     end_date,
     description,
+    skills,
     logo,
     link,
 } : ExperienceItemProps) {
@@ -140,8 +148,9 @@ export default function ExperienceItem({
                         text-xs text-pro700 dark:text-pro400 font-text
                         space-y-1 leading-relaxed
                         transition-all duration-500
+                        overflow-scroll
                         ${isExpanded
-                            ? "max-h-120 opacity-100 mt-2 overflow-scroll"
+                            ? "max-h-120 opacity-100 mt-2"
                             : "max-h-0 opacity-0"
                         }
 
@@ -155,6 +164,43 @@ export default function ExperienceItem({
                         <li key={i} className="notes-item relative pl-4">{item}</li>
                     ))}
                 </ul>
+
+                {/* Skills */}
+                <div
+                    className={`
+                        flex flex-wrap gap-2
+                        transition-all duration-500
+                        ${isExpanded
+                            ? "max-h-32 opacity-100 mt-3 mb-2"
+                            : "max-h-0 opacity-0"
+                        }
+
+                        sm:max-h-0 sm:opacity-0
+                        sm:group-hover/job:mt-3
+                        sm:group-hover/job:mb-2
+                        sm:group-hover/job:max-h-32
+                        sm:group-hover/job:opacity-100
+                    `}
+                >
+                    {Object.values(skills).flat().filter(skill => skill.length > 0).map((skill, i) => (
+                        <span
+                            key={`skill-${i}`}
+                            className={`
+                                px-2 py-1
+                                text-[10px] font-text
+                                text-pro800 dark:text-pro300
+                                border border-pro300 dark:border-pro800
+                                rounded-md
+                                transition duration-200
+                                hover:bg-accent/30 hover:border-accent
+                                hover:text-accent hover:font-bold
+                                cursor-hover cursor-none clickable
+                            `}
+                        >
+                            {skill}
+                        </span>
+                    ))}
+                </div>
             </div>
         </div>
     );
