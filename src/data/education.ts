@@ -117,9 +117,9 @@ export const education = [
                 ],
             },
             organizations: [
-                "VEX Robotics Club - Officer, Treasurer (2017-2021)",
+                "VEX Robotics Club - Co-Founder, Treasurer (2017-2021)",
                 "Chino Hills VEX Robotics Team - Lead Programmer (2017-2020)",
-                "Engineering and Computer Science Club - Secretary (2018-2020)",
+                "Engineering and Computer Science Club - Co-Founder, Secretary (2018-2020)",
                 "Future Business Leaders of America - Member (2017-2021)",
                 "Key Club - Member (2017-2021)",
                 "Science Olympiad - Member (2018-2020)",
