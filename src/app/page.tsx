@@ -273,7 +273,7 @@ export default function Home() {
                       <SquarePen className="h-7 w-7" />
                     </a> */}
 
-                    <a
+                    {/* <a
                       href="https://x.com/rohandm99"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -286,9 +286,9 @@ export default function Home() {
                       title="Twitter"
                     >
                       <Twitter className="h-7 w-7" />
-                    </a>
+                    </a> */}
 
-                    <a
+                    {/* <a
                       href="https://letterboxd.com/rohandm99/"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -301,9 +301,9 @@ export default function Home() {
                       title="Letterboxd"
                     >
                       <LetterboxdIcon className="h-7 w-7" />
-                    </a>
+                    </a> */}
 
-                    <a
+                    {/* <a
                       href="https://www.serializd.com/user/rohandm99/profile"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -316,9 +316,9 @@ export default function Home() {
                       title="Serializd"
                     >
                       <Tv className="h-7 w-7" />
-                    </a>
+                    </a> */}
 
-                    <a
+                    {/* <a
                       href="https://www.fable.co/rohandm99-140100780483"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -331,9 +331,9 @@ export default function Home() {
                       title="Fable"
                     >
                       <FableIcon className="h-7 w-7" />
-                    </a>
+                    </a> */}
 
-                    <a
+                    {/* <a
                       href="/travel"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -346,9 +346,9 @@ export default function Home() {
                       title="Travel"
                     >
                       <Map className="h-7 w-7" />
-                    </a>
+                    </a> */}
 
-                    <a
+                    {/* <a
                       href="/photography"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -361,7 +361,7 @@ export default function Home() {
                       title="Photography"
                     >
                       <Camera className="h-7 w-7" />
-                    </a>
+                    </a> */}
                   </div>
 
                   {/* <motion.div whileHover={{ scale: 1.05, y: -3 }} whileTap={{ scale: 0.95 }}>
@@ -376,7 +376,7 @@ export default function Home() {
               <div className="p-2 mt-4 sm:mt-6 col-span-full overflow-x-auto w-full order-4">
                 {/* <img src="https://github-readme-stats.vercel.app/api?username=rmluck&show_icons=true&hide=stars,prs,issues,contribs&commits_year=2025&theme=transparent&title_color=10B981&text_color=10B981&hide_border=true&icon_color=10B981&custom_title=Github%20Stats" /> */}
                 {/* <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rmluck&langs_count=10&size_weight=0.5&count_weight=0.5&hide=jupyter%20notebook,mako,dockerfile&exclude_repo=Nano-GPT-Development,Microsoft_Intro-Machine-Learning-Course&theme=transparent&title_color=10B981&text_color=10B981&hide_border=true&icon_color=10B981&custom_title=Top%20Languages" /> */}
-                <p
+                {/* <p
                   className={`
                     mb-5
                     text-xl text-center
@@ -386,7 +386,7 @@ export default function Home() {
                 >
                   Github Activity
                 </p>
-                <GithubStats />
+                <GithubStats /> */}
                 {/* <img src="https://leetcard.jacoblin.cool/rmluck?theme=light&font=Inter" /> */}
                 {/* <img src="https://leetgraph.vercel.app/?user=rmluck&theme=light" /> */}
               </div>
