@@ -3,6 +3,7 @@ import ClientLayout from "@/components/ClientLayout";
 import VantaBackground from "./vanta-background";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import { SanityLive } from "@/sanity/lib/live";
+import { Analytics } from "@vercel/analytics/next";
 
 // const geistBold = Geist({
 //   variable: "--font-geist-bold",
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <VantaBackground />
         <ClientLayout>{children}</ClientLayout>
         <SanityLive />
+        <Analytics />
       </body>
     </html>
   );
