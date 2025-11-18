@@ -97,25 +97,25 @@ export const education = [
         end_date: 2021,
         gpa: 4.4,
         details: {
-            exams: {
-                "AP Exams": [
-                    "AP Calculus AB - 5",
-                    "AP Calculus BC - 5",
-                    "AP Statistics - 4",
-                    "AP Computer Science Principles - 3",
-                    "AP Microeconomics - 4",
-                    "AP Macroeconomics - 5",
-                    "AP Physics 1 - 3",
-                    "AP Psychology - 5",
-                    "AP United States History - 5",
-                    "AP English Language and Composition - 4",
-                ],
-                "SAT": [
-                    "Math - 770",
-                    "Evidence-Based Reading and Writing - 730",
-                    "Total - 1500",
-                ],
-            },
+            // exams: {
+            //     "AP Exams": [
+            //         "AP Calculus AB - 5",
+            //         "AP Calculus BC - 5",
+            //         "AP Statistics - 4",
+            //         "AP Computer Science Principles - 3",
+            //         "AP Microeconomics - 4",
+            //         "AP Macroeconomics - 5",
+            //         "AP Physics 1 - 3",
+            //         "AP Psychology - 5",
+            //         "AP United States History - 5",
+            //         "AP English Language and Composition - 4",
+            //     ],
+            //     "SAT": [
+            //         "Math - 770",
+            //         "Evidence-Based Reading and Writing - 730",
+            //         "Total - 1500",
+            //     ],
+            // },
             organizations: [
                 "VEX Robotics Club - Co-Founder, Treasurer (2017-2021)",
                 "Chino Hills VEX Robotics Team - Lead Programmer (2017-2020)",
