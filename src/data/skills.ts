@@ -340,7 +340,7 @@ export const skills = [
             },
             {
                 skill: "Squarepace",
-                logo: "/logos/squarepace.png",
+                logo: "/logos/squarespace.png",
             },
         ],
         color: "yellow",
