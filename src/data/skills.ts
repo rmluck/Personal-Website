@@ -339,7 +339,7 @@ export const skills = [
                 logo: "/logos/cloudflare.png",
             },
             {
-                skill: "Squarepace",
+                skill: "Squarespace",
                 logo: "/logos/squarespace.png",
             },
         ],
