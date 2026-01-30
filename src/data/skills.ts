@@ -31,6 +31,10 @@ export const skills = [
                 logo: "/logos/typescript.png",
             },
             {
+                skill: "Go",
+                logo: "/logos/go.png",
+            },
+            {
                 skill: "SQL",
                 logo: "/logos/sql.png",
             },
@@ -51,6 +55,10 @@ export const skills = [
             {
                 skill: "React Router",
                 logo: "/logos/react_router.png",
+            },
+            {
+                skill: "Svelte/SvelteKit",
+                logo: "/logos/svelte.png",
             },
             {
                 skill: "Next.js",
@@ -161,6 +169,10 @@ export const skills = [
                 logo: "/logos/pydantic.png",
             },
             {
+                skill: "Fiber",
+                logo: "/logos/fiber.png",
+            },
+            {
                 skill: "Framer Motion",
                 logo: "/logos/framer_motion.png",
             },
@@ -233,6 +245,14 @@ export const skills = [
             {
                 skill: "Apache",
                 logo: "/logos/apache.png",
+            },
+            {
+                skill: "Vite",
+                logo: "/logos/vite.png",
+            },
+            {
+                skill: "Axios",
+                logo: "/logos/axios.png",
             },
             {
                 skill: "reCAPTCHA",
@@ -317,6 +337,10 @@ export const skills = [
             {
                 skill: "Cloudflare",
                 logo: "/logos/cloudflare.png",
+            },
+            {
+                skill: "Squarepace",
+                logo: "/logos/squarepace.png",
             },
         ],
         color: "yellow",

@@ -1,5 +1,32 @@
 export const projects = [
     {
+        name: "GameScript",
+        type: "Web Application",
+        brief: "Full-stack web application that enables users to create custom sports playoff scenarios by picking game outcomes and simulating playoff brackets.",
+        description: "GameScript is a comprehensive full-stack web application that enables users to create custom NFL and NBA playoff scenarios by simulating game outcomes and exploring their impact on standings, playoff seeding, and draft order. Built with a SvelteKit frontend and Go backend, the platform combines real-time sports data from ESPN's API with sophisticated standings calculation algorithms that account for complex tiebreaker rules specific to each league. Users can pick winners for individual games or entire playoff series, watch standings update in real-time, view team profiles, and save their scenarios to account profiles after registering with an email and password. The platform demonstrates advanced full-stack development capabilities through its PostgreSQL database architecture, RESTful API design built with Fiber, and responsive user interface that handles complex state management across multiple sports leagues. Key technical achievements include implementing NFL and NBA playoff bracket generation systems, automated daily schedule updates via background schedulers, comprehensive tiebreaker logic following official league rules, and seamless deployment across cloud platforms (Vercel, Render, Supabase). The application processes 280+ NFL games and 1,230+ NBA games per season while managing intricate relational data structures and maintaining optimal performance through connection pooling and efficient query optimization.",
+        start_date: "November 2025",
+        end_date: "January 2026",
+        image: "/images/gamescript.png",
+        skills: {
+            languages: ["HTML", "CSS", "TypeScript", "Go", "SQL"],
+            frameworks: ["Svelte/SvelteKit", "Node.js", "Tailwind CSS", "PostgreSQL", "Fiber"],
+            tools: ["Git", "Vite", "Axios", "ESLint", "Render", "Supabase", "Vercel", "Squarespace"],
+            domains: [],
+            soft_skills: [],
+        },
+        links: [
+            {
+                label: "GitHub",
+                url: "https://github.com/rmluck/gamescript",
+            },
+            {
+                label: "Live Site",
+                url: "https://gamescript.live",
+            }
+        ],
+        featured: true,
+    },
+    {
         name: "Personal Website",
         type: "Web Application",
         brief: "Personal website and portfolio showcasing my projects, experience, and interests. Built with Next.js and TypeScript, featuring a modern, responsive design and interactive elements. Styled with Tailwind CSS and deployed on Vercel.",
@@ -30,7 +57,7 @@ export const projects = [
         name: "NASA Media Explorer",
         type: "Web Application",
         brief: "Full-stack search engine application that indexes and searches [NASA's media archive of images and videos](https://images.nasa.gov), providing interactive media exploration platform.",
-        description: "Sophisticated full-stack search engine that transforms how users discover and explore [NASA's vast media archive](https://images.nasa.gov). The application intelligently indexes over 100,000 historical images and videos spanning from 1920 to present, implementing advanced information retrieval techniques including inverted indexing, Okapi BM25 document scoring, and natural language processing with spaCy for context-aware search capabilities.\nThe system features a custom-built Python backend leveraging FastAPI for high-performance API development, automated web crawling for data acquisition, and optimized indexing algorithms that enable sub-second search responses across the massive dataset. The responsive frontend delivers an immersive user experience with infinite scrolling, real-time filtering by date ranges and media types, lazy loading for optimal performance, and an interactive modal system for full-resolution media viewing with comprehensive metadata display.\nThis project demonstrates end-to-end software engineering proficiency, from API integration and data pipeline architecture to advanced search algorithm implementation and UI/UX design. The application showcases expertise in information retrieval systems, natural language processing, performance optimization, and creating scalable solutions for large-scale data exploration, making complex scientific archives accessible through intuitive, visually engaging interfaces.",
+        description: "Sophisticated full-stack search engine that transforms how users discover and explore [NASA's vast media archive](https://images.nasa.gov). The application intelligently indexes over 100,000 historical images and videos spanning from 1920 to present, implementing advanced information retrieval techniques including inverted indexing, Okapi BM25 document scoring, and natural language processing with spaCy for context-aware search capabilities.The system features a custom-built Python backend leveraging FastAPI for high-performance API development, automated web crawling for data acquisition, and optimized indexing algorithms that enable sub-second search responses across the massive dataset. The responsive frontend delivers an immersive user experience with infinite scrolling, real-time filtering by date ranges and media types, lazy loading for optimal performance, and an interactive modal system for full-resolution media viewing with comprehensive metadata display.This project demonstrates end-to-end software engineering proficiency, from API integration and data pipeline architecture to advanced search algorithm implementation and UI/UX design. The application showcases expertise in information retrieval systems, natural language processing, performance optimization, and creating scalable solutions for large-scale data exploration, making complex scientific archives accessible through intuitive, visually engaging interfaces.",
         start_date: "August 2025",
         end_date: "August 2025",
         image: "/images/nasa_media_explorer.png",
@@ -83,7 +110,7 @@ export const projects = [
         skills: {
             languages: ["Python", "HTML", "CSS", "JavaScript", "SQL"],
             frameworks: ["React", "React Router", "PostgreSQL", "FastAPI", "SQLAlchemy", "Pydantic"],
-            tools: ["Git", "Render", "Netlify", "Supabase"],
+            tools: ["Git", "Vite", "Render", "Netlify", "Supabase"],
             domains: [],
             soft_skills: [],
         },
