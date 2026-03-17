@@ -8,6 +8,7 @@ import ScrollHint from "@/components/ScrollHint";
 import GithubStats from "@/components/GithubStats";
 import ProjectCard from "@/components/ProjectCard";
 import ExperienceItem from "@/components/ExperienceItem";
+import CertificationItem from "@/components/CertificationItem";
 import EducationItem from "@/components/EducationItem";
 import SkillCategory from "@/components/SkillCategory";
 import { motion } from "framer-motion";
@@ -20,6 +21,7 @@ import { Map } from "lucide-react";
 import { Camera } from "lucide-react";
 import { projects } from "@/data/projects";
 import { experience } from "@/data/experience";
+import { certifications } from "@/data/certifications";
 import { education } from "@/data/education";
 import { skills } from "@/data/skills";
 
@@ -30,6 +32,7 @@ export default function Home() {
     { label: "About", href: "#about" },
     { label: "Projects", href: "#projects" },
     { label: "Experience", href: "#experience" },
+    { label: "Certifications", href: "#certifications" },
     { label: "Education", href: "#education" },
     { label: "Skills", href: "#skills" },
     { label: "Contact", href: "#contact" },
@@ -498,6 +501,27 @@ export default function Home() {
                 </motion.div>
               ))}
             </motion.div>
+          </section>
+        </Section>
+
+        {/* Certifications Section */}
+        <Section>
+          <section id="certifications" className="px-6 sm:px-12 py-16 m-4 sm:m-18 lg:m-24 mt-0">
+            <div className="flex items-center space-x-4 mb-8">
+              <div className="flex-1 h-px bg-pro600 dark:bg-pro400"></div>
+              <h2
+                className="text-4xl sm:text-5xl text-center text-pro900 dark:text-pro200 font-heading font-bold whitespace-nowrap"
+                style={{ textShadow: "-3px 2px 0 var(--accent)" }}
+              >
+                CERTIFICATIONS
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {certifications.map((cert, index) => (
+                <CertificationItem key={`${cert.name}-${index}`} {...cert} />
+              ))}
+            </div>
           </section>
         </Section>
 
