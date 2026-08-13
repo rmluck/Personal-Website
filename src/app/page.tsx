@@ -99,7 +99,7 @@ export default function Home() {
               <span className="blink">_</span>
             </h1>
             <h2 className="p-1 pt-5 text-4xl text-pro800 dark:text-pro300 font-regular font-bold">
-              Aspiring Software Engineer
+              Software Engineer
             </h2>
           </div>
         </section>
@@ -154,7 +154,7 @@ export default function Home() {
                     cursor-hover cursor-none
                   `}>
                     <span className="w-2 h-2 bg-accent rounded-full mr-2"></span>
-                    22 years old
+                    23 years old
                   </div>
 
                   <div className={`
@@ -184,7 +184,7 @@ export default function Home() {
 
                 {/* Bio */}
                 <p className="text-xs sm:text-sm text-pro800 dark:text-pro300 font-text">
-                  Graduated from the <a href="https://www.ics.uci.edu/" target="_blank" rel="noopener noreferrer" className="relative text-pro900 dark:text-pro200 font-semibold bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat hover:bg-[length:100%_2px] hover:text-accent transition-all duration-300 cursor-hover cursor-none">Donald Bren School of Information and Computer Sciences</a> at <a href="https://www.uci.edu/" target="_blank" rel="noopener noreferrer" className="relative text-pro900 dark:text-pro200 font-semibold bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat hover:bg-[length:100%_2px] hover:text-accent transition-all duration-300 cursor-hover cursor-none">University of California, Irvine</a> with a B.S. in Computer Science and specialization in Intelligent Systems. I am passionate about leveraging software development, data analysis, and intelligent systems to solve complex problems.<br /><br />Experienced in full-stack development, artificial intelligence, machine learning, information retrieval, data visualization, and backend data integration through internships, research projects, and academic coursework, with success in creating web applications, data analysis tools, and high-performance search engines.<br /><br />Strong analytical, programming, communication, and leadership skills with a collaborative mindset and proactive learning approach. Eager to tackle new challenges and collaborate in professional settings.
+                  I'm a software engineer with experience building full-stack applications, backend systems, data pipelines, and machine learning projects. I graduated from <a href="https://www.ics.uci.edu/" target="_blank" rel="noopener noreferrer" className="relative text-pro900 dark:text-pro200 font-semibold bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat hover:bg-[length:100%_2px] hover:text-accent transition-all duration-300 cursor-hover cursor-none">UC Irvine</a> with a B.S. in Computer Science and specialization in Intelligent Systems.<br /><br />Most recently, I worked as a Full-Stack Software Engineer Intern at <a href="https://www.gofundme.com" target="_blank" rel="noopener noreferrer" className="relative text-pro900 dark:text-pro200 font-semibold bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat hover:bg-[length:100%_2px] hover:text-accent transition-all duration-300 cursor-hover cursor-none">GoFundMe</a>, where I helped build and ship production features across React/TypeScript frontends and NestJS/GraphQL backend services. My experience also includes developing Python-based data automation tools at <a href="https://www.mks.com" target="_blank" rel="noopener noreferrer" className="relative text-pro900 dark:text-pro200 font-semibold bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat hover:bg-[length:100%_2px] hover:text-accent transition-all duration-300 cursor-hover cursor-none">MKS Instruments</a> and contributing to economic data collection and AI research with the <a href="https://www.humun.org" target="_blank" rel="noopener noreferrer" className="relative text-pro900 dark:text-pro200 font-semibold bg-gradient-to-r from-accent to-accent bg-[length:0%_2px] bg-left-bottom bg-no-repeat hover:bg-[length:100%_2px] hover:text-accent transition-all duration-300 cursor-hover cursor-none">Humanity Unleashed Initiative</a>.<br /><br />Outside of work, I enjoy building end-to-end software projects that combine my interests with technical challenges, from sports simulation platforms to information retrieval systems and data analysis. I'm particularly interested in software engineering roles where I can work across the stack, solve complex technical problems, and continue developing scalable, user-facing products.
                 </p>
               </div>
 

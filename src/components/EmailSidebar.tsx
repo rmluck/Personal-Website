@@ -18,7 +18,7 @@ export default function EmailSidebar() {
                     cursor-hover cursor-none
                 `}
             >
-                <span className="inline-block text-xs font-text transform rotate-90">rohandm99@yahoo.com</span>
+                <span className="inline-block text-xs font-text transform rotate-90">rohandm99@icloud.com</span>
             </a>
 
             {/* Divider */}
